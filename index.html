@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What's Your Home Worth? | Matt Laurie · Keller Williams</title>
+  <meta name="description" content="Get a free, accurate home value estimate for your Lower Bucks County home. No obligation. Local expert. Fast turnaround." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+    }
+
+    /* ── Header ── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      color: #1a1a1a;
+    }
+    .kw-badge {
+      background: #B40101;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    header a {
+      color: #B40101;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 60px 24px 50px;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(180,1,1,0.85);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 46px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 span { color: #f5a623; }
+    .hero p {
+      font-size: 17px;
+      line-height: 1.6;
+      opacity: 0.88;
+      max-width: 520px;
+      margin: 0 auto 10px;
+    }
+
+    /* ── Market Stats Bar ── */
+    .stats-bar {
+      background: #B40101;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    .stat {
+      padding: 14px 28px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-size: 22px;
+      font-weight: 800;
+      display: block;
+    }
+    .stat-label {
+      font-size: 11px;
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Main Layout ── */
+    .main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .main { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── Form Card ── */
+    .form-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      border-top: 5px solid #B40101;
+    }
+    .form-card h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+    .form-card p.sub {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+      background: #fafafa;
+      color: #1a1a1a;
+    }
+    input:focus {
+      outline: none;
+      border-color: #B40101;
+      background: #fff;
+    }
+    .btn {
+      width: 100%;
+      background: #B40101;
+      color: #fff;
+      border: none;
+      padding: 16px;
+      font-size: 17px;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 4px;
+    }
+    .btn:hover { background: #990000; }
+    .btn:active { transform: scale(0.99); }
+    .privacy {
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ── Value Props ── */
+    .value-props h2 {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+    .value-props h2 span { color: #B40101; }
+    .value-props > p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .vp-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 22px;
+      align-items: flex-start;
+    }
+    .vp-icon {
+      width: 44px;
+      height: 44px;
+      background: #fef0f0;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .vp-text h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: #1a1a1a;
+    }
+    .vp-text p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* ── Agent Bio ── */
+    .agent-bio {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .agent-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #B40101, #ff4444);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .agent-info h3 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .agent-info p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+    .agent-info .phone {
+      color: #B40101;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #1a1a1a;
+      color: #888;
+      text-align: center;
+      padding: 20px 24px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* ── Thank You (hidden by default) ── */
+    #thankyou {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    #thankyou .check { font-size: 52px; margin-bottom: 12px; }
+    #thankyou h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #1a1a1a; }
+    #thankyou p { font-size: 15px; color: #555; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <span class="kw-badge">KW</span>
+      Matt Laurie · Keller Williams
+    </div>
+    <a href="tel:2672255611">(267) 225-5611</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-tag">🏠 Free · No Obligation · Lower Bucks County</div>
+    <h1>What's Your Home Worth<br><span>in Today's Market?</span></h1>
+    <p>Buyer demand is high and inventory is tight. Find out what your home could sell for — in 24 hours or less.</p>
+  </section>
+
+  <!-- Market Stats -->
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">↑ 6%</span>
+      <span class="stat-label">Median Price YoY</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">23</span>
+      <span class="stat-label">Avg Days on Market</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">97%</span>
+      <span class="stat-label">List-to-Sale Ratio</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">10yr</span>
+      <span class="stat-label">Local Experience</span>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <!-- Form -->
+    <div class="form-card">
+      <h2>Get Your Free Home Value</h2>
+      <p class="sub">Takes 30 seconds. I'll personally review your home and send you a detailed estimate — no bots, no runaround.</p>
+
+      <form id="lead-form" action="https://formspree.io/f/mvzwleqw" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="John Smith" required />
+
+        <label for="address">Property Address</label>
+        <input type="text" id="address" name="address" placeholder="123 Main St, Newtown PA" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(215) 555-0100" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@email.com" required />
+
+        <!-- Hidden fields for tracking -->
+        <input type="hidden" name="_subject" value="🏠 New Home Value Request - Lower Bucks County" />
+        <input type="hidden" name="_replyto" value="mattlaurierealtor@agentmail.to" />
+        <input type="hidden" name="_next" value="thankyou" />
+
+        <button type="submit" class="btn">→ Get My Free Home Value</button>
+      </form>
+
+      <div id="thankyou">
+        <div class="check">✅</div>
+        <h2>You're all set!</h2>
+        <p>I'll have your home value estimate ready within 24 hours. If you have questions in the meantime, call or text me at <strong>(267) 225-5611</strong>.</p>
+      </div>
+
+      <p class="privacy">🔒 Your info is private. No spam, ever. I'll reach out personally.</p>
+    </div>
+
+    <!-- Value Props -->
+    <div class="value-props">
+      <h2>Why homeowners in<br><span>Bucks County trust me</span></h2>
+      <p>I'm a local agent with 10 years of experience in this market. Not a Zillow algorithm — a real person who knows your neighborhood.</p>
+
+      <div class="vp-item">
+        <div class="vp-icon">📍</div>
+        <div class="vp-text">
+          <h3>Hyper-Local Knowledge</h3>
+          <p>I work Newtown, Yardley, Bensalem, Bristol, and Washington Crossing daily. I know what buyers are paying right now — not 6 months ago.</p>
+        </div>
+      </div>
+
+      <div class="vp-item">
+        <div class="vp-icon">⚡</div>
+        <div class="vp-text">
+          <h3>Fast & Accurate</h3>
+          <p>Your estimate is based on real recent sales — not automated guesses. I review it personally and get back to you within 24 hours.</p>
+        </div>
+      </div>
+
+      <div class="vp-item">
+        <div class="vp-icon">🤝</div>
+        <div class="vp-text">
+          <h3>Zero Pressure</h3>
+          <p>Just information. If you're thinking about selling — next month or next year — knowing your number is always a smart move.</p>
+        </div>
+      </div>
+
+      <div class="vp-item">
+        <div class="vp-icon">🏆</div>
+        <div class="vp-text">
+          <h3>Keller Williams Backing</h3>
+          <p>The #1 real estate franchise in the world — with the marketing reach and network to get your home sold fast and at top dollar.</p>
+        </div>
+      </div>
+
+      <!-- Agent Bio Card -->
+      <div class="agent-bio">
+        <div class="agent-avatar">ML</div>
+        <div class="agent-info">
+          <h3>Matt Laurie</h3>
+          <p>Keller Williams Real Estate<br>Licensed in PA · NJ coming soon<br>Washington Crossing, PA</p>
+          <a class="phone" href="tel:2672255611">(267) 225-5611</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Matt Laurie · Keller Williams Real Estate · Licensed in Pennsylvania</p>
+    <p style="margin-top:4px;">This is not a solicitation if you are already represented by a real estate agent.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('lead-form');
+    const thankyou = document.getElementById('thankyou');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          thankyou.style.display = 'block';
+        } else {
+          alert('Something went wrong. Please call or text Matt directly at (267) 225-5611.');
+        }
+      } catch(err) {
+        alert('Something went wrong. Please call or text Matt directly at (267) 225-5611.');
+      }
+    });
+  </script>
+
+</body>
+</html>
