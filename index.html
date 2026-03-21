@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What's Your Home Worth? | Matt Laurie · Keller Williams</title>
+  <title>What's Your Home Worth in 2026? | Matt Laurie · Keller Williams</title>
   <meta name="description" content="Get a free, accurate home value estimate for your Lower Bucks County home. No obligation. Local expert. Fast turnaround." />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -250,17 +250,12 @@
       margin-top: 28px;
     }
     .agent-avatar {
-      width: 72px;
-      height: 72px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #B40101, #ff4444);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 28px;
-      font-weight: 800;
+      object-fit: cover;
       flex-shrink: 0;
+      border: 3px solid #B40101;
     }
     .agent-info h3 {
       font-size: 17px;
@@ -280,14 +275,75 @@
       display: block;
     }
 
+    /* ── Testimonials ── */
+    .testimonials {
+      max-width: 980px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+    .testimonials h2 {
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border-left: 4px solid #B40101;
+    }
+    .testimonial-card p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+    .testimonial-card .reviewer {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .stars { color: #f5a623; font-size: 14px; margin-bottom: 8px; }
+
     /* ── Footer ── */
     footer {
       background: #1a1a1a;
       color: #888;
       text-align: center;
-      padding: 20px 24px;
+      padding: 24px 24px;
       font-size: 12px;
-      line-height: 1.6;
+      line-height: 1.8;
+    }
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-badge {
+      background: #B40101;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .footer-team {
+      color: #aaa;
+      font-size: 12px;
+      font-weight: 600;
     }
 
     /* ── Thank You (hidden by default) ── */
@@ -315,7 +371,7 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-tag">🏠 Free · No Obligation · Lower Bucks County</div>
-    <h1>What's Your Home Worth<br><span>in Today's Market?</span></h1>
+    <h1>What's Your Home Worth<br><span>in 2026?</span></h1>
     <p>Buyer demand is high and inventory is tight. Find out what your home could sell for — in 24 hours or less.</p>
   </section>
 
@@ -360,10 +416,8 @@
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" placeholder="you@email.com" required />
 
-        <!-- Hidden fields for tracking -->
         <input type="hidden" name="_subject" value="🏠 New Home Value Request - Lower Bucks County" />
         <input type="hidden" name="_replyto" value="mattlaurierealtor@agentmail.to" />
-        <input type="hidden" name="_next" value="thankyou" />
 
         <button type="submit" class="btn">→ Get My Free Home Value</button>
       </form>
@@ -416,10 +470,10 @@
 
       <!-- Agent Bio Card -->
       <div class="agent-bio">
-        <div class="agent-avatar">ML</div>
+        <img src="matt-headshot.jpg" alt="Matt Laurie" class="agent-avatar" />
         <div class="agent-info">
           <h3>Matt Laurie</h3>
-          <p>Keller Williams Real Estate<br>Licensed in PA · NJ coming soon<br>Washington Crossing, PA</p>
+          <p>Kim Rock Group · Keller Williams Real Estate<br>PA License #RS333171 · NJ coming soon<br>584 Middletown Blvd Suite A50, Langhorne, PA 19047</p>
           <a class="phone" href="tel:2672255611">(267) 225-5611</a>
         </div>
       </div>
@@ -427,9 +481,36 @@
 
   </div>
 
+  <!-- Testimonials -->
+  <div class="testimonials">
+    <h2>What clients are saying</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Matt was incredibly responsive and knowledgeable about the local market. He got us a great price and made the whole process stress-free."</p>
+        <span class="reviewer">— Add your testimonial here</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"We had multiple offers within days of listing. Matt knew exactly how to price and market our home. Couldn't be happier."</p>
+        <span class="reviewer">— Add your testimonial here</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"As first-time sellers, we had a lot of questions. Matt walked us through everything and kept us informed every step of the way."</p>
+        <span class="reviewer">— Add your testimonial here</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
-    <p>© 2026 Matt Laurie · Keller Williams Real Estate · Licensed in Pennsylvania</p>
+    <div class="footer-logos">
+      <span class="footer-badge">KW</span>
+      <span class="footer-team">Kim Rock Group · Keller Williams Real Estate</span>
+    </div>
+    <p>© 2026 Matt Laurie · Keller Williams Real Estate · PA License #RS333171</p>
+    <p>584 Middletown Blvd Suite A50, Langhorne, PA 19047</p>
     <p style="margin-top:4px;">This is not a solicitation if you are already represented by a real estate agent.</p>
   </footer>
 
