@@ -50,11 +50,32 @@
 
     /* ── Hero ── */
     .hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      position: relative;
       color: #fff;
       padding: 60px 24px 50px;
       text-align: center;
+      overflow: hidden;
     }
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,10,30,0.72) 0%, rgba(10,20,50,0.65) 100%);
+    }
+    .hero > *:not(.hero-slides) { position: relative; z-index: 1; }
     .hero-tag {
       display: inline-block;
       background: rgba(180,1,1,0.85);
@@ -379,6 +400,12 @@
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image:url('hero22.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('hero21.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('hero20.jpg')"></div>
+      <div class="hero-overlay"></div>
+    </div>
     <div class="hero-tag">🏠 Free · No Obligation · Bucks County &amp; Philadelphia</div>
     <h1>What's Your Home Worth<br><span>in 2026?</span></h1>
     <p>Buyer demand is high and inventory is tight. Find out what your home could sell for — in 24 hours or less.</p>
@@ -549,6 +576,15 @@
   </footer>
 
   <script>
+    // Hero slideshow
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+
     const form = document.getElementById('lead-form');
     const thankyou = document.getElementById('thankyou');
 
