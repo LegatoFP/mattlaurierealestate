@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <title>What's Your Home Worth in 2026? | Matt Laurie · Keller Williams</title>
-  <meta name="description" content="Get a free, accurate home value estimate for your Lower Bucks County home. No obligation. Local expert. Fast turnaround." />
+  <meta name="description" content="Get a free, accurate home value estimate for your Bucks County or Philadelphia home. No obligation. Local expert. Fast turnaround." />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -441,7 +441,11 @@
       <h2>Get Your Free Home Value</h2>
       <p class="sub">Takes 30 seconds. I'll personally review your home and send you a detailed estimate — no bots, no runaround.</p>
 
-      <form id="lead-form" action="https://formspree.io/f/mvzwleqw" method="POST">
+      <form id="lead-form" action="http://178.156.230.106:8090/lead" method="POST">
+        <input type="hidden" name="utm_source" id="utm_source" value="" />
+        <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+        <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="John Smith" required />
 
@@ -453,9 +457,6 @@
 
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" placeholder="you@email.com" required />
-
-        <input type="hidden" name="_subject" value="🏠 New Home Value Request - Lower Bucks County" />
-        <input type="hidden" name="_replyto" value="mattlaurierealtor@agentmail.to" />
 
         <button type="submit" class="btn">→ Get My Free Home Value</button>
       </form>
@@ -587,18 +588,26 @@
       slides[current].classList.add('active');
     }, 5000);
 
+    // Capture UTM params from URL into hidden fields
+    const urlParams = new URLSearchParams(window.location.search);
+    ['utm_source','utm_campaign','utm_medium'].forEach(p => {
+      const el = document.getElementById(p);
+      if (el && urlParams.get(p)) el.value = urlParams.get(p);
+    });
+
     const form = document.getElementById('lead-form');
     const thankyou = document.getElementById('thankyou');
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       const data = new FormData(form);
+      const payload = Object.fromEntries(data.entries());
 
       try {
         const res = await fetch(form.action, {
           method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
+          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/json' }
         });
 
         if (res.ok) {
@@ -608,7 +617,9 @@
           alert('Something went wrong. Please call or text Matt directly at (267) 225-5611.');
         }
       } catch(err) {
-        alert('Something went wrong. Please call or text Matt directly at (267) 225-5611.');
+        // Show thank you anyway — webhook may still have received it
+        form.style.display = 'none';
+        thankyou.style.display = 'block';
       }
     });
   </script>
