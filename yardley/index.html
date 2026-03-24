@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <title>What's Your Yardley PA Home Worth in 2026? | Matt Laurie · Keller Williams</title>
+  <meta name="description" content="Find out what your Yardley PA home is worth in today's market. Free, no-obligation home value estimate from a local Bucks County expert. Fast turnaround." />
+  <!-- Google Ads + GA4 Tags -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-898844952"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-898844952');
+    gtag('config', 'G-92S2CKS0QS');
+  </script>
+  <!-- End Google Tags -->
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1692674915052372');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1692674915052372&ev=PageView&noscript=1"/></noscript>
+  <!-- End Facebook Pixel -->
+
+  <!-- SEO: Local business schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Matt Laurie, REALTOR®",
+    "description": "Local real estate agent serving Yardley PA and Bucks County. Free home value estimates, no obligation.",
+    "url": "https://mattlaurierealestate.com/yardley",
+    "telephone": "+12672255611",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "584 Middletown Blvd Suite A50",
+      "addressLocality": "Langhorne",
+      "addressRegion": "PA",
+      "postalCode": "19047",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Yardley",
+      "addressRegion": "PA"
+    }
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+    }
+
+    /* ── Header ── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      color: #1a1a1a;
+    }
+    header a {
+      color: #B40101;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      color: #fff;
+      padding: 60px 24px 50px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,10,30,0.72) 0%, rgba(10,20,50,0.65) 100%);
+    }
+    .hero > *:not(.hero-slides) { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(180,1,1,0.85);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 46px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 span { color: #f5a623; }
+    .hero p {
+      font-size: 17px;
+      line-height: 1.6;
+      opacity: 0.88;
+      max-width: 520px;
+      margin: 0 auto 10px;
+    }
+
+    /* ── Market Stats Bar ── */
+    .stats-bar {
+      background: #B40101;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    .stat {
+      padding: 14px 28px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-size: 22px;
+      font-weight: 800;
+      display: block;
+    }
+    .stat-label {
+      font-size: 11px;
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Main Layout ── */
+    .main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .main { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── Form Card ── */
+    .form-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      border-top: 5px solid #B40101;
+    }
+    .form-card h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+    .form-card p.sub {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+      background: #fafafa;
+      color: #1a1a1a;
+    }
+    input:focus {
+      outline: none;
+      border-color: #B40101;
+      background: #fff;
+    }
+    .btn {
+      width: 100%;
+      background: #B40101;
+      color: #fff;
+      border: none;
+      padding: 16px;
+      font-size: 17px;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 4px;
+    }
+    .btn:hover { background: #990000; }
+    .btn:active { transform: scale(0.99); }
+    .privacy {
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ── Value Props ── */
+    .value-props h2 {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+    .value-props h2 span { color: #B40101; }
+    .value-props > p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .vp-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 22px;
+      align-items: flex-start;
+    }
+    .vp-icon {
+      width: 44px;
+      height: 44px;
+      background: #fef0f0;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .vp-text h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: #1a1a1a;
+    }
+    .vp-text p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* ── Agent Bio ── */
+    .agent-bio {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .agent-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      flex-shrink: 0;
+      border: 3px solid #B40101;
+    }
+    .agent-info h3 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .agent-info p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+    .agent-info .phone {
+      color: #B40101;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials {
+      max-width: 980px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+    .testimonials h2 {
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border-left: 4px solid #B40101;
+    }
+    .testimonial-card p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+    .testimonial-card .reviewer {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .stars { color: #f5a623; font-size: 14px; margin-bottom: 8px; }
+
+    /* ── Footer ── */
+    footer {
+      background: #1a1a1a;
+      color: #888;
+      text-align: center;
+      padding: 24px 24px;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-logo-img {
+      height: 32px;
+      width: auto;
+      opacity: 0.75;
+      filter: brightness(0) invert(1);
+    }
+
+    /* ── Thank You (hidden by default) ── */
+    #thankyou {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    #thankyou .check { font-size: 52px; margin-bottom: 12px; }
+    #thankyou h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #1a1a1a; }
+    #thankyou p { font-size: 15px; color: #555; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="../kw-logo.png" alt="Keller Williams" style="height:28px;width:auto;margin-right:6px;" />
+      Matt Laurie, REALTOR®
+    </div>
+    <a href="tel:2672255611">(267) 225-5611</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image:url('../hero22.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('../hero21.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('../hero20.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('../hero23.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('../hero24.jpg')"></div>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-tag">🏠 Free · No Obligation · Yardley, PA</div>
+    <h1>What's Your <span>Yardley PA</span> Home Worth in 2026?</h1>
+    <p>Homes in Yardley are moving fast — many are under contract in under 2 weeks. Find out what yours could sell for before the market shifts.</p>
+  </section>
+
+  <!-- Market Stats -->
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">↑ 4.6%</span>
+      <span class="stat-label">Median Price YoY</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">10</span>
+      <span class="stat-label">Days to Pending</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">$613K</span>
+      <span class="stat-label">Median Home Value</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">31</span>
+      <span class="stat-label">Homes for Sale</span>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <!-- Form -->
+    <div class="form-card">
+      <h2>Get Your Free Yardley Home Value</h2>
+      <p class="sub">Takes 30 seconds. I know Yardley — I'll personally review your home and send you a real estimate, not an algorithm guess.</p>
+
+      <form id="lead-form" action="https://webhook.mattlaurierealestate.com/lead" method="POST">
+        <input type="hidden" name="utm_source" id="utm_source" value="" />
+        <input type="hidden" name="utm_campaign" id="utm_campaign" value="yardley" />
+        <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="John Smith" required />
+
+        <label for="address">Property Address</label>
+        <input type="text" id="address" name="address" placeholder="123 Main St, Yardley PA 19067" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(215) 555-0100" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@email.com" required />
+
+        <button type="submit" class="btn">→ Get My Free Home Value</button>
+      </form>
+
+      <div id="thankyou">
+        <div class="check">✅</div>
+        <h2>You're all set!</h2>
+        <p>I'll have your Yardley home value estimate ready within 24 hours. Questions? Call or text me at <strong>(267) 225-5611</strong>.</p>
+      </div>
+
+      <p class="privacy">🔒 Your info is private. No spam, ever. I'll reach out personally.</p>
+    </div>
+
+    <!-- Value Props -->
+    <div class="value-props">
+      <h2>Why <span>Yardley homeowners</span> trust me to price their home right</h2>
+      <p>I'm a local agent with 10+ years working Bucks County — not a Zillow algorithm. I know what buyers are actually paying in Yardley right now, not 6 months ago.</p>
+
+      <div class="vp-item">
+        <div class="vp-icon">📍</div>
+        <div class="vp-text">
+          <h3>Yardley Market Expert</h3>
+          <p>I work this area daily. From the Delaware Canal waterfront to the Yardley borough neighborhoods — I know what drives value street by street in 19067.</p>
+        </div>
+      </div>
+
+      <div class="vp-item">
+        <div class="vp-icon">⚡</div>
+        <div class="vp-text">
+          <h3>Fast & Accurate</h3>
+          <p>Your estimate is based on real recent Yardley sales — comparable homes, actual closed prices. I review it personally and respond within 24 hours.</p>
+        </div>
+      </div>
+
+      <div class="vp-item">
+        <div class="vp-icon">🤝</div>
+        <div class="vp-text">
+          <h3>Zero Pressure</h3>
+          <p>Just information. Whether you're thinking about selling now or just curious what your home is worth — knowing your number is always smart.</p>
+        </div>
+      </div>
+
+      <div class="vp-item">
+        <div class="vp-icon">🏆</div>
+        <div class="vp-text">
+          <h3>Kim Rock Group · KW</h3>
+          <p><strong>#1 Team at KW Langhorne.</strong> Top 1% of agents in Greater Philadelphia. Nationally ranked by Real Trends. $71M+ in volume in 2024 alone.</p>
+        </div>
+      </div>
+
+      <!-- Agent Bio Card -->
+      <div class="agent-bio">
+        <img src="../matt-headshot.jpg" alt="Matt Laurie Yardley PA Realtor" class="agent-avatar" />
+        <div class="agent-info">
+          <h3>Matt Laurie, REALTOR®</h3>
+          <p>Kim Rock Group · Keller Williams Real Estate<br>
+          <strong>#1 Team at KW Langhorne</strong> · <strong>Top 1%</strong> in Greater Philadelphia · <strong>$71M+ volume in 2024</strong><br>
+          PA License #RS333171 · Licensed in PA &amp; NJ<br>584 Middletown Blvd Suite A50, Langhorne, PA 19047</p>
+          <a class="phone" href="tel:2672255611">(267) 225-5611</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Buyer Section -->
+  <div style="background:#f0f4ff;border-radius:14px;max-width:980px;margin:0 auto 32px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
+    <div style="font-size:32px;flex-shrink:0;">🏡</div>
+    <div>
+      <h3 style="font-size:18px;font-weight:800;margin-bottom:6px;color:#1a1a1a;">Also helping buyers find homes in Yardley &amp; Bucks County</h3>
+      <p style="font-size:14px;color:#555;line-height:1.6;">Inventory in Yardley is tight — the best homes go fast. I know what's coming to market before it hits Zillow, and I know the local lending programs, first-time buyer grants, and down payment assistance options that can make a real difference. Let's find your next home.</p>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="testimonials">
+    <h2>⭐ 5-Star Zillow Premier Agent · What clients are saying</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I can't recommend Matt enough. He knows the local real estate market, communicates quickly and effectively and just gets the job done."</p>
+        <span class="reviewer">— Alexandra, Bought &amp; Sold in Roslyn, PA</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Could not be happier. Matt anticipated every need, and made the whole process easy. Genuinely professional and always available. We felt that Matt always looked out for our best interests."</p>
+        <span class="reviewer">— M. Semmel, Bought in Washington Crossing, PA</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Great agent and friend. He was always there for us, answered every question, and made sure we got the best deal possible."</p>
+        <span class="reviewer">— T. Rudolph, Sold in Yardley, PA</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Matt was wonderful — he took me out to look at houses when no one else would. Very knowledgeable, knows what he's doing, and very personable. Wonderful experience!"</p>
+        <span class="reviewer">— Natalie H., Philadelphia, PA</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Matt made our experience buying our first home so much easier. Very quick to answer all our questions and figured things out for us before we even knew we had a problem."</p>
+        <span class="reviewer">— Zillow Client, First-Time Buyer in PA</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Matt was very helpful throughout the entire process of purchasing my new home — from fitting my schedule for showings to guiding me through closing. Couldn't have done it without him."</p>
+        <span class="reviewer">— Dave C., Bristol, PA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logos">
+      <img src="../kw-logo.png" alt="Keller Williams" class="footer-logo-img" />
+      <img src="../kimrock-logo.png" alt="Kim Rock Group" class="footer-logo-img" />
+    </div>
+    <p>© 2026 Matt Laurie, REALTOR® · Keller Williams Real Estate · PA License #RS333171</p>
+    <p>584 Middletown Blvd Suite A50, Langhorne, PA 19047</p>
+    <p style="margin-top:4px;">Member: National Association of REALTORS® · Pennsylvania Association of Realtors® · Bucks County Association of Realtors®</p>
+    <p style="margin-top:4px;">This is not a solicitation if you are already represented by a real estate agent.</p>
+  </footer>
+
+  <script>
+    // Hero slideshow
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+
+    // Capture UTM params from URL into hidden fields
+    const urlParams = new URLSearchParams(window.location.search);
+    ['utm_source','utm_medium'].forEach(p => {
+      const el = document.getElementById(p);
+      if (el && urlParams.get(p)) el.value = urlParams.get(p);
+    });
+    // utm_campaign defaults to 'newtown' but can be overridden by URL param
+    const campaignEl = document.getElementById('utm_campaign');
+    if (campaignEl && urlParams.get('utm_campaign')) campaignEl.value = urlParams.get('utm_campaign');
+
+    const form = document.getElementById('lead-form');
+    const thankyou = document.getElementById('thankyou');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+      if (typeof gtag !== 'undefined') gtag('event', 'conversion', {'send_to': 'AW-898844952'});
+      const data = new FormData(form);
+      const payload = Object.fromEntries(data.entries());
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          thankyou.style.display = 'block';
+        } else {
+          alert('Something went wrong. Please call or text Matt directly at (267) 225-5611.');
+        }
+      } catch(err) {
+        form.style.display = 'none';
+        thankyou.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>
