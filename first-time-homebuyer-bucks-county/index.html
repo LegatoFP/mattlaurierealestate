@@ -136,15 +136,6 @@
       font-size: 15px;
       color: #1a1a1a;
     }
-    .kw-badge {
-      background: #B40101;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 3px 7px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
-    }
     header a {
       color: #B40101;
       font-weight: 600;
@@ -679,9 +670,7 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <img src="../kw-logo.png" alt="Keller Williams" style="height:28px;width:auto;margin-right:6px;" />
       Matt Laurie, REALTOR®
-      <span class="kw-badge">KW</span>
     </div>
     <a href="tel:2672255611">(267) 225-5611</a>
   </header>
@@ -791,6 +780,14 @@
             <p>A second loan that covers your down payment with no monthly payments and no interest — drops off automatically after a set period. More common than most people know.</p>
           </div>
         </div>
+        <div class="program-item">
+          <div class="prog-icon">📊</div>
+          <div class="prog-text">
+            <div class="prog-badge">3% Down</div>
+            <h3>Conventional 97 Loans</h3>
+            <p>Fannie Mae and Freddie Mac's 3% down program for first-time buyers. Lower PMI than FHA over time and no upfront mortgage insurance premium — great option if your credit score is solid.</p>
+          </div>
+        </div>
       </div>
       <p class="disclaimer">Program availability and eligibility vary. Contact Matt for a free review of options applicable to your specific situation.</p>
       <div class="programs-cta">
@@ -818,15 +815,20 @@
         <label for="name">First Name</label>
         <input type="text" id="name" name="name" placeholder="Your first name" required />
 
-        <label for="phone">Best Way to Reach You</label>
-        <input type="tel" id="phone" name="phone" placeholder="Phone number or email" required />
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(215) 555-0100" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@email.com" />
 
         <label for="area">Where are you looking to buy?</label>
         <select id="area" name="area">
           <option value="">— Select an area —</option>
           <option>Bucks County (Newtown, Yardley, Levittown, etc.)</option>
-          <option>NE Philadelphia (19154, 19116, 19115 area)</option>
-          <option>Not sure yet — open to both</option>
+          <option>Philadelphia</option>
+          <option>Montgomery County</option>
+          <option>New Jersey</option>
+          <option>Not sure yet — open to multiple areas</option>
         </select>
 
         <label for="preapproved">Have you been pre-approved for a mortgage?</label>
@@ -880,7 +882,7 @@
         <div class="vp-icon">🏆</div>
         <div class="vp-text">
           <h3>Top 1% Team · KW</h3>
-          <p>Kim Rock Group at Keller Williams — #1 team at KW Langhorne, top 1% in Greater Philadelphia, $71M+ in volume in 2024. You get the resources of a top team with the attention of a solo agent.</p>
+          <p>Kim Rock Group at Keller Williams — #1 team at KW Langhorne, top 1% in Greater Philadelphia, $100M+ in volume in 2025. You get the resources of a top team with the attention of a solo agent.</p>
         </div>
       </div>
 
@@ -923,6 +925,16 @@
           <p>"Could not be happier. Matt anticipated every need, and made the whole process easy. Genuinely professional and always available. We felt that Matt always looked out for our best interests."</p>
           <span class="reviewer">— M. Semmel, Washington Crossing, PA</span>
         </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Matt guided us through the entire process and made the experience enjoyable. As first-time buyers we had a lot of questions — he answered every single one and never made us feel rushed. Couldn't ask for a better realtor."</p>
+          <span class="reviewer">— Google Review, First-Time Buyer in PA</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"I found myself needing to find a home within a very short amount of time and Matt came through. He knew exactly what I needed, moved fast, and got me into the right place. Incredibly smooth from start to finish."</p>
+          <span class="reviewer">— Google Review, Buyer in Bucks County</span>
+        </div>
       </div>
     </div>
   </section>
@@ -955,10 +967,18 @@
   <!-- Footer -->
   <footer>
     <div class="footer-logos">
-      <img src="../kw-logo.png" alt="Keller Williams" class="footer-logo-img" />
+      <img src="../kw-realestate-logo.png" alt="Keller Williams Real Estate" class="footer-logo-img" />
       <img src="../kimrock-logo.png" alt="Kim Rock Group" class="footer-logo-img" />
     </div>
-    <p>© 2026 Matt Laurie, REALTOR® · Keller Williams Real Estate · PA License #RS333171</p>
+    <!-- Social Icons -->
+    <div style="display:flex;justify-content:center;gap:18px;margin:14px 0 10px;flex-wrap:wrap;">
+      <a href="https://www.facebook.com/mattlaurierealestate" target="_blank" rel="noopener" style="color:#aaa;text-decoration:none;font-size:13px;font-weight:600;">Facebook</a>
+      <a href="https://www.instagram.com/mattlaurierealtor" target="_blank" rel="noopener" style="color:#aaa;text-decoration:none;font-size:13px;font-weight:600;">Instagram</a>
+      <a href="https://www.tiktok.com/@mattlaurierealtor" target="_blank" rel="noopener" style="color:#aaa;text-decoration:none;font-size:13px;font-weight:600;">TikTok</a>
+      <a href="https://www.linkedin.com/in/mattlaurierealtor" target="_blank" rel="noopener" style="color:#aaa;text-decoration:none;font-size:13px;font-weight:600;">LinkedIn</a>
+    </div>
+    <p>© 2026 Matt Laurie, REALTOR® · PA License #RS333171</p>
+    <p>Keller Williams Real Estate · Kim Rock Group · (215) 860-6600</p>
     <p>584 Middletown Blvd Suite A50, Langhorne, PA 19047</p>
     <p style="margin-top:4px;">Member: National Association of REALTORS® · Pennsylvania Association of Realtors® · Bucks County Association of Realtors®</p>
     <p style="margin-top:4px;">This is not a solicitation if you are already represented by a real estate agent. Program availability and eligibility vary — contact Matt for details.</p>
