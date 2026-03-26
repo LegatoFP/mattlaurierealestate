@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #222; padding: 40px; display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+
+  .card {
+    width: 1080px;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Card 1 - Deep navy */
+  .card-1 { background: linear-gradient(145deg, #0a1428 0%, #0d2050 100%); }
+  /* Card 2 - Dark red */
+  .card-2 { background: linear-gradient(145deg, #1a0505 0%, #8b0000 100%); }
+  /* Card 3 - Dark green */
+  .card-3 { background: linear-gradient(145deg, #051a08 0%, #0d5c1a 100%); }
+  /* Card 4 - CTA gold/dark */
+  .card-4 { background: linear-gradient(145deg, #1a1200 0%, #7a5500 100%); }
+
+  .card-label {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 40px;
+  }
+
+  .card-number {
+    font-size: 160px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .card-1 .card-number { color: #f5a623; }
+  .card-2 .card-number { color: #ff6b6b; }
+  .card-3 .card-number { color: #4ade80; }
+  .card-4 .card-number { font-size: 100px; color: #f5a623; }
+
+  .card-headline {
+    font-size: 52px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    max-width: 800px;
+  }
+
+  .card-sub {
+    font-size: 34px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+    max-width: 780px;
+    margin-bottom: 48px;
+  }
+
+  .card-cta {
+    display: inline-block;
+    background: #f5a623;
+    color: #1a1a1a;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 22px 52px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .card-footer {
+    position: absolute;
+    bottom: 44px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+  }
+
+  .divider {
+    width: 80px;
+    height: 5px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 3px;
+    margin: 0 auto 44px;
+  }
+
+  /* Print each card on its own page for screenshot */
+  @media print {
+    body { background: white; padding: 0; }
+    .card { page-break-after: always; }
+    .card-gap { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CARD 1 -->
+<div class="card card-1">
+  <div class="card-label">Bucks County First-Time Buyers</div>
+  <div class="card-number">$10K+</div>
+  <div class="divider"></div>
+  <div class="card-headline">in FREE grants available<br>for PA home buyers</div>
+  <div class="card-sub">PA and local programs most buyers<br>never find out about</div>
+  <div class="card-footer">mattlaurierealestate.com/buyers &nbsp;·&nbsp; Matt Laurie, REALTOR® | KW</div>
+</div>
+
+<!-- CARD 2 -->
+<div class="card card-2">
+  <div class="card-label">Stop Thinking You Need</div>
+  <div class="card-number">20%</div>
+  <div class="divider"></div>
+  <div class="card-headline">FHA loans start at<br>3.5% down</div>
+  <div class="card-sub">On a $350K home — that's $12,250.<br>Not $70,000. Big difference.</div>
+  <div class="card-footer">mattlaurierealestate.com/buyers &nbsp;·&nbsp; Matt Laurie, REALTOR® | KW</div>
+</div>
+
+<!-- CARD 3 -->
+<div class="card card-3">
+  <div class="card-label">Parts of Bucks County Qualify For</div>
+  <div class="card-number">0%</div>
+  <div class="divider"></div>
+  <div class="card-headline">down with USDA loans</div>
+  <div class="card-sub">Zero down — and it's not just for farmland.<br>Worth checking if your area qualifies.</div>
+  <div class="card-footer">mattlaurierealestate.com/buyers &nbsp;·&nbsp; Matt Laurie, REALTOR® | KW</div>
+</div>
+
+<!-- CARD 4 -->
+<div class="card card-4">
+  <div class="card-label">Free · No Obligation · Bucks County</div>
+  <div class="card-number">Find Out</div>
+  <div class="divider"></div>
+  <div class="card-headline">what programs you<br>may qualify for</div>
+  <div class="card-sub">Quick form. Matt reviews your situation personally.<br>Call back usually within a few hours.</div>
+  <a class="card-cta">Get My Free Program Breakdown →</a>
+  <div class="card-footer">mattlaurierealestate.com/buyers &nbsp;·&nbsp; Matt Laurie, REALTOR® | KW</div>
+</div>
+
+</body>
+</html>
