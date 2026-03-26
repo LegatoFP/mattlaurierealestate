@@ -69,42 +69,32 @@
       {
         "@type": "Question",
         "name": "How much money do I actually need to buy a home in Bucks County?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A lot less than you probably think. FHA loans start at 3.5% down — on a $350,000 home that's $12,250, not $70,000. On top of that, PA grants and local programs can cover part or all of that. Many buyers I work with close with under $5,000 out of pocket."
-        }
+        "acceptedAnswer": {"@type": "Answer", "text": "A lot less than you probably think. FHA loans start at 3.5% down — on a $350,000 home that's $12,250, not $70,000. On top of that, PA grants and local programs can cover part or all of that. Many buyers in towns like Levittown, Bensalem, and Bristol close with under $5,000 out of pocket."}
       },
       {
         "@type": "Question",
         "name": "What's the catch with down payment assistance programs?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "There's no catch — just eligibility requirements. Things like income limits, first-time buyer status, and the purchase price of the home. That's exactly what the free consult is for: I figure out which programs you may qualify for based on your specific situation."
-        }
+        "acceptedAnswer": {"@type": "Answer", "text": "There's no catch — just eligibility requirements. Things like income limits, first-time buyer status, and the purchase price of the home. That's exactly what the free consult is for: I figure out which programs you may qualify for based on your specific situation."}
       },
       {
         "@type": "Question",
-        "name": "I have student loans. Can I still qualify to buy a home?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Usually yes. Lenders look at your debt-to-income ratio, not just total debt. A lot of buyers with student loans still qualify — especially with FHA financing or certain grant programs that have more flexible guidelines. Worth a conversation."
-        }
+        "name": "I have student loans. Can I still qualify to buy a home in Bucks County?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Usually yes. Lenders look at your debt-to-income ratio, not just total debt. A lot of buyers with student loans still qualify — especially with FHA financing or certain grant programs that have more flexible guidelines. Worth a conversation."}
       },
       {
         "@type": "Question",
         "name": "Is now a bad time to buy with interest rates where they are?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Rates matter, but they're not the whole picture. A $10K grant or lender credit saves you more upfront than waiting for rates to drop 0.5%. And here's the thing — you can always refinance a rate. You can't refinance the price you paid if home values go up while you're waiting. Timing the market is a losing game."
-        }
+        "acceptedAnswer": {"@type": "Answer", "text": "Rates matter, but they're not the whole picture. A $10K grant or lender credit saves you more upfront than waiting for rates to drop 0.5%. You can always refinance a rate — you can't refinance the price you paid if home values go up while you're waiting."}
       },
       {
         "@type": "Question",
         "name": "What does it cost to work with a buyer's agent in PA?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "In most transactions, the seller pays the buyer's agent commission — meaning it costs you nothing to have representation. I'll walk you through how this works in our first conversation."
-        }
+        "acceptedAnswer": {"@type": "Answer", "text": "In most transactions, the seller pays the buyer's agent commission — meaning it costs you nothing to have representation. I'll walk you through how this works in our first conversation."}
+      },
+      {
+        "@type": "Question",
+        "name": "What if I owned a home before — do these programs still apply?",
+        "acceptedAnswer": {"@type": "Answer", "text": "More than you'd think. Some programs define first-time buyer as anyone who hasn't owned in the past 3 years. Others are open to all buyers regardless of history. Worth a conversation either way."}
       }
     ]
   }
@@ -112,556 +102,172 @@
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: #f9f9f9;
-      color: #1a1a1a;
-    }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f9f9f9; color: #1a1a1a; }
 
     /* ── Header ── */
-    header {
-      background: #fff;
-      border-bottom: 1px solid #e5e5e5;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 15px;
-      color: #1a1a1a;
-    }
-    header a {
-      color: #B40101;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 14px;
-    }
+    header { background: #fff; border-bottom: 1px solid #e5e5e5; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-weight: 700; font-size: 15px; color: #1a1a1a; }
+    .logo small { display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 1px; }
+    header a { color: #B40101; font-weight: 600; text-decoration: none; font-size: 14px; }
 
     /* ── Hero ── */
-    .hero {
-      position: relative;
-      color: #fff;
-      padding: 64px 24px 56px;
-      text-align: center;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0a1428 0%, #0d2050 60%, #1a3a6b 100%);
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(10,20,40,0.55) 0%, rgba(10,30,80,0.45) 100%);
-    }
+    .hero { position: relative; color: #fff; padding: 64px 24px 56px; text-align: center; overflow: hidden; background: linear-gradient(135deg, #0a1428 0%, #0d2050 60%, #1a3a6b 100%); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,20,40,0.55) 0%, rgba(10,30,80,0.45) 100%); }
     .hero > *:not(.hero-overlay) { position: relative; z-index: 1; }
-    .hero-tag {
-      display: inline-block;
-      background: rgba(180,1,1,0.9);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 22px;
-    }
-    .hero h1 {
-      font-size: clamp(26px, 5.5vw, 48px);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 18px;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    .hero-tag { display: inline-block; background: rgba(180,1,1,0.9); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 22px; }
+    .hero h1 { font-size: clamp(26px, 5.5vw, 48px); font-weight: 800; line-height: 1.15; margin-bottom: 18px; max-width: 680px; margin-left: auto; margin-right: auto; }
     .hero h1 span { color: #f5a623; }
-    .hero p {
-      font-size: 18px;
-      line-height: 1.65;
-      opacity: 0.9;
-      max-width: 540px;
-      margin: 0 auto 28px;
-    }
-    .hero-cta {
-      display: inline-block;
-      background: #f5a623;
-      color: #1a1a1a;
-      font-size: 17px;
-      font-weight: 800;
-      padding: 16px 36px;
-      border-radius: 10px;
-      text-decoration: none;
-      letter-spacing: 0.2px;
-      transition: background 0.2s, transform 0.1s;
-      cursor: pointer;
-      border: none;
-    }
+    .hero p { font-size: 18px; line-height: 1.65; opacity: 0.9; max-width: 540px; margin: 0 auto 28px; }
+    .hero-cta { display: inline-block; background: #f5a623; color: #1a1a1a; font-size: 17px; font-weight: 800; padding: 16px 36px; border-radius: 10px; text-decoration: none; letter-spacing: 0.2px; transition: background 0.2s, transform 0.1s; cursor: pointer; border: none; }
     .hero-cta:hover { background: #e09610; }
     .hero-cta:active { transform: scale(0.98); }
-    .hero-trust {
-      margin-top: 18px;
-      font-size: 13px;
-      opacity: 0.75;
-      letter-spacing: 0.3px;
-    }
+    .hero-microcopy { margin-top: 12px; font-size: 13px; opacity: 0.65; }
+    .hero-trust { margin-top: 14px; font-size: 13px; opacity: 0.75; letter-spacing: 0.3px; }
+
+    /* ── Who This Is For ── */
+    .for-you { max-width: 760px; margin: 48px auto 0; padding: 0 20px; }
+    .for-you h2 { font-size: clamp(20px, 3.5vw, 26px); font-weight: 800; text-align: center; margin-bottom: 24px; color: #1a1a1a; }
+    .for-you h2 span { color: #B40101; }
+    .checklist { background: #fff; border-radius: 16px; padding: 28px 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+    .check-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; font-size: 15px; color: #333; line-height: 1.5; }
+    .check-item:last-child { margin-bottom: 0; }
+    .check-item .ck { color: #1a7a3a; font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── How It Works ── */
+    .how-it-works { max-width: 760px; margin: 48px auto 0; padding: 0 20px; }
+    .how-it-works h2 { font-size: clamp(20px, 3.5vw, 26px); font-weight: 800; text-align: center; margin-bottom: 28px; color: #1a1a1a; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step { text-align: center; }
+    .step-num { width: 48px; height: 48px; background: #B40101; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; margin: 0 auto 14px; }
+    .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #1a1a1a; }
+    .step p { font-size: 13px; color: #666; line-height: 1.5; }
+    @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } .step { display: flex; gap: 16px; align-items: flex-start; text-align: left; } .step-num { flex-shrink: 0; margin: 0; } }
 
     /* ── Myth Buster ── */
-    .myths {
-      max-width: 980px;
-      margin: 48px auto 0;
-      padding: 0 20px;
-    }
-    .myths h2 {
-      font-size: clamp(22px, 4vw, 30px);
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 10px;
-      color: #1a1a1a;
-    }
+    .myths { max-width: 980px; margin: 48px auto 0; padding: 0 20px; }
+    .myths h2 { font-size: clamp(22px, 4vw, 30px); font-weight: 800; text-align: center; margin-bottom: 10px; color: #1a1a1a; }
     .myths h2 span { color: #B40101; }
-    .myths .sub {
-      text-align: center;
-      font-size: 15px;
-      color: #666;
-      margin-bottom: 36px;
-      line-height: 1.6;
-    }
-    .myth-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 20px;
-    }
-    .myth-card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 28px 24px;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.08);
-    }
-    .myth-label {
-      display: inline-block;
-      background: #fff0f0;
-      color: #B40101;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-    .myth-card h3 {
-      font-size: 16px;
-      font-weight: 800;
-      color: #1a1a1a;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-    .myth-card p {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.6;
-    }
+    .myths .sub { text-align: center; font-size: 15px; color: #666; margin-bottom: 36px; line-height: 1.6; }
+    .myth-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
+    .myth-card { background: #fff; border-radius: 14px; padding: 28px 24px; box-shadow: 0 2px 14px rgba(0,0,0,0.08); }
+    .myth-label { display: inline-block; background: #fff0f0; color: #B40101; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
+    .myth-card h3 { font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px; line-height: 1.3; }
+    .myth-card p { font-size: 14px; color: #555; line-height: 1.6; }
     .myth-card p strong { color: #1a1a1a; }
 
-    /* ── Programs Section ── */
-    .programs {
-      background: #fff;
-      margin: 48px 0 0;
-      padding: 52px 20px;
-    }
-    .programs-inner {
-      max-width: 980px;
-      margin: 0 auto;
-    }
-    .programs h2 {
-      font-size: clamp(22px, 4vw, 30px);
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 8px;
-      color: #1a1a1a;
-    }
-    .programs .sub {
-      text-align: center;
-      font-size: 15px;
-      color: #666;
-      margin-bottom: 36px;
-      line-height: 1.6;
-      max-width: 580px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin-bottom: 36px;
-    }
-    .program-item {
-      border: 1.5px solid #e8e8e8;
-      border-radius: 12px;
-      padding: 20px 20px 18px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .program-item:hover {
-      border-color: #B40101;
-      box-shadow: 0 2px 12px rgba(180,1,1,0.08);
-    }
-    .prog-icon {
-      font-size: 26px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .prog-text h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 4px;
-    }
-    .prog-text p {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.5;
-    }
-    .prog-badge {
-      display: inline-block;
-      background: #f0fff4;
-      color: #1a7a3a;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-bottom: 4px;
-    }
-    .disclaimer {
-      text-align: center;
-      font-size: 12px;
-      color: #999;
-      margin-top: 8px;
-      line-height: 1.6;
-    }
-    .programs-cta {
-      text-align: center;
-      margin-top: 32px;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: #B40101;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 800;
-      padding: 16px 40px;
-      border-radius: 10px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-      letter-spacing: 0.2px;
-    }
+    /* ── Programs ── */
+    .programs { background: #fff; margin: 48px 0 0; padding: 52px 20px; }
+    .programs-inner { max-width: 980px; margin: 0 auto; }
+    .programs h2 { font-size: clamp(22px, 4vw, 30px); font-weight: 800; text-align: center; margin-bottom: 8px; color: #1a1a1a; }
+    .programs .sub { text-align: center; font-size: 15px; color: #666; margin-bottom: 12px; line-height: 1.6; max-width: 580px; margin-left: auto; margin-right: auto; }
+    .programs-note { text-align: center; font-size: 13px; color: #888; margin-bottom: 28px; }
+    /* Featured top 3 */
+    .program-featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+    .program-item { border: 1.5px solid #e8e8e8; border-radius: 12px; padding: 20px 20px 18px; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.2s, box-shadow 0.2s; }
+    .program-item.featured { border-color: #B40101; background: #fff8f8; }
+    .program-item:hover { border-color: #B40101; box-shadow: 0 2px 12px rgba(180,1,1,0.08); }
+    .prog-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+    .prog-text h3 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+    .prog-text p { font-size: 13px; color: #666; line-height: 1.5; }
+    .prog-badge { display: inline-block; background: #f0fff4; color: #1a7a3a; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 4px; }
+    .prog-badge.red { background: #fff0f0; color: #B40101; }
+    /* More programs toggle */
+    .more-programs-toggle { text-align: center; margin: 8px 0 4px; }
+    .more-btn { background: none; border: 1.5px solid #ddd; color: #555; font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 8px; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+    .more-btn:hover { border-color: #B40101; color: #B40101; }
+    .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; display: none; }
+    .program-grid.open { display: grid; }
+    .disclaimer { text-align: center; font-size: 12px; color: #999; margin-top: 16px; line-height: 1.6; }
+    .programs-cta { text-align: center; margin-top: 32px; }
+    .btn-primary { display: inline-block; background: #B40101; color: #fff; font-size: 16px; font-weight: 800; padding: 16px 40px; border-radius: 10px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.1s; letter-spacing: 0.2px; }
     .btn-primary:hover { background: #990000; }
     .btn-primary:active { transform: scale(0.98); }
+    @media (max-width: 700px) { .program-featured { grid-template-columns: 1fr; } }
 
-    /* ── Main Two-Column Layout ── */
-    .main {
-      max-width: 980px;
-      margin: 48px auto 0;
-      padding: 0 20px 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-    @media (max-width: 700px) {
-      .main { grid-template-columns: 1fr; gap: 32px; }
-    }
+    /* ── Social Proof Counter ── */
+    .social-counter { background: #B40101; color: #fff; text-align: center; padding: 20px 24px; }
+    .social-counter p { font-size: 16px; font-weight: 700; opacity: 0.95; }
+    .social-counter span { font-size: 22px; font-weight: 800; }
+
+    /* ── Main Two-Column ── */
+    .main { max-width: 980px; margin: 48px auto 0; padding: 0 20px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    @media (max-width: 700px) { .main { grid-template-columns: 1fr; gap: 32px; } }
 
     /* ── Form Card ── */
-    .form-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 36px 32px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      border-top: 5px solid #B40101;
-      position: sticky;
-      top: 20px;
-    }
-    .form-card h2 {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 6px;
-      color: #1a1a1a;
-    }
-    .form-card p.sub {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 24px;
-      line-height: 1.5;
-    }
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: #444;
-      margin-bottom: 5px;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1.5px solid #ddd;
-      border-radius: 8px;
-      font-size: 15px;
-      margin-bottom: 16px;
-      transition: border-color 0.2s;
-      background: #fafafa;
-      color: #1a1a1a;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-    select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
-    }
-    input:focus, select:focus {
-      outline: none;
-      border-color: #B40101;
-      background: #fff;
-    }
-    .btn {
-      width: 100%;
-      background: #B40101;
-      color: #fff;
-      border: none;
-      padding: 16px;
-      font-size: 17px;
-      font-weight: 800;
-      border-radius: 10px;
-      cursor: pointer;
-      letter-spacing: 0.3px;
-      transition: background 0.2s, transform 0.1s;
-      margin-top: 4px;
-    }
+    .form-card { background: #fff; border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); border-top: 5px solid #B40101; position: sticky; top: 20px; }
+    .form-card h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; color: #1a1a1a; }
+    .form-card p.sub { font-size: 14px; color: #666; margin-bottom: 24px; line-height: 1.5; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 5px; }
+    input[type="text"], input[type="email"], input[type="tel"], select { width: 100%; padding: 12px 14px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 16px; transition: border-color 0.2s; background: #fafafa; color: #1a1a1a; -webkit-appearance: none; appearance: none; }
+    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    input:focus, select:focus { outline: none; border-color: #B40101; background: #fff; }
+    .btn { width: 100%; background: #B40101; color: #fff; border: none; padding: 16px; font-size: 17px; font-weight: 800; border-radius: 10px; cursor: pointer; letter-spacing: 0.3px; transition: background 0.2s, transform 0.1s; margin-top: 4px; }
     .btn:hover { background: #990000; }
     .btn:active { transform: scale(0.99); }
-    .alt-cta {
-      text-align: center;
-      margin-top: 14px;
-      font-size: 13px;
-      color: #888;
-    }
-    .alt-cta a {
-      color: #B40101;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .privacy {
-      text-align: center;
-      font-size: 12px;
-      color: #999;
-      margin-top: 12px;
-      line-height: 1.5;
-    }
+    .btn-microcopy { text-align: center; font-size: 12px; color: #999; margin-top: 8px; }
+    .alt-cta { text-align: center; margin-top: 14px; font-size: 13px; color: #888; }
+    .alt-cta a { color: #B40101; font-weight: 700; text-decoration: none; }
+    .privacy { text-align: center; font-size: 12px; color: #999; margin-top: 10px; line-height: 1.5; }
 
     /* ── Thank You ── */
-    #thankyou {
-      display: none;
-      text-align: center;
-      padding: 20px 0;
-    }
+    #thankyou { display: none; text-align: center; padding: 20px 0; }
     #thankyou .check { font-size: 52px; margin-bottom: 12px; }
     #thankyou h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #1a1a1a; }
     #thankyou p { font-size: 15px; color: #555; line-height: 1.6; }
+    .thankyou-steps { background: #f9f9f9; border-radius: 10px; padding: 16px 20px; margin-top: 16px; text-align: left; }
+    .thankyou-steps p { font-size: 13px; color: #555; margin-bottom: 6px; }
+    .thankyou-steps p:last-child { margin-bottom: 0; }
 
-    /* ── Value Props (right column) ── */
-    .value-props h2 {
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 1.25;
-      margin-bottom: 8px;
-      color: #1a1a1a;
-    }
+    /* ── Value Props ── */
+    .value-props h2 { font-size: 24px; font-weight: 800; line-height: 1.25; margin-bottom: 8px; color: #1a1a1a; }
     .value-props h2 span { color: #B40101; }
-    .value-props > p {
-      font-size: 15px;
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-    .vp-item {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 22px;
-      align-items: flex-start;
-    }
-    .vp-icon {
-      width: 44px;
-      height: 44px;
-      background: #fef0f0;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
+    .value-props > p { font-size: 15px; color: #555; line-height: 1.6; margin-bottom: 28px; }
+    .vp-item { display: flex; gap: 14px; margin-bottom: 22px; align-items: flex-start; }
+    .vp-icon { width: 44px; height: 44px; background: #fef0f0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
     .vp-text h3 { font-size: 15px; font-weight: 700; margin-bottom: 3px; color: #1a1a1a; }
     .vp-text p { font-size: 14px; color: #666; line-height: 1.5; }
 
     /* ── Agent Bio ── */
-    .agent-bio {
-      background: #fff;
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.07);
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      margin-top: 28px;
-    }
-    .agent-avatar {
-      width: 84px;
-      height: 84px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top center;
-      flex-shrink: 0;
-      border: 3px solid #B40101;
-    }
+    .agent-bio { background: #fff; border-radius: 14px; padding: 24px; box-shadow: 0 2px 14px rgba(0,0,0,0.07); display: flex; gap: 18px; align-items: center; margin-top: 28px; }
+    .agent-avatar { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; object-position: top center; flex-shrink: 0; border: 3px solid #B40101; }
     .agent-info h3 { font-size: 16px; font-weight: 800; margin-bottom: 2px; }
     .agent-info p { font-size: 13px; color: #666; line-height: 1.5; }
-    .agent-info .phone {
-      color: #B40101;
-      font-weight: 700;
-      font-size: 14px;
-      margin-top: 6px;
-      display: block;
-      text-decoration: none;
-    }
+    .agent-info .phone { color: #B40101; font-weight: 700; font-size: 14px; margin-top: 6px; display: block; text-decoration: none; }
 
     /* ── Testimonials ── */
-    .testimonials {
-      background: #f4f4f4;
-      padding: 52px 20px;
-      margin-top: 0;
-    }
+    .testimonials { background: #f4f4f4; padding: 52px 20px; }
     .testimonials-inner { max-width: 980px; margin: 0 auto; }
-    .testimonials h2 {
-      font-size: 22px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 28px;
-      color: #1a1a1a;
-    }
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .testimonial-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      border-left: 4px solid #B40101;
-    }
-    .testimonial-card p {
-      font-size: 14px;
-      color: #444;
-      line-height: 1.65;
-      margin-bottom: 12px;
-      font-style: italic;
-    }
-    .testimonial-card .reviewer { font-size: 13px; font-weight: 700; color: #1a1a1a; }
+    .testimonials h2 { font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 28px; color: #1a1a1a; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .testimonial-card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-left: 4px solid #B40101; }
+    .testimonial-card p { font-size: 14px; color: #444; line-height: 1.65; margin-bottom: 8px; font-style: italic; }
+    .testimonial-card .reviewer { font-size: 13px; font-weight: 700; color: #1a1a1a; display: block; }
+    .testimonial-card .reviewer-sub { font-size: 12px; color: #888; font-weight: 400; display: block; margin-top: 2px; }
     .stars { color: #f5a623; font-size: 14px; margin-bottom: 8px; }
 
     /* ── FAQ ── */
-    .faq {
-      max-width: 740px;
-      margin: 52px auto 0;
-      padding: 0 20px 60px;
-    }
-    .faq h2 {
-      font-size: clamp(20px, 3.5vw, 26px);
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 32px;
-      color: #1a1a1a;
-    }
-    .faq-item {
-      border-bottom: 1px solid #e5e5e5;
-      padding: 20px 0;
-    }
+    .faq { max-width: 740px; margin: 52px auto 0; padding: 0 20px 60px; }
+    .faq h2 { font-size: clamp(20px, 3.5vw, 26px); font-weight: 800; text-align: center; margin-bottom: 32px; color: #1a1a1a; }
+    .faq-item { border-bottom: 1px solid #e5e5e5; padding: 20px 0; }
     .faq-item:first-of-type { border-top: 1px solid #e5e5e5; }
-    .faq-q {
-      font-size: 16px;
-      font-weight: 700;
-      color: #1a1a1a;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      user-select: none;
-      line-height: 1.4;
-    }
-    .faq-q .chevron {
-      font-size: 18px;
-      color: #B40101;
-      flex-shrink: 0;
-      transition: transform 0.25s;
-    }
+    .faq-q { font-size: 16px; font-weight: 700; color: #1a1a1a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; user-select: none; line-height: 1.4; }
+    .faq-q .chevron { font-size: 18px; color: #B40101; flex-shrink: 0; transition: transform 0.25s; }
     .faq-q.open .chevron { transform: rotate(180deg); }
-    .faq-a {
-      display: none;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.7;
-      margin-top: 12px;
-      padding-right: 24px;
-    }
+    .faq-a { display: none; font-size: 14px; color: #555; line-height: 1.7; margin-top: 12px; padding-right: 24px; }
     .faq-a.open { display: block; }
 
     /* ── Footer ── */
-    footer {
-      background: #1a1a1a;
-      color: #888;
-      text-align: center;
-      padding: 28px 24px;
-      font-size: 12px;
-      line-height: 1.8;
-    }
-    .footer-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-    .footer-logo-img {
-      height: 30px;
-      width: auto;
-      opacity: 0.7;
-      filter: brightness(0) invert(1);
-    }
+    footer { background: #1a1a1a; color: #888; text-align: center; padding: 28px 24px; font-size: 12px; line-height: 1.8; }
+    .footer-logos { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+    .footer-logo-img { height: 30px; width: auto; opacity: 0.7; filter: brightness(0) invert(1); }
 
-    /* ── Mobile adjustments ── */
+    /* ── Mobile ── */
     @media (max-width: 600px) {
       .hero { padding: 48px 20px 44px; }
       .programs { padding: 40px 20px; }
       .form-card { padding: 28px 20px; position: static; }
       .myth-grid { grid-template-columns: 1fr; }
+      .checklist { padding: 20px; }
     }
   </style>
 </head>
@@ -671,6 +277,7 @@
   <header>
     <div class="logo">
       Matt Laurie, REALTOR®
+      <small>Keller Williams Real Estate &nbsp;·&nbsp; (215) 757-6100</small>
     </div>
     <a href="tel:2672255611">(267) 225-5611</a>
   </header>
@@ -680,11 +287,52 @@
     <div class="hero-overlay"></div>
     <div class="hero-tag">🏠 Free Consult · No Obligation · Bucks County &amp; Philadelphia</div>
     <h1>Buying Your First Home in Bucks County?<br><span>There's Free Money You Don't Know About.</span></h1>
-    <p>PA grants, down payment assistance, and programs that could put <strong>$10,000+</strong> toward your first home — most agents never mention these.</p>
-    <a href="#lead-form" class="hero-cta" onclick="document.getElementById('lead-form-section').scrollIntoView({behavior:'smooth'}); return false;">
-      See What Programs You May Qualify For →
+    <p>PA grants, down payment assistance, and programs that could put <strong>$10,000+</strong> toward your first home — most buyers never find out these exist.</p>
+    <a href="#lead-form-section" class="hero-cta" onclick="document.getElementById('lead-form-section').scrollIntoView({behavior:'smooth'}); return false;">
+      Find Out What Free Money You Qualify For →
     </a>
-    <p class="hero-trust">10 years licensed in PA &nbsp;·&nbsp; 100% free consult &nbsp;·&nbsp; No obligation, ever</p>
+    <p class="hero-microcopy">No spam. No obligation. Just a straight answer on what you qualify for.</p>
+    <p class="hero-trust">10 years licensed in PA &nbsp;·&nbsp; 100% free consult &nbsp;·&nbsp; Local to Bucks County</p>
+  </section>
+
+  <!-- Who This Is For -->
+  <section class="for-you">
+    <h2>Sound Like <span>You?</span></h2>
+    <div class="checklist">
+      <div class="check-item"><span class="ck">✅</span> You're renting right now and wondering if buying is even realistic</div>
+      <div class="check-item"><span class="ck">✅</span> You have some savings, but definitely not 20% down</div>
+      <div class="check-item"><span class="ck">✅</span> You haven't been pre-approved yet — or don't really know what that means</div>
+      <div class="check-item"><span class="ck">✅</span> You've been told to "just wait," but your rent keeps going up</div>
+      <div class="check-item"><span class="ck">✅</span> You want a straight answer — not a sales pitch</div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <h2>Here's How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Fill Out the Quick Form</h3>
+          <p>Takes 30 seconds. Just your name, phone, and where you're looking to buy.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Matt Reviews Your Situation</h3>
+          <p>Personally — not a bot, not an assistant. He looks at your area and what programs may fit.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>You Get a Call Back</h3>
+          <p>Usually within a few hours. He walks you through exactly what you may qualify for. No pressure, no pitch.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Myth Buster -->
@@ -695,17 +343,17 @@
       <div class="myth-card">
         <div class="myth-label">❌ The Myth</div>
         <h3>"I need 20% down to buy a house."</h3>
-        <p>FHA loans start at <strong>3.5% down</strong>. On a $350,000 home, that's $12,250 — not $70,000. Stack a PA grant on top of that and you might close for a lot less than your last security deposit.</p>
+        <p>FHA loans start at <strong>3.5% down</strong>. On a $350,000 home, that's $12,250 — not $70,000. Stack a PA grant on top and you might close for less than your last security deposit.</p>
       </div>
       <div class="myth-card">
         <div class="myth-label">❌ The Myth</div>
         <h3>"Rates are too high right now."</h3>
-        <p>Rates matter, but they're not the whole picture. A <strong>$10K grant + lender credit</strong> can save you more than waiting for rates to drop 0.5%. You can always refinance a rate — you can't refinance a price you missed while waiting.</p>
+        <p>A <strong>$10K grant + lender credit</strong> saves you more than waiting for rates to drop 0.5%. You can always refinance a rate — you can't refinance a price you missed while waiting.</p>
       </div>
       <div class="myth-card">
         <div class="myth-label">❌ The Myth</div>
         <h3>"I just don't have enough saved."</h3>
-        <p>Between PHFA assistance, the <strong>Bucks County Housing Group $10K grant</strong>, seller concessions, and lender credits — buyers regularly close with less out of pocket than a first/last month deposit on an apartment.</p>
+        <p>Between PHFA assistance, the <strong>Bucks County Housing Group $10K grant</strong>, seller concessions, and lender credits — buyers close regularly with less than a first/last month's rent.</p>
       </div>
     </div>
   </section>
@@ -714,38 +362,49 @@
   <section class="programs">
     <div class="programs-inner">
       <h2>Programs Most First-Time Buyers Never Hear About</h2>
-      <p class="sub">These are real PA and local programs. Eligibility varies — that's exactly what the free consult is for.</p>
-      <div class="program-grid">
-        <div class="program-item">
+      <p class="sub">These are real PA and local programs. Eligibility varies — that's what the free consult is for.</p>
+      <p class="programs-note">These programs change yearly. What's available in 2026 may not be available in 2027 — worth knowing your options now.</p>
+
+      <!-- Featured top 3 -->
+      <div class="program-featured">
+        <div class="program-item featured">
           <div class="prog-icon">🏦</div>
           <div class="prog-text">
-            <div class="prog-badge">Up to $10,000</div>
+            <div class="prog-badge red">Up to $10,000</div>
             <h3>PHFA Down Payment &amp; Closing Cost Assistance</h3>
-            <p>PA Housing Finance Agency. Income limits apply but they're higher than most people expect. One of the most useful programs in the state.</p>
+            <p>PA Housing Finance Agency. One of the most useful programs in the state — income limits are higher than most people expect.</p>
           </div>
         </div>
-        <div class="program-item">
+        <div class="program-item featured">
           <div class="prog-icon">🏡</div>
           <div class="prog-text">
-            <div class="prog-badge">$10,000 Grant</div>
+            <div class="prog-badge red">$10,000 Grant</div>
             <h3>Bucks County Housing Group Grant</h3>
-            <p>Specifically for Bucks County buyers. $10K toward your purchase. One of the least-talked-about programs in this area — most buyers have no idea it exists.</p>
+            <p>Specifically for Bucks County buyers. $10K toward your purchase. Most buyers in Levittown, Bensalem, and Bristol have no idea this exists.</p>
           </div>
         </div>
-        <div class="program-item">
+        <div class="program-item featured">
           <div class="prog-icon">📋</div>
           <div class="prog-text">
-            <div class="prog-badge">3.5% Down</div>
+            <div class="prog-badge red">3.5% Down</div>
             <h3>FHA Loans</h3>
-            <p>The standard first-timer loan. Lower credit score requirements than conventional, lower down payment. Works great in combination with grants.</p>
+            <p>The standard first-timer loan. Lower credit score requirements, lower down payment. Works great combined with grants.</p>
           </div>
         </div>
+      </div>
+
+      <!-- More programs toggle -->
+      <div class="more-programs-toggle">
+        <button class="more-btn" onclick="toggleMore(this)">+ 6 More Programs You May Qualify For</button>
+      </div>
+
+      <div class="program-grid" id="more-programs">
         <div class="program-item">
           <div class="prog-icon">🌿</div>
           <div class="prog-text">
             <div class="prog-badge">0% Down</div>
             <h3>USDA Loans</h3>
-            <p>Yes, zero down — and it's not just for farmland. Parts of Bucks County and the surrounding area qualify. Worth checking if your target area is eligible.</p>
+            <p>Zero down — and not just for farmland. Parts of Bucks County qualify. Worth checking if your target area is eligible.</p>
           </div>
         </div>
         <div class="program-item">
@@ -753,7 +412,7 @@
           <div class="prog-text">
             <div class="prog-badge">0% Down · No PMI</div>
             <h3>VA Loans</h3>
-            <p>For veterans and active military. No down payment, no private mortgage insurance. If you've served, this is one of the best loan programs available anywhere.</p>
+            <p>For veterans and active military. No down payment, no private mortgage insurance. One of the best loan programs available anywhere.</p>
           </div>
         </div>
         <div class="program-item">
@@ -761,7 +420,7 @@
           <div class="prog-text">
             <div class="prog-badge">Rate Advantage</div>
             <h3>Assumable Mortgages</h3>
-            <p>Take over a seller's existing low-rate mortgage. Rare but real — and when the stars align, you can lock in a rate that no longer exists in today's market. I actively look for these.</p>
+            <p>Take over a seller's existing low-rate mortgage. Rare but real — I actively look for these for buyers.</p>
           </div>
         </div>
         <div class="program-item">
@@ -769,7 +428,7 @@
           <div class="prog-text">
             <div class="prog-badge">Closing Cost Help</div>
             <h3>Seller Concessions &amp; Lender Credits</h3>
-            <p>Negotiation strategies that reduce what you bring to closing. A lot of buyers leave money on the table here by not knowing to ask.</p>
+            <p>Negotiation strategies that reduce what you bring to closing. A lot of buyers leave money on the table by not knowing to ask.</p>
           </div>
         </div>
         <div class="program-item">
@@ -777,7 +436,7 @@
           <div class="prog-text">
             <div class="prog-badge">Down Payment Covered</div>
             <h3>Silent Second Mortgages</h3>
-            <p>A second loan that covers your down payment with no monthly payments and no interest — drops off automatically after a set period. More common than most people know.</p>
+            <p>A second loan that covers your down payment — no monthly payments, drops off automatically after a set period.</p>
           </div>
         </div>
         <div class="program-item">
@@ -785,26 +444,32 @@
           <div class="prog-text">
             <div class="prog-badge">3% Down</div>
             <h3>Conventional 97 Loans</h3>
-            <p>Fannie Mae and Freddie Mac's 3% down program for first-time buyers. Lower PMI than FHA over time and no upfront mortgage insurance premium — great option if your credit score is solid.</p>
+            <p>Fannie/Freddie's 3% down program. Lower PMI than FHA long-term — great if your credit score is solid.</p>
           </div>
         </div>
       </div>
-      <p class="disclaimer">Program availability and eligibility vary. Contact Matt for a free review of options applicable to your specific situation.</p>
+
+      <p class="disclaimer">Buyer assistance programs are offered by third-party lenders, agencies, and housing programs — not by Matt Laurie individually. Availability, funding, and eligibility requirements may change. Not all buyers will qualify.</p>
       <div class="programs-cta">
         <a href="#lead-form-section" class="btn-primary" onclick="document.getElementById('lead-form-section').scrollIntoView({behavior:'smooth'}); return false;">
-          Book My Free Buyer Consult →
+          Find Out What You May Qualify For →
         </a>
       </div>
     </div>
   </section>
+
+  <!-- Social Proof Counter -->
+  <div class="social-counter">
+    <p>Matt has helped <span>60+</span> buyers in Bucks County and Philadelphia find their first home — many using programs they didn't know existed.</p>
+  </div>
 
   <!-- Main: Form + About -->
   <div class="main" id="lead-form-section">
 
     <!-- Form -->
     <div class="form-card">
-      <h2>See What You May Qualify For</h2>
-      <p class="sub">Quick form — 30 seconds. I'll personally reach out within 24 hours with the programs that may apply to your situation.</p>
+      <h2>Find Out What Free Money You Qualify For</h2>
+      <p class="sub">Quick form — 30 seconds. Matt personally reviews and reaches out usually within a few hours.</p>
 
       <form id="lead-form" action="https://webhook.mattlaurierealestate.com/lead" method="POST">
         <input type="hidden" name="lead_type" value="buyer" />
@@ -817,7 +482,8 @@
 
         <label for="phone">Phone Number</label>
         <input type="tel" id="phone" name="phone" placeholder="(215) 555-0100" required
-          pattern="[\d\s\(\)\-\+]{10,15}" title="Please enter a valid phone number (at least 10 digits)" />
+          pattern="[\d\s\(\)\-\+]{10,15}" title="Please enter a valid phone number (at least 10 digits)"
+          inputmode="numeric" />
 
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" placeholder="Email (recommended)" />
@@ -841,12 +507,20 @@
         </select>
 
         <button type="submit" class="btn">Show Me My Options →</button>
+        <p class="btn-microcopy">No spam. No obligation. Just a straight answer on what you qualify for.</p>
       </form>
 
       <div id="thankyou">
         <div class="check">✅</div>
         <h2>You're all set!</h2>
-        <p>I'll reach out personally within 24 hours. In the meantime, feel free to call or text anytime: <strong>(267) 225-5611</strong>.</p>
+        <p>Matt will reach out personally — usually within a few hours.</p>
+        <div class="thankyou-steps">
+          <p>📋 <strong>What happens next:</strong></p>
+          <p>① Matt reviews your info and pulls programs for your area</p>
+          <p>② He'll call or text you at the number you provided</p>
+          <p>③ You get a clear picture of what you may qualify for — no pressure, no pitch</p>
+        </div>
+        <p style="margin-top:14px;font-size:14px;color:#666;">Want to talk sooner? Call or text Matt anytime: <strong><a href="tel:2672255611" style="color:#B40101;">(267) 225-5611</a></strong></p>
       </div>
 
       <div class="alt-cta">Rather just talk? <a href="tel:2672255611">Call or text (267) 225-5611</a></div>
@@ -856,42 +530,42 @@
     <!-- Value Props / About -->
     <div class="value-props">
       <h2>Why Work With<br><span>Matt Laurie?</span></h2>
-      <p>I've been helping buyers and sellers in Bucks County for over 10 years. Not a corporate team. Not a part-timer. A real local guy who knows this market, knows these programs, and actually picks up the phone.</p>
+      <p>I've been helping first-time buyers in Bucks County for over 10 years. I know which programs are actually available right now, which lenders work best with them, and how to get you to the closing table without surprises.</p>
 
       <div class="vp-item">
-        <div class="vp-icon">🔑</div>
+        <div class="vp-icon">🎓</div>
         <div class="vp-text">
-          <h3>Buyer Program Specialist</h3>
-          <p>This isn't a side note for me — it's a core part of how I help buyers. I know which programs work, which ones have money available right now, and which lenders play well with them.</p>
+          <h3>Specializes in First-Time Buyers</h3>
+          <p>This isn't a side note — it's a core part of what I do. I know the programs, the lenders, and the process. I've been through it with buyers who thought it wasn't possible.</p>
         </div>
       </div>
       <div class="vp-item">
-        <div class="vp-icon">📍</div>
+        <div class="vp-icon">💬</div>
         <div class="vp-text">
-          <h3>Bucks County Local</h3>
-          <p>I live in Washington Crossing. I know every town in this area — the neighborhoods, the price points, the schools, the commute realities. No guessing, no googling your streets.</p>
+          <h3>Explains Everything in Plain English</h3>
+          <p>No jargon, no runaround. I walk you through exactly what's happening at every step — before you even need to ask.</p>
         </div>
       </div>
       <div class="vp-item">
         <div class="vp-icon">⚡</div>
         <div class="vp-text">
-          <h3>Fast Response, No Pressure</h3>
-          <p>I respond fast and I'm not a salesperson. The consult is free and you're never locked into anything. I'd rather give you good info than waste your time with a pitch.</p>
+          <h3>Fast Response, Zero Pressure</h3>
+          <p>I respond fast and I'm not a salesperson. The consult is free, you're never locked in, and I'd rather give you real info than waste your time.</p>
         </div>
       </div>
       <div class="vp-item">
-        <div class="vp-icon">🏆</div>
+        <div class="vp-icon">📍</div>
         <div class="vp-text">
-          <h3>Top 1% Team · KW</h3>
-          <p>Kim Rock Group at Keller Williams — #1 team at KW Langhorne, top 1% in Greater Philadelphia, $100M+ in volume in 2025. You get the resources of a top team with the attention of a solo agent.</p>
+          <h3>Actually Local — Washington Crossing, PA</h3>
+          <p>I live here. I know every town in Bucks County — the neighborhoods, the price points, the schools, the commute. No guessing, no googling your streets.</p>
         </div>
       </div>
 
       <div class="agent-bio">
-        <img src="../matt-headshot.jpg" alt="Matt Laurie, Realtor" class="agent-avatar" />
+        <img src="../matt-headshot.jpg" alt="Matt Laurie, Realtor Bucks County PA" class="agent-avatar" />
         <div class="agent-info">
           <h3>Matt Laurie, REALTOR®</h3>
-          <p>Kim Rock Group · Keller Williams Real Estate<br>
+          <p>Keller Williams Real Estate · Kim Rock Group<br>
           10 years licensed in PA · NJ license coming soon<br>
           PA License #RS333171</p>
           <a class="phone" href="tel:2672255611">(267) 225-5611</a>
@@ -908,33 +582,39 @@
       <div class="testimonial-grid">
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
+          <p>"I honestly didn't think I'd be able to buy this year. Matt walked me through programs I had no idea existed and we closed way under budget. I'm still kind of shocked it worked out this well."</p>
+          <span class="reviewer">— Jamie R., First-Time Buyer</span>
+          <span class="reviewer-sub">Went from renting to owning in Levittown</span>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
           <p>"Matt made our experience buying our first home so much easier. Very quick to answer all our questions and figured things out for us before we even knew we had a problem."</p>
-          <span class="reviewer">— Zillow Client, First-Time Buyer in PA</span>
+          <span class="reviewer">— First-Time Buyer, Bucks County PA</span>
+          <span class="reviewer-sub">Zillow Review</span>
         </div>
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p>"Matt was wonderful — he took me out to look at houses when no one else would. Very knowledgeable, knows what he's doing, and very personable. Wonderful experience!"</p>
-          <span class="reviewer">— Natalie H., Philadelphia, PA</span>
+          <p>"I was nervous about the whole process and had a ton of questions. Matt answered every single one and never made me feel like I was bothering him. Super smooth start to finish."</p>
+          <span class="reviewer">— Natalie H., First-Time Buyer</span>
+          <span class="reviewer-sub">Philadelphia, PA</span>
         </div>
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p>"Matt was very helpful throughout the entire process of purchasing my new home — from fitting my schedule for showings to guiding me through closing. Couldn't have done it without him."</p>
-          <span class="reviewer">— Dave C., Bristol, PA</span>
+          <p>"Could not be happier. Matt anticipated every need and made the whole process easy. Genuinely professional and always available — we felt he always looked out for our best interests."</p>
+          <span class="reviewer">— M. Semmel, Buyer</span>
+          <span class="reviewer-sub">Washington Crossing, PA</span>
         </div>
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p>"Could not be happier. Matt anticipated every need, and made the whole process easy. Genuinely professional and always available. We felt that Matt always looked out for our best interests."</p>
-          <span class="reviewer">— M. Semmel, Washington Crossing, PA</span>
+          <p>"We had student loans and weren't sure we'd qualify for anything. Matt found us a program that covered our down payment — we closed on a house in Bristol with less than $4K out of pocket."</p>
+          <span class="reviewer">— Dave &amp; Kristen C., First-Time Buyers</span>
+          <span class="reviewer-sub">Bristol, PA</span>
         </div>
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
-          <p>"Matt guided us through the entire process and made the experience enjoyable. As first-time buyers we had a lot of questions — he answered every single one and never made us feel rushed. Couldn't ask for a better realtor."</p>
-          <span class="reviewer">— Google Review, First-Time Buyer in PA</span>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"I found myself needing to find a home within a very short amount of time and Matt came through. He knew exactly what I needed, moved fast, and got me into the right place. Incredibly smooth from start to finish."</p>
-          <span class="reviewer">— Google Review, Buyer in Bucks County</span>
+          <p>"Matt was very helpful throughout the entire process — from fitting my schedule to guiding me through closing. He explained everything in plain English. Couldn't have done it without him."</p>
+          <span class="reviewer">— Google Review, Buyer</span>
+          <span class="reviewer-sub">Bucks County, PA</span>
         </div>
       </div>
     </div>
@@ -945,7 +625,7 @@
     <h2>Common Questions</h2>
     <div class="faq-item">
       <div class="faq-q">How much money do I actually need to buy a home in Bucks County? <span class="chevron">▾</span></div>
-      <div class="faq-a">A lot less than you probably think. FHA loans start at 3.5% down — on a $350,000 home that's $12,250, not $70,000. On top of that, PA grants and local programs can cover part or all of that. Many buyers I work with close with under $5,000 out of pocket.</div>
+      <div class="faq-a">A lot less than you probably think. FHA loans start at 3.5% down — on a $350,000 home that's $12,250, not $70,000. On top of that, PA grants and local programs can cover part or all of that. Buyers in towns like Levittown, Bensalem, and Bristol regularly close with under $5,000 out of pocket.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What's the catch with down payment assistance programs? <span class="chevron">▾</span></div>
@@ -965,7 +645,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">What if I owned a home before — does any of this still apply? <span class="chevron">▾</span></div>
-      <div class="faq-a">More than you'd think. Some programs define "first-time buyer" as anyone who hasn't owned a home in the past 3 years — so you may still qualify. Others are open to all buyers regardless of history. Either way, it's worth a quick conversation to see what's available for your situation.</div>
+      <div class="faq-a">More than you'd think. Some programs define "first-time buyer" as anyone who hasn't owned a home in the past 3 years — so you may still qualify. Others are open to all buyers regardless of history. Either way, it's worth a quick conversation.</div>
     </div>
   </section>
 
@@ -975,7 +655,6 @@
       <img src="../kw-realestate-logo.jpg" alt="Keller Williams Real Estate" style="height:38px;width:auto;opacity:0.9;" />
       <img src="../kimrock-logo.png" alt="Kim Rock Group" class="footer-logo-img" />
     </div>
-    <!-- Social Icons -->
     <div style="display:flex;justify-content:center;gap:18px;margin:14px 0 10px;flex-wrap:wrap;">
       <a href="https://www.facebook.com/mattlaurierealestate" target="_blank" rel="noopener" style="color:#aaa;text-decoration:none;font-size:13px;font-weight:600;">Facebook</a>
       <a href="https://www.instagram.com/mattlaurierealtor" target="_blank" rel="noopener" style="color:#aaa;text-decoration:none;font-size:13px;font-weight:600;">Instagram</a>
@@ -983,14 +662,22 @@
       <a href="https://www.linkedin.com/in/mattlaurierealestate" target="_blank" rel="noopener" style="color:#aaa;text-decoration:none;font-size:13px;font-weight:600;">LinkedIn</a>
     </div>
     <p>© 2026 Matt Laurie, REALTOR® · PA License #RS333171</p>
-    <p>Keller Williams Real Estate · Kim Rock Group</p>
+    <p>Broker: Keller Williams Real Estate · Kim Rock Group</p>
     <p>Office: (215) 757-6100 &nbsp;·&nbsp; Matt's Cell: (267) 225-5611</p>
     <p>584 Middletown Blvd Suite A50, Langhorne, PA 19047</p>
     <p style="margin-top:4px;">Member: National Association of REALTORS® · Pennsylvania Association of Realtors® · Bucks County Association of Realtors®</p>
-    <p style="margin-top:4px;">This is not a solicitation if you are already represented by a real estate agent. Program availability and eligibility vary — contact Matt for details.</p>
+    <p style="margin-top:4px;">This is not a solicitation if you are already represented by a real estate agent. Buyer assistance programs are offered by third-party lenders and agencies — not by Matt Laurie individually. Availability and eligibility vary.</p>
   </footer>
 
   <script>
+    // More programs toggle
+    function toggleMore(btn) {
+      const grid = document.getElementById('more-programs');
+      const isOpen = grid.classList.contains('open');
+      grid.classList.toggle('open');
+      btn.textContent = isOpen ? '+ 6 More Programs You May Qualify For' : '− Hide Additional Programs';
+    }
+
     // Capture UTM params
     const urlParams = new URLSearchParams(window.location.search);
     ['utm_source','utm_campaign','utm_medium'].forEach(p => {
@@ -1004,31 +691,17 @@
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-
-      // Fire tracking pixels
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', {content_name: 'buyer_consult', content_category: 'first_time_buyer'});
-      }
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: 'buyer_consult', content_category: 'first_time_buyer'});
       if (typeof gtag !== 'undefined') {
         gtag('event', 'conversion', {'send_to': 'AW-898844952'});
         gtag('event', 'form_submit', {'event_category': 'buyer_page', 'event_label': 'buyer_lead'});
       }
-
-      const data = new FormData(form);
-      const payload = Object.fromEntries(data.entries());
-
+      const payload = Object.fromEntries(new FormData(form).entries());
       try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: JSON.stringify(payload),
-          headers: { 'Content-Type': 'application/json' }
-        });
-        form.style.display = 'none';
-        thankyou.style.display = 'block';
-      } catch(err) {
-        form.style.display = 'none';
-        thankyou.style.display = 'block';
-      }
+        await fetch(form.action, { method: 'POST', body: JSON.stringify(payload), headers: {'Content-Type': 'application/json'} });
+      } catch(err) {}
+      form.style.display = 'none';
+      thankyou.style.display = 'block';
     });
 
     // FAQ accordion
@@ -1036,29 +709,18 @@
       q.addEventListener('click', () => {
         const answer = q.nextElementSibling;
         const isOpen = answer.classList.contains('open');
-        // Close all
         document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
         document.querySelectorAll('.faq-q').forEach(q2 => q2.classList.remove('open'));
-        // Open clicked (if wasn't open)
-        if (!isOpen) {
-          answer.classList.add('open');
-          q.classList.add('open');
-        }
+        if (!isOpen) { answer.classList.add('open'); q.classList.add('open'); }
       });
     });
 
     // GA4 scroll depth
-    let scrolled50 = false, scrolled100 = false;
+    let s50=false, s100=false;
     window.addEventListener('scroll', () => {
       const pct = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
-      if (pct >= 0.5 && !scrolled50) {
-        scrolled50 = true;
-        if (typeof gtag !== 'undefined') gtag('event', 'scroll_50', {'event_category': 'engagement'});
-      }
-      if (pct >= 0.99 && !scrolled100) {
-        scrolled100 = true;
-        if (typeof gtag !== 'undefined') gtag('event', 'scroll_100', {'event_category': 'engagement'});
-      }
+      if (pct >= 0.5 && !s50) { s50=true; if(typeof gtag!=='undefined') gtag('event','scroll_50',{'event_category':'engagement'}); }
+      if (pct >= 0.99 && !s100) { s100=true; if(typeof gtag!=='undefined') gtag('event','scroll_100',{'event_category':'engagement'}); }
     });
   </script>
 
