@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* ============================================
+   Matt Laurie Real Estate — Design System
+   ============================================ */
+
+/* Brand Colors */
+:root {
+  /* Primary — Deep navy (trust, professionalism) */
+  --color-primary: #1a2332;
+  --color-primary-light: #2a3a4f;
+  --color-primary-dark: #0f1621;
+  
+  /* Accent — Warm gold (premium feel without luxury-agent cheese) */
+  --color-accent: #c9a84c;
+  --color-accent-light: #dfc06e;
+  --color-accent-dark: #a88a3a;
+  
+  /* CTA — Strong blue (action, trust) */
+  --color-cta: #2563eb;
+  --color-cta-hover: #1d4ed8;
+  --color-cta-light: #3b82f6;
+  
+  /* Neutrals */
+  --color-bg: #ffffff;
+  --color-bg-warm: #faf8f5;
+  --color-bg-section: #f5f3ef;
+  --color-text: #1a1a1a;
+  --color-text-muted: #64748b;
+  --color-text-light: #94a3b8;
+  --color-border: #e2e8f0;
+  
+  /* Success / Alert */
+  --color-success: #16a34a;
+  --color-success-bg: #f0fdf4;
+  
+  /* KW Red (brand compliance) */
+  --color-kw-red: #b5121b;
+}
+
+/* Typography Scale */
+html {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-cta);
+  outline-offset: 2px;
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
