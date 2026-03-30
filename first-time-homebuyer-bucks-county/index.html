@@ -369,6 +369,118 @@
     <p class="hero-trust">Matt Laurie · Keller Williams · 10 years licensed in PA · Local to Bucks County</p>
   </section>
 
+  <!-- Main: Form + About (moved above fold content for conversion) -->
+  <div class="main" id="lead-form-section">
+
+    <!-- Form -->
+    <div class="form-card">
+      <h2>See What Buyer Programs You May Qualify For</h2>
+      <p class="sub">Takes 30 seconds. Matt personally reviews and reaches out within a few hours — no pressure, no commitment.</p>
+
+      <!-- Trust bar near form -->
+      <div class="form-trust">
+        <img src="../matt-headshot.jpg" alt="Matt Laurie, REALTOR®" />
+        <div class="form-trust-text">
+          <strong>Matt Laurie, REALTOR®</strong>
+          Keller Williams · Kim Rock Group<br>
+          10 years licensed in PA · Top 1% Greater Philadelphia
+        </div>
+      </div>
+
+      <form id="lead-form" action="https://webhook.mattlaurierealestate.com/lead" method="POST">
+        <input type="hidden" name="lead_type" value="buyer" />
+        <input type="hidden" name="utm_source" id="utm_source" value="" />
+        <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+        <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required minlength="2" />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(215) 555-0100" required
+          pattern="[\d\s\(\)\-\+]{10,15}" title="Please enter a valid phone number (at least 10 digits)"
+          inputmode="numeric" />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Email (recommended)" />
+
+        <label for="area">Where are you looking to buy?</label>
+        <select id="area" name="area" required>
+          <option value="">— Select an area —</option>
+          <option>Bucks County</option>
+          <option>Philadelphia</option>
+          <option>Montgomery County</option>
+          <option>New Jersey</option>
+          <option>Not sure yet — open to multiple areas</option>
+        </select>
+
+        <p style="font-size:0.78rem;color:#888;margin-bottom:12px;line-height:1.5;">By submitting this form, you consent to receive SMS text messages and emails from Matt Laurie regarding your inquiry. Message and data rates may apply. Reply STOP to opt out. View our <a href="/privacy-policy/" style="color:#c8a55a;">Privacy Policy</a>.</p>
+        <button type="submit" class="btn">Get My Free Program Match →</button>
+        <div class="alt-cta" style="margin-top:12px;">Rather just talk? <a href="tel:2672255611">Call or text (267) 225-5611</a></div>
+      </form>
+
+      <div id="thankyou">
+        <div class="check">✅</div>
+        <h2>You're all set!</h2>
+        <p>Matt will reach out personally — usually within a few hours.</p>
+        <div class="thankyou-steps">
+          <p>📋 <strong>What happens next:</strong></p>
+          <p>① Matt reviews your info and pulls programs for your area</p>
+          <p>② He'll call or text you at the number you provided</p>
+          <p>③ You get a clear picture of what you may qualify for — no pressure, no pitch</p>
+        </div>
+        <p style="margin-top:14px;font-size:14px;color:#666;">Want to talk sooner? Call or text Matt anytime: <strong><a href="tel:2672255611" style="color:#B40101;">(267) 225-5611</a></strong></p>
+      </div>
+    </div>
+
+    <!-- Value Props / About -->
+    <div class="value-props">
+      <h2>Why Work With<br><span>Matt Laurie?</span></h2>
+      <p>I've been helping first-time buyers in Bucks County for over 10 years. I know which programs are actually available right now, which lenders work best with them, and how to get you to the closing table without surprises.</p>
+
+      <div class="vp-item">
+        <div class="vp-icon">🎓</div>
+        <div class="vp-text">
+          <h3>Specializes in First-Time Buyers</h3>
+          <p>This isn't a side note — it's a core part of what I do. I know the programs, the lenders, and the process. I've been through it with buyers who thought it wasn't possible.</p>
+        </div>
+      </div>
+      <div class="vp-item">
+        <div class="vp-icon">💬</div>
+        <div class="vp-text">
+          <h3>Explains Everything in Plain English</h3>
+          <p>No jargon, no runaround. I walk you through exactly what's happening at every step — before you even need to ask.</p>
+        </div>
+      </div>
+      <div class="vp-item">
+        <div class="vp-icon">⚡</div>
+        <div class="vp-text">
+          <h3>Fast Response, Zero Pressure</h3>
+          <p>I respond fast and I'm not a salesperson. The consult is free, you're never locked in, and I'd rather give you real info than waste your time.</p>
+        </div>
+      </div>
+      <div class="vp-item">
+        <div class="vp-icon">📍</div>
+        <div class="vp-text">
+          <h3>Actually Local — Washington Crossing, PA</h3>
+          <p>I live here. I know every town in Bucks County — the neighborhoods, the price points, the schools, the commute. No guessing, no googling your streets.</p>
+        </div>
+      </div>
+
+      <div class="agent-bio">
+        <img src="../matt-headshot.jpg" alt="Matt Laurie, Realtor Bucks County PA" class="agent-avatar" />
+        <div class="agent-info">
+          <h3>Matt Laurie, REALTOR®</h3>
+          <p>Keller Williams Real Estate · The Kim Rock Group<br>
+          10 years licensed in PA<br>
+          PA License #RS333171</p>
+          <a class="phone" href="tel:2672255611">(267) 225-5611</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <!-- Who This Is For -->
   <section class="for-you">
     <h2>Sound Like <span>You?</span></h2>
@@ -535,118 +647,6 @@
   <!-- Social Proof Counter -->
   <div class="social-counter">
     <p>Matt has helped <span>60+</span> buyers in Bucks County and Philadelphia find their first home — many using programs they didn't know existed.</p>
-  </div>
-
-  <!-- Main: Form + About -->
-  <div class="main" id="lead-form-section">
-
-    <!-- Form -->
-    <div class="form-card">
-      <h2>See What Buyer Programs You May Qualify For</h2>
-      <p class="sub">Takes 30 seconds. Matt personally reviews and reaches out within a few hours — no pressure, no commitment.</p>
-
-      <!-- Trust bar near form -->
-      <div class="form-trust">
-        <img src="../matt-headshot.jpg" alt="Matt Laurie, REALTOR®" />
-        <div class="form-trust-text">
-          <strong>Matt Laurie, REALTOR®</strong>
-          Keller Williams · Kim Rock Group<br>
-          10 years licensed in PA · Top 1% Greater Philadelphia
-        </div>
-      </div>
-
-      <form id="lead-form" action="https://webhook.mattlaurierealestate.com/lead" method="POST">
-        <input type="hidden" name="lead_type" value="buyer" />
-        <input type="hidden" name="utm_source" id="utm_source" value="" />
-        <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
-        <input type="hidden" name="utm_medium" id="utm_medium" value="" />
-
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required minlength="2" />
-
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="(215) 555-0100" required
-          pattern="[\d\s\(\)\-\+]{10,15}" title="Please enter a valid phone number (at least 10 digits)"
-          inputmode="numeric" />
-
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="Email (recommended)" />
-
-        <label for="area">Where are you looking to buy?</label>
-        <select id="area" name="area" required>
-          <option value="">— Select an area —</option>
-          <option>Bucks County</option>
-          <option>Philadelphia</option>
-          <option>Montgomery County</option>
-          <option>New Jersey</option>
-          <option>Not sure yet — open to multiple areas</option>
-        </select>
-
-        <p style="font-size:0.78rem;color:#888;margin-bottom:12px;line-height:1.5;">By submitting this form, you consent to receive SMS text messages and emails from Matt Laurie regarding your inquiry. Message and data rates may apply. Reply STOP to opt out. View our <a href="/privacy-policy/" style="color:#c8a55a;">Privacy Policy</a>.</p>
-        <button type="submit" class="btn">Get My Free Program Match →</button>
-        <div class="alt-cta" style="margin-top:12px;">Rather just talk? <a href="tel:2672255611">Call or text (267) 225-5611</a></div>
-      </form>
-
-      <div id="thankyou">
-        <div class="check">✅</div>
-        <h2>You're all set!</h2>
-        <p>Matt will reach out personally — usually within a few hours.</p>
-        <div class="thankyou-steps">
-          <p>📋 <strong>What happens next:</strong></p>
-          <p>① Matt reviews your info and pulls programs for your area</p>
-          <p>② He'll call or text you at the number you provided</p>
-          <p>③ You get a clear picture of what you may qualify for — no pressure, no pitch</p>
-        </div>
-        <p style="margin-top:14px;font-size:14px;color:#666;">Want to talk sooner? Call or text Matt anytime: <strong><a href="tel:2672255611" style="color:#B40101;">(267) 225-5611</a></strong></p>
-      </div>
-    </div>
-
-    <!-- Value Props / About -->
-    <div class="value-props">
-      <h2>Why Work With<br><span>Matt Laurie?</span></h2>
-      <p>I've been helping first-time buyers in Bucks County for over 10 years. I know which programs are actually available right now, which lenders work best with them, and how to get you to the closing table without surprises.</p>
-
-      <div class="vp-item">
-        <div class="vp-icon">🎓</div>
-        <div class="vp-text">
-          <h3>Specializes in First-Time Buyers</h3>
-          <p>This isn't a side note — it's a core part of what I do. I know the programs, the lenders, and the process. I've been through it with buyers who thought it wasn't possible.</p>
-        </div>
-      </div>
-      <div class="vp-item">
-        <div class="vp-icon">💬</div>
-        <div class="vp-text">
-          <h3>Explains Everything in Plain English</h3>
-          <p>No jargon, no runaround. I walk you through exactly what's happening at every step — before you even need to ask.</p>
-        </div>
-      </div>
-      <div class="vp-item">
-        <div class="vp-icon">⚡</div>
-        <div class="vp-text">
-          <h3>Fast Response, Zero Pressure</h3>
-          <p>I respond fast and I'm not a salesperson. The consult is free, you're never locked in, and I'd rather give you real info than waste your time.</p>
-        </div>
-      </div>
-      <div class="vp-item">
-        <div class="vp-icon">📍</div>
-        <div class="vp-text">
-          <h3>Actually Local — Washington Crossing, PA</h3>
-          <p>I live here. I know every town in Bucks County — the neighborhoods, the price points, the schools, the commute. No guessing, no googling your streets.</p>
-        </div>
-      </div>
-
-      <div class="agent-bio">
-        <img src="../matt-headshot.jpg" alt="Matt Laurie, Realtor Bucks County PA" class="agent-avatar" />
-        <div class="agent-info">
-          <h3>Matt Laurie, REALTOR®</h3>
-          <p>Keller Williams Real Estate · The Kim Rock Group<br>
-          10 years licensed in PA<br>
-          PA License #RS333171</p>
-          <a class="phone" href="tel:2672255611">(267) 225-5611</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- Testimonials -->
