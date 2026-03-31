@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState, FormEvent } from 'react'
 
 type FormType = 'seller' | 'buyer'
@@ -144,6 +145,33 @@ export function LeadForm({ type, town, className = '' }: LeadFormProps) {
           </select>
         )}
 
+        <label className="block rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-section)] px-4 py-3 text-xs text-[var(--color-text-muted)] leading-relaxed">
+          <span className="flex items-start gap-3">
+            <input
+              type="checkbox"
+              name="sms_consent"
+              value="yes"
+              required
+              className="mt-0.5 h-4 w-4 rounded border-[var(--color-border)] text-[var(--color-cta)] focus:ring-[var(--color-cta)]"
+            />
+            <span>
+              I agree to receive SMS text messages from Matt Laurie regarding my real estate inquiry,
+              including follow-up about buying, selling, home value estimates, property details, and
+              appointment coordination. Message frequency varies. Message and data rates may apply.
+              Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase. View
+              the{' '}
+              <Link href="/privacy-policy/" className="font-semibold text-[var(--color-cta)] underline underline-offset-2">
+                Privacy Policy
+              </Link>{' '}
+              and{' '}
+              <Link href="/terms/" className="font-semibold text-[var(--color-cta)] underline underline-offset-2">
+                Terms of Service
+              </Link>
+              .
+            </span>
+          </span>
+        </label>
+
         <button
           type="submit"
           disabled={loading}
@@ -156,8 +184,8 @@ export function LeadForm({ type, town, className = '' }: LeadFormProps) {
             : 'Find Out What Free Money You Qualify For →'}
         </button>
 
-        <p className="text-xs text-[var(--color-text-light)] text-center">
-          🔒 Your info is private. No spam, ever. Matt reaches out personally.
+        <p className="text-xs text-[var(--color-text-light)] text-center leading-relaxed">
+          🔒 Your info stays private. No sold lead lists, no spam blast nonsense — just direct follow-up from Matt.
         </p>
       </form>
     </div>
