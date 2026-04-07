@@ -44,7 +44,7 @@ export function LeadForm({ type, town, className = '' }: LeadFormProps) {
 
     try {
       // Send to webhook
-      await fetch('https://178.156.230.106:443/webhook/lead', {
+      await fetch('https://webhook.mattlaurierealestate.com/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -151,15 +151,16 @@ export function LeadForm({ type, town, className = '' }: LeadFormProps) {
               type="checkbox"
               name="sms_consent"
               value="yes"
-              required
               className="mt-0.5 h-4 w-4 rounded border-[var(--color-border)] text-[var(--color-cta)] focus:ring-[var(--color-cta)]"
             />
             <span>
-              I agree to receive SMS text messages from Matt Laurie regarding my real estate inquiry,
-              including follow-up about buying, selling, home value estimates, property details, and
-              appointment coordination. Message frequency varies. Message and data rates may apply.
-              Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase. View
-              the{' '}
+              <strong>(Optional)</strong> I consent to receive SMS text messages from Matt Laurie
+              regarding my real estate inquiry, including follow-up about buying, selling, home value
+              estimates, property details, and appointment coordination. <strong>This is entirely
+              optional — you will receive the same service whether or not you check this box.</strong>{' '}
+              Declining SMS consent does not affect your ability to receive a response or service.
+              Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any
+              time. Reply HELP for help. View the{' '}
               <Link href="/privacy-policy/" className="font-semibold text-[var(--color-cta)] underline underline-offset-2">
                 Privacy Policy
               </Link>{' '}

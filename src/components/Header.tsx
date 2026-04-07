@@ -30,7 +30,7 @@ export function Header() {
                 Matt Laurie
               </div>
               <div className="text-xs text-[var(--color-text-muted)] leading-tight">
-                REALTOR® · Kim Rock Group · KW
+                REALTOR® · The Kim Rock Group · KW
               </div>
             </div>
           </Link>

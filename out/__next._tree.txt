@@ -1,4 +1,6 @@
-:HL["/_next/static/chunks/01z69uyf8x7tu.css","style"]
+:HL["/_next/static/chunks/11cmdo_scd6jo.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap","style"]
+:HL["/kw-realestate-logo.png","image"]
+:HL["/kimrock-logo.png","image"]
 :HL["/matt-headshot-new.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"7O9gwPtXYBS0Jz4ZLGDas"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"IuDlxYkwi69p8qlUNz0DY"}
