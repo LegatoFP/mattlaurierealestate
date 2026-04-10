@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <title>Mortgage Pre-Approval — Matt Laurie, Keller Williams</title>
+  <meta name="description" content="Start your mortgage pre-approval with John DePaul Jr at Movement Mortgage. Fast, local, works with PA and NJ buyers. 15 minutes. No commitment." />
+  <meta property="og:title" content="Mortgage Pre-Approval — Matt Laurie" />
+  <meta property="og:description" content="Start your pre-approval today. 15 minutes. No commitment. Works with first-time buyers, self-employed buyers, and anyone told they don't qualify." />
+  <meta property="og:image" content="https://mattlaurierealestate.com/matt-headshot.jpg" />
+  <meta property="og:url" content="https://mattlaurierealestate.com/preapproval/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Ads + GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-898844952"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-898844952');
+    gtag('config', 'G-92S2CKS0QS');
+  </script>
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1692674915052372');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1692674915052372&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: #1a2332;
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      padding: 6px 16px;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .top-bar a { color: rgba(255,255,255,0.7); }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-brand-name { font-size: 18px; font-weight: 700; color: #1a2332; line-height: 1.2; }
+    .nav-brand-sub { font-size: 12px; color: #64748b; line-height: 1.2; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: #64748b;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: #1a2332; }
+    .nav-cta-group { display: flex; align-items: center; gap: 16px; }
+    .nav-phone {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a2332;
+    }
+    .nav-phone:hover { color: #c9a84c; }
+    .btn-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 20px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.15s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .btn-nav-cta:hover { background: #1d4ed8; }
+
+    /* ── HERO ── */
+    .hero {
+      background: #1a2332;
+      color: #fff;
+      padding: 80px 24px 112px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top, rgba(201,168,76,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; max-width: 800px; margin: 0 auto; }
+    .hero-eyebrow {
+      color: #c9a84c;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero-eyebrow a { color: #c9a84c; text-decoration: underline; }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .hero h1 .accent { color: #c9a84c; }
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: rgba(255,255,255,0.75);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .hero-cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.4);
+      transition: background 0.15s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-primary-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #c9a84c;
+      color: #1a2332;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 10px;
+      transition: background 0.15s;
+    }
+    .btn-primary-gold:hover { background: #b8963f; }
+    .hero-disclosure {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .hero-note {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 80px 24px; }
+    .section--white { background: #fff; }
+    .section--warm { background: #faf8f5; }
+    .section--dark { background: #1a2332; color: #fff; }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      color: #1a2332;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      text-align: center;
+      color: #64748b;
+      max-width: 560px;
+      margin: 0 auto 56px;
+    }
+    .section-title--light { color: #fff; }
+    .section-sub--light { color: rgba(255,255,255,0.6); }
+
+    /* ── CARDS ── */
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    .card {
+      background: #faf8f5;
+      border: 1px solid #f0efe9;
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .card-icon { font-size: 32px; margin-bottom: 16px; }
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a2332;
+      margin-bottom: 12px;
+    }
+    .card-body { color: #4a5568; line-height: 1.7; font-size: 15px; }
+
+    /* ── HOW IT WORKS ── */
+    .steps-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 56px;
+    }
+    .step { text-align: center; }
+    .step-num {
+      width: 56px;
+      height: 56px;
+      background: #1a2332;
+      color: #c9a84c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+    }
+    .step-title { font-size: 20px; font-weight: 700; color: #1a2332; margin-bottom: 12px; }
+    .step-body { color: #4a5568; line-height: 1.7; font-size: 15px; }
+
+    /* ── JOHN CARD ── */
+    .john-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 700px) {
+      .john-grid { grid-template-columns: 1fr; }
+    }
+    .john-card {
+      background: #1a2332;
+      border-radius: 20px;
+      padding: 40px;
+      color: #fff;
+    }
+    .john-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .john-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #c9a84c;
+      flex-shrink: 0;
+    }
+    .john-initials {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #c9a84c;
+      color: #1a2332;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .john-label {
+      color: #c9a84c;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .john-name { font-size: 24px; font-weight: 700; color: #fff; }
+    .john-company { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+    .john-info { margin-bottom: 24px; }
+    .john-info-row {
+      display: flex;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 8px;
+    }
+    .john-info-label { color: rgba(255,255,255,0.4); flex-shrink: 0; }
+    .john-info-row a { color: #fff; }
+    .john-info-row a:hover { color: #c9a84c; }
+    .john-info-row a.underline { text-decoration: underline; }
+    .john-bio { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 28px; }
+
+    .john-list-title {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 700;
+      color: #1a2332;
+      margin-bottom: 16px;
+    }
+    .john-list-sub { color: #4a5568; line-height: 1.7; margin-bottom: 24px; }
+    .john-list { list-style: none; }
+    .john-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #2d3748;
+      font-size: 15px;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .john-list li::before { content: '✓'; color: #c9a84c; font-weight: 700; margin-top: 1px; flex-shrink: 0; }
+    .john-aside-note { font-size: 13px; color: #64748b; font-style: italic; margin-top: 24px; line-height: 1.6; }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      background: #fff;
+      border: 1px solid #f0efe9;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #1a2332;
+      cursor: pointer;
+      user-select: none;
+      gap: 16px;
+    }
+    .faq-q:hover { background: #faf8f5; }
+    .faq-arrow { color: #c9a84c; font-size: 12px; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-item[open] .faq-arrow { transform: rotate(180deg); }
+    .faq-a { padding: 0 24px 20px; color: #4a5568; font-size: 15px; line-height: 1.7; border-top: 1px solid #f0efe9; padding-top: 16px; }
+
+    /* ── FINAL CTA ── */
+    .final-cta { text-align: center; }
+    .final-cta h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .final-cta h2 .accent { color: #c9a84c; }
+    .final-cta p { color: rgba(255,255,255,0.7); font-size: 18px; margin-bottom: 32px; }
+    .final-cta .btn-primary { margin-bottom: 12px; font-size: 20px; padding: 20px 48px; }
+    .final-cta .disclosure { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+    .final-cta .note { color: rgba(255,255,255,0.55); font-size: 14px; margin-top: 24px; }
+    .final-cta .note a { color: rgba(255,255,255,0.8); text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    .footer { background: #1a2332; color: rgba(255,255,255,0.6); }
+    .footer-top { padding: 64px 24px 48px; }
+    .footer-top-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+    .footer-brand { }
+    .footer-brand-name { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .footer-brand-sub { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .footer-phone { color: #c9a84c; font-weight: 600; font-size: 15px; margin: 12px 0 4px; display: block; }
+    .footer-phone:hover { color: #dfc06e; }
+    .footer-office { font-size: 13px; color: rgba(255,255,255,0.4); display: block; }
+    .footer-license { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 12px; line-height: 1.5; }
+    .footer-col-title { font-size: 12px; font-weight: 600; color: #c9a84c; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 24px;
+      text-align: center;
+    }
+    .footer-bottom-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-bottom img { height: 36px; width: auto; opacity: 0.7; }
+    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); text-align: center; margin-top: 12px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 24px; line-height: 1.6; }
+
+    /* ── MOBILE NAV ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-phone { display: none; }
+    }
+
+    /* ── CTA SECTION ── */
+    .text-center { text-align: center; }
+    .mt-56 { margin-top: 56px; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    Matt Laurie, REALTOR® &nbsp;·&nbsp; Keller Williams Real Estate &nbsp;·&nbsp; (215) 757-6100
+  </div>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="/">
+        <div>
+          <div class="nav-brand-name">Matt Laurie</div>
+          <div class="nav-brand-sub">REALTOR® · The Kim Rock Group · KW</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/sellers/">Sellers</a>
+        <a href="/first-time-homebuyer-bucks-county/">Buyers</a>
+        <a href="/neighborhoods/">Neighborhoods</a>
+        <a href="/about/">About</a>
+      </nav>
+      <div class="nav-cta-group">
+        <a class="nav-phone" href="tel:2672255611">(267) 225-5611</a>
+        <a class="btn-nav-cta" href="/#seller-form">Free Home Value</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        Call or Text Matt anytime: <a href="tel:2672255611">(267) 225-5611</a>
+      </div>
+      <h1>Ready to Buy?<br><span class="accent">Start With Getting Pre-Approved.</span></h1>
+      <p class="hero-sub">
+        Most buyers wait until they're "ready" — then realize they could've started months ago.
+        Pre-approval tells you what you can actually afford, whether you qualify for buyer grants
+        and credits, and what programs may be available to you before you start looking.
+      </p>
+      <div class="hero-cta-wrap">
+        <a class="btn-primary" href="https://easyapp.movement.com/apply/create_profile?userid=10105721" target="_blank" rel="noopener noreferrer">
+          Start My Pre-Approval →
+        </a>
+        <span class="hero-disclosure">Powered by EasyApp™ through Movement Mortgage</span>
+        <span class="hero-note">Takes about 15 minutes. No commitment. Works with buyers in PA and NJ.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PRE-APPROVAL FIRST -->
+  <section class="section section--white">
+    <div class="section-inner">
+      <h2 class="section-title">Why Pre-Approval First?</h2>
+      <p class="section-sub">Skipping this step is the #1 mistake buyers make. Here's what you gain by starting here.</p>
+      <div class="cards-3">
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h3 class="card-title">Know Your Number</h3>
+          <p class="card-body">Don't fall in love with a house you can't afford. Pre-approval tells you exactly what you can borrow — before you start looking. No wasted time, no heartbreak.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💰</div>
+          <h3 class="card-title">See If You Qualify for Grants & Credits</h3>
+          <p class="card-body">PA and local buyer programs, closing cost assistance, grant money — John's team knows what's available and will tell you what you may qualify for. Most buyers leave thousands on the table without ever knowing.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h3 class="card-title">Lock In Your Rate</h3>
+          <p class="card-body">Rates change. Getting pre-approved locks in options so you're not at the mercy of the market when you find the right place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section--warm">
+    <div class="section-inner">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps-3">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Fill Out the Form</h3>
+          <p class="step-body">About 15 minutes on your phone or computer. John DePaul Jr's team at Movement Mortgage will guide you through everything — no jargon, no runaround.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3 class="step-title">Get Your Numbers</h3>
+          <p class="step-body">You'll know exactly what you can borrow, what your monthly payment looks like, and what programs or buyer credits you may qualify for.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3 class="step-title">Shop With Confidence</h3>
+          <p class="step-body">When you find the right house, you're already pre-approved. Make your offer count — no scrambling for financing at the last minute.</p>
+        </div>
+      </div>
+      <div class="text-center mt-56">
+        <a class="btn-primary" href="https://easyapp.movement.com/apply/create_profile?userid=10105721" target="_blank" rel="noopener noreferrer">
+          Start My Pre-Approval →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT JOHN DEPAUL JR -->
+  <section class="section section--white">
+    <div class="section-inner">
+      <div class="john-grid">
+        <!-- John card -->
+        <div class="john-card">
+          <div class="john-header">
+            <img
+              class="john-photo"
+              src="../john-depauljr.jpg"
+              alt="John DePaul Jr, Movement Mortgage"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="john-initials" style="display:none;">JD</div>
+            <div>
+              <div class="john-label">Preferred Lender</div>
+              <div class="john-name">John DePaul Jr</div>
+              <div class="john-company">Movement Mortgage</div>
+            </div>
+          </div>
+          <div class="john-info">
+            <div class="john-info-row">
+              <span class="john-info-label">Phone:</span>
+              <a href="tel:2159390184">(215) 939-0184</a>
+            </div>
+            <div class="john-info-row">
+              <span class="john-info-label">Email:</span>
+              <a href="mailto:john.depauljr@movement.com">john.depauljr@movement.com</a>
+            </div>
+            <div class="john-info-row">
+              <span class="john-info-label">Website:</span>
+              <a class="underline" href="https://movement.com/lo/john-depauljr" target="_blank" rel="noopener noreferrer">movement.com/lo/john-depauljr</a>
+            </div>
+            <div class="john-info-row">
+              <span class="john-info-label">License:</span>
+              <span>NMLS #195172</span>
+            </div>
+          </div>
+          <p class="john-bio">John's team works with Matt's clients regularly — they know the local market, the programs, and how to close deals in this area. When your agent and lender are aligned from day one, the whole process is smoother.</p>
+          <a class="btn-primary-gold" href="https://easyapp.movement.com/apply/create_profile?userid=10105721" target="_blank" rel="noopener noreferrer">
+            Start with John's Team →
+          </a>
+        </div>
+        <!-- Who John's team works with -->
+        <div>
+          <h2 class="john-list-title">Who John's Team Works With</h2>
+          <p class="john-list-sub">Movement Mortgage isn't a one-size-fits-all shop. John DePaul Jr's team has programs for buyers who don't fit the traditional mold.</p>
+          <ul class="john-list">
+            <li>First-time buyers with limited credit or savings</li>
+            <li>Self-employed buyers (bank statement programs, non-QM loans)</li>
+            <li>PA and NJ residents — any town, any price range</li>
+            <li>Anyone who's been told they don't qualify elsewhere</li>
+            <li>Buyers using PA and NJ down payment assistance programs</li>
+          </ul>
+          <p class="john-aside-note">If you've been turned down before — or think you won't qualify — start here. Programs change, and John's team knows what's available right now.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--dark">
+    <div class="section-inner final-cta">
+      <h2>Don't wait for the "perfect time."<br><span class="accent">The perfect time is when you're pre-approved.</span></h2>
+      <p>15 minutes. No commitment. And you'll know exactly where you stand before you start looking at houses.</p>
+      <a class="btn-primary" href="https://easyapp.movement.com/apply/create_profile?userid=10105721" target="_blank" rel="noopener noreferrer">
+        Start My Pre-Approval →
+      </a>
+      <p class="disclosure">Powered by EasyApp™ through Movement Mortgage</p>
+      <p class="note">Questions first? Text Matt anytime: <a href="tel:2672255611">(267) 225-5611</a></p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--warm">
+    <div class="section-inner">
+      <h2 class="section-title">Common Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">
+            How long does pre-approval take?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-a">Usually about 15 minutes to fill out the application. The actual pre-approval letter can come within 24-48 hours depending on documentation. John's team moves fast.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">
+            Does pre-approval hurt my credit score?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-a">The initial application involves a soft pull that doesn't affect your credit score. Your score is only affected when you lock in a rate — and even then, the impact is minimal and temporary.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">
+            How long is pre-approval valid?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-a">Typically 60-90 days. If your financial situation changes significantly (new job, major purchases), you may need to update it. Worth keeping in mind when you're shopping timelines.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">
+            I'm self-employed — can I still get pre-approved?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-a">Yes. John DePaul Jr's team works with self-employed buyers using bank statements, asset depletion programs, and non-QM loans that traditional lenders don't offer. This is a big one — don't assume you don't qualify.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">
+            Do I have to use Matt's lender?
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-a">No. You can work with whoever you choose. But if you're going to shop lenders, you might as well start with John's team — they know the local market, the programs, and how to close deals in this area better than most.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-top-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">Matt Laurie, REALTOR®</div>
+          <p class="footer-brand-sub">The Kim Rock Group · Keller Williams Real Estate<br>#1 Team at KW Langhorne · Top 1% in Greater Philadelphia</p>
+          <a class="footer-phone" href="tel:2672255611">Cell: (267) 225-5611</a>
+          <span class="footer-office">Office: (215) 757-6100</span>
+          <p class="footer-license">PA License #RS333171 · Licensed in PA &amp; NJ<br>584 Middletown Blvd Suite A50, Langhorne, PA 19047</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Bucks County</div>
+          <ul class="footer-links">
+            <li><a href="/newtown/">Newtown</a></li>
+            <li><a href="/yardley/">Yardley</a></li>
+            <li><a href="/washington-crossing/">Washington Crossing</a></li>
+            <li><a href="/bensalem/">Bensalem</a></li>
+            <li><a href="/bristol/">Bristol</a></li>
+            <li><a href="/levittown/">Levittown</a></li>
+            <li><a href="/langhorne/">Langhorne</a></li>
+            <li><a href="/doylestown/">Doylestown</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">NE Philadelphia</div>
+          <ul class="footer-links">
+            <li><a href="/19154/">19154 · Parkwood &amp; Morrell Park</a></li>
+            <li><a href="/19116/">19116 · Somerton &amp; Bustleton</a></li>
+            <li><a href="/19115/">19115 · Rhawnhurst &amp; Bustleton</a></li>
+            <li><a href="/19114/">19114 · Torresdale &amp; Holmesburg</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <ul class="footer-links">
+            <li><a href="/first-time-homebuyer-bucks-county/">First-Time Buyer Programs</a></li>
+            <li><a href="/preapproval/">Mortgage Pre-Approval</a></li>
+            <li><a href="/sellers/">Sell Your Home</a></li>
+            <li><a href="/about/">About Matt</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <img src="../kw-realestate-logo.png" alt="Keller Williams Real Estate" />
+        <img src="../kimrock-logo.png" alt="The Kim Rock Group" />
+      </div>
+      <p style="margin-top:16px; font-size:12px; color:rgba(255,255,255,0.4);">
+        © 2026 Matt Laurie, REALTOR® · Keller Williams Real Estate · PA License #RS333171
+      </p>
+      <p style="font-size:11px; color:rgba(255,255,255,0.25); margin-top:8px;">
+        Member: National Association of REALTORS® · Pennsylvania Association of Realtors® · Bucks County Association of Realtors®
+      </p>
+      <p class="footer-disclaimer">Market data sourced from publicly available records. This is not a solicitation if you are already represented by a real estate agent. All information subject to change without notice.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
