@@ -2,6 +2,7 @@
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
   "/page": "/",
+  "/preapproval/page": "/preapproval",
   "/privacy-policy/page": "/privacy-policy",
   "/terms/page": "/terms"
 }

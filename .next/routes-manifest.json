@@ -56,6 +56,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/preapproval",
+      "regex": "^/preapproval(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/preapproval(?:/)?$"
+    },
+    {
       "page": "/privacy-policy",
       "regex": "^/privacy\\-policy(?:/)?$",
       "routeKeys": {},
