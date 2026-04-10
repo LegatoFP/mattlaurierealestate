@@ -38,7 +38,7 @@ All shared components in `src/components/`:
 ## Tracking (all pages via layout)
 - GA4: G-92S2CKS0QS
 - Google Ads: AW-898844952
-- Facebook Pixel: 1692674915052372
+- Facebook Pixel: 2449310355489916
 - Lead form fires: gtag conversion + GA4 generate_lead + FB Lead pixel
 
 ## Lead Form Webhook
