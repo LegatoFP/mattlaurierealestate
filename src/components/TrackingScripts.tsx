@@ -28,7 +28,7 @@ export function TrackingScripts() {
           n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
           t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
           document,'script','https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1692674915052372');
+          fbq('init', '2449310355489916');
           fbq('track', 'PageView');
         `}
       </Script>
@@ -37,7 +37,7 @@ export function TrackingScripts() {
           height="1"
           width="1"
           style={{ display: 'none' }}
-          src="https://www.facebook.com/tr?id=1692674915052372&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=2449310355489916&ev=PageView&noscript=1"
           alt=""
         />
       </noscript>
