@@ -181,8 +181,8 @@ export default function PreapprovalPage() {
                 </p>
                 <p>
                   <span className="text-gray-500">Email:</span>{' '}
-                  <a href="mailto:john.depauljr@movement.com" className="text-white hover:text-[#c9a84c]">
-                    john.depauljr@movement.com
+                  <a href="mailto:john.depaul@movement.com" className="text-white hover:text-[#c9a84c]">
+                    john.depaul@movement.com
                   </a>
                 </p>
                 <p>
