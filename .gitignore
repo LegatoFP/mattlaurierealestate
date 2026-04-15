@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+node_modules/
+landing-page/
+matt-site/
+memory/
+memory-backup*/
+state/
