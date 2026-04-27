@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <title>Schedule a Call | Matt Laurie · REALTOR® · Bucks County</title>
+  <meta name="description" content="Book a call with Matt Laurie, local REALTOR® serving Bucks County and Philadelphia. Buying, selling, investing — get direct follow-up, no spam." />
+  <meta property="og:title" content="Schedule a Call | Matt Laurie · REALTOR®" />
+  <meta property="og:description" content="Request a time to talk with Matt Laurie about buying, selling, or any real estate question in Bucks County and Philadelphia." />
+  <meta property="og:image" content="https://mattlaurierealestate.com/matt-headshot-new.jpg" />
+  <meta property="og:url" content="https://mattlaurierealestate.com/booking/" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://mattlaurierealestate.com/booking/" />
+
+  <!-- Google Ads + GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-898844952"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-898844952');
+    gtag('config', 'G-92S2CKS0QS');
+  </script>
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2449310355489916');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2449310355489916&ev=PageView&noscript=1"/></noscript>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Book a Call With Matt Laurie",
+    "url": "https://mattlaurierealestate.com/booking/",
+    "description": "Request a time to talk with Matt Laurie about buying, selling, investing, or local real estate questions in Bucks County and Philadelphia."
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f5f3ef; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+
+    /* ── Header ── */
+    header { background: #fff; border-bottom: 1px solid #e5e5e5; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+    .logo { font-weight: 700; font-size: 15px; color: #1a2332; text-decoration: none; }
+    .logo small { display: block; font-size: 11px; font-weight: 400; color: #888; margin-top: 1px; }
+    .header-phone { font-size: 14px; font-weight: 600; color: #1a2332; text-decoration: none; }
+    @media (max-width: 480px) { .header-phone { font-size: 13px; } }
+
+    /* ── Hero ── */
+    .hero { background: #1a2332; color: #fff; padding: 52px 20px 48px; text-align: center; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #c9a84c; margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(26px, 5vw, 40px); font-weight: 800; line-height: 1.2; margin-bottom: 14px; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.75); max-width: 540px; margin: 0 auto 28px; line-height: 1.6; }
+    .trust-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .trust-pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 6px 14px; font-size: 12px; color: rgba(255,255,255,0.8); }
+
+    /* ── Layout ── */
+    .page-body { max-width: 900px; margin: 0 auto; padding: 40px 16px 60px; }
+
+    /* ── Form Card ── */
+    .form-card { background: #fff; border-radius: 20px; border: 1px solid #e2e8f0; padding: 32px 28px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); margin-bottom: 32px; }
+    .form-card h2 { font-size: 20px; font-weight: 700; color: #1a2332; margin-bottom: 6px; }
+    .form-card .subtext { font-size: 14px; color: #64748b; margin-bottom: 24px; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-full { grid-column: 1 / -1; }
+
+    label.field-label { display: block; font-size: 13px; font-weight: 600; color: #1a2332; margin-bottom: 6px; }
+    input[type="text"], input[type="tel"], input[type="email"], select, textarea {
+      width: 100%; padding: 11px 14px; border: 1px solid #e2e8f0; border-radius: 10px;
+      font-size: 14px; font-family: inherit; color: #1a1a1a; background: #fff;
+      outline: none; transition: border-color 0.15s, box-shadow 0.15s;
+      -webkit-appearance: none; appearance: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
+    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    textarea { resize: vertical; min-height: 100px; }
+
+    .consent-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; font-size: 12px; color: #64748b; line-height: 1.6; }
+    .consent-box label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+    .consent-box input[type="checkbox"] { width: 16px; height: 16px; min-width: 16px; margin-top: 1px; border-radius: 4px; border: 1px solid #cbd5e1; accent-color: #2563eb; }
+    .consent-box a { color: #2563eb; text-decoration: underline; }
+
+    .submit-btn { width: 100%; padding: 14px; background: #2563eb; color: #fff; font-size: 15px; font-weight: 700; border: none; border-radius: 12px; cursor: pointer; transition: background 0.15s; margin-top: 4px; }
+    .submit-btn:hover { background: #1d4ed8; }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .disclaimer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 10px; }
+
+    /* ── Success State ── */
+    .success-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 20px; padding: 40px 28px; text-align: center; }
+    .success-card .check { font-size: 40px; margin-bottom: 12px; }
+    .success-card h3 { font-size: 22px; font-weight: 700; color: #1a2332; margin-bottom: 8px; }
+    .success-card p { color: #64748b; font-size: 15px; }
+    .success-card .phone-link { color: #2563eb; font-weight: 600; text-decoration: none; }
+
+    /* ── How it Works ── */
+    .steps-card { background: #fff; border-radius: 20px; border: 1px solid #e2e8f0; padding: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+    @media (max-width: 600px) { .steps-card { grid-template-columns: 1fr; } }
+    .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #a88a3a; margin-bottom: 6px; }
+    .step-title { font-size: 15px; font-weight: 700; color: #1a2332; margin-bottom: 4px; }
+    .step-desc { font-size: 13px; color: #64748b; line-height: 1.55; }
+
+    /* ── Bio ── */
+    .bio-card { background: #fff; border-radius: 20px; border: 1px solid #e2e8f0; padding: 28px 28px; display: flex; gap: 24px; align-items: flex-start; }
+    @media (max-width: 560px) { .bio-card { flex-direction: column; align-items: center; text-align: center; } }
+    .bio-photo { width: 100px; height: 100px; min-width: 100px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 3px solid #fff; outline: 2px solid #e2e8f0; }
+    .bio-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #a88a3a; margin-bottom: 4px; }
+    .bio-name { font-size: 20px; font-weight: 800; color: #1a2332; margin-bottom: 2px; }
+    .bio-creds { font-size: 12px; color: #94a3b8; margin-bottom: 10px; }
+    .bio-text { font-size: 14px; color: #64748b; line-height: 1.65; margin-bottom: 14px; }
+    .bio-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    @media (max-width: 560px) { .bio-actions { justify-content: center; } }
+    .bio-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; text-decoration: none; transition: opacity 0.15s; }
+    .bio-btn-primary { background: #2563eb; color: #fff; }
+    .bio-btn-primary:hover { opacity: 0.88; }
+    .bio-btn-secondary { background: #f1f5f9; color: #1a2332; border: 1px solid #e2e8f0; }
+    .bio-btn-secondary:hover { background: #e8edf4; }
+
+    /* ── Footer ── */
+    footer { background: #1a2332; color: rgba(255,255,255,0.5); text-align: center; font-size: 12px; padding: 24px 16px; line-height: 1.8; }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">
+      Matt Laurie
+      <small>REALTOR® · KW</small>
+    </a>
+    <a href="tel:2672255611" class="header-phone">📞 (267) 225-5611</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">Matt Laurie Real Estate</div>
+    <h1>Schedule a call with Matt.</h1>
+    <p>Buying, selling, investing, or just have a question — start here. Your info only goes to Matt, no spam.</p>
+    <div class="trust-pills">
+      <span class="trust-pill">No call center</span>
+      <span class="trust-pill">Bucks County &amp; Philadelphia</span>
+      <span class="trust-pill">Direct follow-up from Matt</span>
+    </div>
+  </section>
+
+  <div class="page-body">
+
+    <!-- Booking Form -->
+    <div id="form-wrapper">
+      <div class="form-card">
+        <h2>Request a time</h2>
+        <p class="subtext">Fill this out and Matt will confirm a real time with you ASAP.</p>
+
+        <form id="booking-form">
+          <div class="form-grid" style="margin-bottom:14px;">
+            <div>
+              <label class="field-label" for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label class="field-label" for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Best number" required />
+            </div>
+          </div>
+
+          <div class="form-grid" style="margin-bottom:14px;">
+            <div>
+              <label class="field-label" for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Optional but helpful" />
+            </div>
+            <div>
+              <label class="field-label" for="inquiry_type">What is this about?</label>
+              <select id="inquiry_type" name="inquiry_type" required>
+                <option value="buyer">Buying a home</option>
+                <option value="seller">Selling a home</option>
+                <option value="both">Buying and selling</option>
+                <option value="investor">Investment property</option>
+                <option value="agent">General real estate question</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid" style="margin-bottom:14px;">
+            <div>
+              <label class="field-label" for="timeframe">Rough timeline</label>
+              <select id="timeframe" name="timeframe" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="asap">ASAP</option>
+                <option value="30-days">Within 30 days</option>
+                <option value="60-90-days">60 to 90 days</option>
+                <option value="3-6-months">3 to 6 months</option>
+                <option value="just-starting">Just starting out</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="preferred_slot">Preferred time slot</label>
+              <select id="preferred_slot" name="preferred_slot">
+                <option value="">Pick a time slot</option>
+                <option>Monday morning</option>
+                <option>Monday afternoon</option>
+                <option>Monday evening</option>
+                <option>Tuesday morning</option>
+                <option>Tuesday afternoon</option>
+                <option>Tuesday evening</option>
+                <option>Wednesday morning</option>
+                <option>Wednesday afternoon</option>
+                <option>Wednesday evening</option>
+                <option>Thursday morning</option>
+                <option>Thursday afternoon</option>
+                <option>Thursday evening</option>
+                <option>Friday morning</option>
+                <option>Friday afternoon</option>
+                <option>Friday evening</option>
+                <option>Saturday morning</option>
+                <option>Saturday afternoon</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <label class="field-label" for="address">Property address — if this is about selling</label>
+            <input type="text" id="address" name="address" placeholder="Optional, if you want Matt to see the property context" />
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <label class="field-label" for="details">A few details</label>
+            <textarea id="details" name="details" placeholder="What are you looking for, where, and what would make this conversation useful?"></textarea>
+          </div>
+
+          <div class="consent-box" style="margin-bottom:14px;">
+            <label>
+              <input type="checkbox" name="sms_consent" value="yes" />
+              <span><strong>(Optional)</strong> I consent to receive SMS text messages from Matt Laurie regarding my real estate inquiry, including follow-up about buying, selling, appointment coordination, and requested property information. This is optional and won't affect whether Matt responds. Msg &amp; data rates may apply. Reply STOP to opt out. See the <a href="/privacy-policy/">Privacy Policy</a> and <a href="/terms/">Terms</a>.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submit-btn">Request a Time With Matt →</button>
+          <p class="disclaimer">Matt will get back to you ASAP and confirm the time!</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success card (hidden until submit) -->
+    <div id="success-card" class="success-card" style="display:none; margin-bottom:32px;">
+      <div class="check">✅</div>
+      <h3>Request sent!</h3>
+      <p>Matt will review it personally and reach out to lock in a real time.<br /><br />
+        Need something faster? Call or text <a href="tel:2672255611" class="phone-link">(267) 225-5611</a>.
+      </p>
+    </div>
+
+    <!-- How it works -->
+    <div class="steps-card">
+      <div>
+        <div class="step-num">1</div>
+        <div class="step-title">Send your request</div>
+        <div class="step-desc">Tell Matt what kind of help you need and pick a time window that works.</div>
+      </div>
+      <div>
+        <div class="step-num">2</div>
+        <div class="step-title">Matt reviews it personally</div>
+        <div class="step-desc">No VA, no automation. He sees it directly and follows up himself.</div>
+      </div>
+      <div>
+        <div class="step-num">3</div>
+        <div class="step-title">Lock in the time</div>
+        <div class="step-desc">Matt confirms the appointment by text, call, or email.</div>
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div class="bio-card">
+      <img src="../matt-headshot-new.jpg" alt="Matt Laurie, REALTOR®" class="bio-photo" />
+      <div>
+        <div class="bio-eyebrow">Who you're talking to</div>
+        <div class="bio-name">Matt Laurie, REALTOR®</div>
+        <div class="bio-creds">Keller Williams Real Estate · Licensed in PA &amp; NJ · 10+ Years</div>
+        <p class="bio-text">I've been helping buyers and sellers in Bucks County and Philadelphia for over 10 years. I live in Washington Crossing — this is my market, not just my job. When you reach out, you get me — not a call center, not a bot, not a random team member.</p>
+        <div class="bio-actions">
+          <a href="tel:2672255611" class="bio-btn bio-btn-primary">📞 (267) 225-5611</a>
+          <a href="mailto:mattlaurie@kw.com" class="bio-btn bio-btn-secondary">✉️ mattlaurie@kw.com</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Matt Laurie, REALTOR® · Keller Williams Real Estate · PA License #RS333171 · NJ License #2671376<br />
+    <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms/">Terms</a> · <a href="/">mattlaurierealestate.com</a>
+  </footer>
+
+  <script>
+    document.getElementById('booking-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const form = e.currentTarget;
+      const fd = new FormData(form);
+      const data = {};
+      fd.forEach((v, k) => { data[k] = v; });
+
+      const inquiryType = data.inquiry_type || 'buyer';
+      const isSellType = inquiryType === 'seller' || inquiryType === 'both';
+
+      data.lead_type = isSellType ? 'seller' : 'buyer';
+      data.tag = isSellType ? 'Seller Booking' : 'Buyer Booking';
+      data.area = inquiryType + '_consultation';
+      data.utm_source = 'booking_page';
+      data.utm_campaign = 'booking_page';
+      data.source_page = '/booking/';
+      data.booking_request = 'yes';
+      data.booking_slot = data.preferred_slot || '';
+      if (!data.address) data.address = 'Booking request';
+      data.booking_notes = [
+        'Booking request submitted from /booking/.',
+        'Inquiry type: ' + inquiryType,
+        'Timeline: ' + (data.timeframe || 'Not specified'),
+        'Preferred slot: ' + (data.preferred_slot || 'Not specified'),
+        data.details ? 'Details: ' + data.details : ''
+      ].filter(Boolean).join(' ');
+
+      try {
+        await fetch('https://webhook.mattlaurierealestate.com/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+          mode: 'no-cors'
+        });
+      } catch(err) { /* fire and forget */ }
+
+      // Tracking
+      if (window.gtag) {
+        gtag('event', 'conversion', { send_to: 'AW-898844952/lead' });
+        gtag('event', 'generate_lead', { event_category: 'booking', event_label: inquiryType });
+      }
+      if (window.fbq) {
+        fbq('track', 'Lead', { content_name: 'booking_' + inquiryType });
+      }
+
+      document.getElementById('form-wrapper').style.display = 'none';
+      document.getElementById('success-card').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
