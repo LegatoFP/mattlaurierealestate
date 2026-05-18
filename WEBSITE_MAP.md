@@ -25,6 +25,12 @@ These are static HTML lender-specific preapproval pages on the live GitHub Pages
   - Apply link: `https://markprincipi.floify.com/apply`
   - Image: `mark-principi.jpg`
 
+- `/cmghomeloans/`
+  - Lender: **Daniel Lohn**
+  - Company: **CMG Home Loans**
+  - Apply link: `https://my.cmghomeloans.com/homehub/signup/dlohn@cmghomeloans.com?from_mobile_share=true`
+  - Image: `daniel-lohn.jpg`
+
 - `/preapproval/`
   - Current behavior: redirects to `/buyers/`
   - Reserved for future reuse
