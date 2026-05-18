@@ -31,6 +31,10 @@ These are static HTML lender-specific preapproval pages on the live GitHub Pages
   - Apply link: `https://my.cmghomeloans.com/homehub/signup/dlohn@cmghomeloans.com?from_mobile_share=true`
   - Image: `daniel-lohn.jpg`
 
+- `/dan/`
+  - Behavior: redirects to Dan's token-gated sponsor leads dashboard at `https://webhook.mattlaurierealestate.com/leads/sponsor?token=dc-4pKsNw8R`
+  - Shows leads tagged `dan_cmg` or explicitly assigned to Dan/CMG.
+
 - `/preapproval/`
   - Current behavior: redirects to `/buyers/`
   - Reserved for future reuse
