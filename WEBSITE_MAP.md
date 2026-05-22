@@ -35,6 +35,26 @@ These are static HTML lender-specific preapproval pages on the live GitHub Pages
   - Behavior: redirects to Dan's token-gated sponsor leads dashboard at `https://webhook.mattlaurierealestate.com/leads/sponsor?token=dc-4pKsNw8R`
   - Shows leads tagged `dan_cmg` or explicitly assigned to Dan/CMG.
 
+- `/cindy/`
+  - Behavior: redirects to Cindy's token-gated sponsor leads dashboard at `https://webhook.mattlaurierealestate.com/leads/sponsor?token=cs-6vJpQw8K`
+  - Shows leads explicitly assigned to Cindy/Guild or tagged `cindy_guild` by a future intake route.
+
+- `/applywithcmg/`
+  - Behavior: redirects to Dan's CMG application link with UTM params.
+  - Used in Dan-routed buyer Facebook/Instagram automated email so the email stays clean instead of showing the long CMG URL.
+  - Destination: `https://my.cmghomeloans.com/homehub/signup/dlohn@cmghomeloans.com?from_mobile_share=true&utm_source=mattlaurierealestate&utm_medium=email&utm_campaign=dan_cmg_buyer_autoreply`
+
+## Dan / CMG Lead Routing
+
+- All new buyer Facebook/Instagram lead form leads default to sponsor/lender key `dan_cmg`.
+- Seller Facebook/Instagram leads are not routed to Dan by default.
+- Implemented in both intake paths:
+  - Real-time webhook: `/root/webhook-server.py`
+  - Polling fallback: `/root/fb-leads-monitor.py`
+- Client-facing buyer email: sent to the buyer, CC `dlohn@cmghomeloans.com`, BCC `dannyloan1@gmail.com`.
+- Internal lead notification: sent via AgentMail to `dlohn@cmghomeloans.com`, BCC `dannyloan1@gmail.com`.
+- Dan dashboard: `https://mattlaurierealestate.com/dan/`.
+
 - `/preapproval/`
   - Current behavior: redirects to `/buyers/`
   - Reserved for future reuse
