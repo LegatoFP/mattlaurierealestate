@@ -31,6 +31,13 @@ These are static HTML lender-specific preapproval pages on the live GitHub Pages
   - Apply link: `https://my.cmghomeloans.com/homehub/signup/dlohn@cmghomeloans.com?from_mobile_share=true`
   - Image: `daniel-lohn.jpg`
 
+- `/trinity/`
+  - Partner: **Drew Smith**
+  - Company: **Trinity Solutions**
+  - Service: Credit repair and credit education for buyers working toward mortgage readiness
+  - CTA link: `https://thehub.leadbridgesolutions.com/v2/preview/yHO4iywozLYPl4MdfxG4?notrack=true`
+  - Website: `https://trinitysolutionsusa.com/`
+
 - `/dan/`
   - Behavior: redirects to Dan's token-gated sponsor leads dashboard at `https://webhook.mattlaurierealestate.com/leads/sponsor?token=dc-4pKsNw8R`
   - Shows leads tagged `dan_cmg` or explicitly assigned to Dan/CMG.
@@ -91,4 +98,5 @@ To add another lender page in the future:
 - Keep Matt's phone as the page-level fallback contact unless told otherwise.
 - Preserve tracking scripts already present on these pages.
 - Keep the lender disclosure line consistent with the application platform branding.
+- For credit repair pages, avoid guaranteed score increases, guaranteed approval claims, or fixed timelines.
 - Current live lender template is based on the original `/preapproval/` page that was split into dedicated lender routes on 2026-04-20.
