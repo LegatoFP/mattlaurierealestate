@@ -315,6 +315,9 @@
       border: 4px solid rgba(201,168,76,0.85);
       margin-bottom: 20px;
       background: rgba(255,255,255,0.08);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
     .partner-mark {
       width: 72px;
@@ -336,9 +339,10 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 8px;
+      text-align: center;
     }
-    .partner-name { font-size: 28px; font-weight: 800; line-height: 1.15; margin-bottom: 4px; }
-    .partner-company { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .partner-name { font-size: 28px; font-weight: 800; line-height: 1.15; margin-bottom: 4px; text-align: center; }
+    .partner-company { color: rgba(255,255,255,0.7); margin-bottom: 24px; text-align: center; }
     .partner-info {
       border-top: 1px solid rgba(255,255,255,0.14);
       border-bottom: 1px solid rgba(255,255,255,0.14);
@@ -347,21 +351,19 @@
     }
     .partner-info-row {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
+      flex-direction: column;
+      gap: 3px;
       font-size: 14px;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
     .partner-info-row:last-child { margin-bottom: 0; }
     .partner-info-label { color: rgba(255,255,255,0.5); }
     .partner-info-value {
       color: rgba(255,255,255,0.86);
-      text-align: right;
-      max-width: 64%;
     }
     .partner-info a { color: #c9a84c; text-decoration: underline; }
-    .partner-info-row a { text-align: right; overflow-wrap: anywhere; }
+    .partner-info-row a,
+    .partner-info-value { overflow-wrap: anywhere; }
     .partner-bio {
       color: rgba(255,255,255,0.76);
       line-height: 1.65;
@@ -500,9 +502,6 @@
       .btn-secondary { width: 100%; justify-content: center; padding: 14px 20px; font-size: 15px; }
       .final-cta .btn-primary { padding: 18px 20px; font-size: 17px; }
       .partner-card { padding: 28px 24px; }
-      .partner-info-row { flex-direction: column; gap: 2px; }
-      .partner-info-row a,
-      .partner-info-value { max-width: none; text-align: left; }
       .footer-top-inner { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom-inner { flex-direction: column; gap: 16px; }
     }
