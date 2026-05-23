@@ -348,14 +348,26 @@
     .partner-info-row {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
       gap: 16px;
       font-size: 14px;
       margin-bottom: 10px;
     }
     .partner-info-row:last-child { margin-bottom: 0; }
     .partner-info-label { color: rgba(255,255,255,0.5); }
+    .partner-info-value {
+      color: rgba(255,255,255,0.86);
+      text-align: right;
+      max-width: 64%;
+    }
     .partner-info a { color: #c9a84c; text-decoration: underline; }
-    .partner-bio { color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 24px; }
+    .partner-info-row a { text-align: right; overflow-wrap: anywhere; }
+    .partner-bio {
+      color: rgba(255,255,255,0.76);
+      line-height: 1.65;
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
     .partner-actions {
       display: flex;
       flex-direction: column;
@@ -489,6 +501,8 @@
       .final-cta .btn-primary { padding: 18px 20px; font-size: 17px; }
       .partner-card { padding: 28px 24px; }
       .partner-info-row { flex-direction: column; gap: 2px; }
+      .partner-info-row a,
+      .partner-info-value { max-width: none; text-align: left; }
       .footer-top-inner { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom-inner { flex-direction: column; gap: 16px; }
     }
@@ -613,30 +627,30 @@
           <div class="partner-company">Trinity Solutions</div>
           <div class="partner-info">
             <div class="partner-info-row">
-              <span class="partner-info-label">Consultation:</span>
+              <span class="partner-info-label">Consultation</span>
               <a href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=partner_card_schedule" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('partner_card_schedule_consultation')">Schedule with Drew</a>
             </div>
             <div class="partner-info-row">
-              <span class="partner-info-label">Email:</span>
+              <span class="partner-info-label">Phone</span>
+              <a href="tel:18883913387" onclick="trackTrinityClick('partner_card_phone')">888-391-3387</a>
+            </div>
+            <div class="partner-info-row">
+              <span class="partner-info-label">Email</span>
               <a href="mailto:info@trinitysolutionsusa.com" onclick="trackTrinityClick('partner_card_email')">info@trinitysolutionsusa.com</a>
             </div>
             <div class="partner-info-row">
-              <span class="partner-info-label">Matt:</span>
-              <a href="tel:2672255611" onclick="trackTrinityClick('partner_card_matt_phone')">(267) 225-5611</a>
+              <span class="partner-info-label">Office</span>
+              <span class="partner-info-value">247 E Front St, Suite 202, Trenton, NJ 08611</span>
             </div>
             <div class="partner-info-row">
-              <span class="partner-info-label">Office:</span>
-              <span>247 E Front St, Suite 202, Trenton, NJ 08611</span>
-            </div>
-            <div class="partner-info-row">
-              <span class="partner-info-label">Website:</span>
+              <span class="partner-info-label">Website</span>
               <a href="https://trinitysolutionsusa.com/" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('partner_card_website')">trinitysolutionsusa.com</a>
             </div>
           </div>
-          <p class="partner-bio">Drew and the Trinity Solutions team help clients understand their credit, dispute inaccurate reporting, and build better habits so they can move toward bigger financial goals.</p>
+          <p class="partner-bio">Drew helps buyers get clear on what is hurting their credit before it delays a mortgage. His team reviews the report, flags inaccurate or outdated items, builds a dispute plan where appropriate, and gives buyers a cleaner path toward becoming mortgage-ready.</p>
           <div class="partner-actions">
             <a class="btn-primary-gold" href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=partner_card_schedule_button" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('partner_card_schedule_button')">
-              Schedule with Drew →
+              Schedule Consultation →
             </a>
             <a class="btn-secondary" href="mailto:info@trinitysolutionsusa.com" onclick="trackTrinityClick('partner_card_email_button')">
               Email Trinity
