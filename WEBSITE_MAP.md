@@ -36,7 +36,10 @@ These are static HTML lender-specific preapproval pages on the live GitHub Pages
   - Company: **Trinity Solutions**
   - Service: Credit repair and credit education for buyers working toward mortgage readiness
   - CTA link: `https://thehub.leadbridgesolutions.com/v2/preview/yHO4iywozLYPl4MdfxG4?notrack=true`
+  - Schedule link: `https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153`
   - Website: `https://trinitysolutionsusa.com/`
+  - Email: `info@trinitysolutionsusa.com`
+  - Image: `drew-smith-trinity.jpg`
 
 - `/dan/`
   - Behavior: redirects to Dan's token-gated sponsor leads dashboard at `https://webhook.mattlaurierealestate.com/leads/sponsor?token=dc-4pKsNw8R`

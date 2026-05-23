@@ -9,7 +9,7 @@
   <meta name="description" content="Work with Drew Smith and Trinity Solutions to review your credit, dispute inaccurate items, build better habits, and get closer to homebuyer-ready." />
   <meta property="og:title" content="Credit Repair for Homebuyers — Matt Laurie &amp; Trinity Solutions" />
   <meta property="og:description" content="Credit holding up your home search? Start with a credit review from Drew Smith at Trinity Solutions." />
-  <meta property="og:image" content="https://mattlaurierealestate.com/matt-headshot.jpg" />
+  <meta property="og:image" content="https://mattlaurierealestate.com/drew-smith-trinity.jpg" />
   <meta property="og:url" content="https://mattlaurierealestate.com/trinity/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -35,6 +35,19 @@
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2449310355489916&ev=PageView&noscript=1"/></noscript>
+  <script>
+    function trackTrinityClick(label) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'trinity_cta_click', {
+          event_category: 'partner_page',
+          event_label: label
+        });
+      }
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'TrinityCTAClick', { label: label });
+      }
+    }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -165,6 +178,23 @@
       transition: background 0.15s, transform 0.15s;
     }
     .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 10px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(255,255,255,0.36);
+    }
     .btn-primary-gold {
       display: inline-flex;
       align-items: center;
@@ -276,6 +306,16 @@
       padding: 32px;
       box-shadow: 0 20px 50px rgba(26,35,50,0.14);
     }
+    .partner-photo {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid rgba(201,168,76,0.85);
+      margin-bottom: 20px;
+      background: rgba(255,255,255,0.08);
+    }
     .partner-mark {
       width: 72px;
       height: 72px;
@@ -316,6 +356,11 @@
     .partner-info-label { color: rgba(255,255,255,0.5); }
     .partner-info a { color: #c9a84c; text-decoration: underline; }
     .partner-bio { color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 24px; }
+    .partner-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
     .partner-list-title {
       font-size: clamp(28px, 4vw, 40px);
       font-weight: 700;
@@ -440,6 +485,7 @@
       .cards-3 { gap: 20px; }
       .card { padding: 24px; }
       .btn-primary { width: 100%; justify-content: center; padding: 16px 20px; font-size: 16px; }
+      .btn-secondary { width: 100%; justify-content: center; padding: 14px 20px; font-size: 15px; }
       .final-cta .btn-primary { padding: 18px 20px; font-size: 17px; }
       .partner-card { padding: 28px 24px; }
       .partner-info-row { flex-direction: column; gap: 2px; }
@@ -487,8 +533,11 @@
         a cleaner path toward getting mortgage-ready.
       </p>
       <div class="hero-cta-wrap">
-        <a class="btn-primary" href="https://thehub.leadbridgesolutions.com/v2/preview/yHO4iywozLYPl4MdfxG4?notrack=true" target="_blank" rel="noopener noreferrer">
-          Start My Credit Review →
+        <a class="btn-primary" href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=hero_schedule" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('hero_schedule_consultation')">
+          Schedule a Consultation with Drew →
+        </a>
+        <a class="btn-secondary" href="https://thehub.leadbridgesolutions.com/v2/preview/yHO4iywozLYPl4MdfxG4?notrack=true&amp;utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=hero_credit_review" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('hero_credit_review')">
+          Learn About Trinity
         </a>
         <span class="hero-disclosure">Credit review through Trinity Solutions</span>
         <span class="hero-note">No pressure. Start before you apply for a mortgage, not after a lender says no.</span>
@@ -541,8 +590,8 @@
         </div>
       </div>
       <div class="text-center mt-56">
-        <a class="btn-primary" href="https://thehub.leadbridgesolutions.com/v2/preview/yHO4iywozLYPl4MdfxG4?notrack=true" target="_blank" rel="noopener noreferrer">
-          Start My Credit Review →
+        <a class="btn-primary" href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=how_it_works_schedule" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('how_it_works_schedule_consultation')">
+          Schedule a Consultation with Drew →
         </a>
       </div>
     </div>
@@ -552,24 +601,47 @@
     <div class="section-inner">
       <div class="partner-grid">
         <div class="partner-card">
-          <div class="partner-mark">TS</div>
+          <img
+            class="partner-photo"
+            src="../drew-smith-trinity.jpg"
+            alt="Drew Smith, Trinity Solutions"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="partner-mark" style="display:none;">TS</div>
           <div class="partner-label">Credit Repair Partner</div>
           <div class="partner-name">Drew Smith</div>
           <div class="partner-company">Trinity Solutions</div>
           <div class="partner-info">
             <div class="partner-info-row">
-              <span class="partner-info-label">Focus:</span>
-              <span>Credit repair and education</span>
+              <span class="partner-info-label">Consultation:</span>
+              <a href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=partner_card_schedule" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('partner_card_schedule_consultation')">Schedule with Drew</a>
+            </div>
+            <div class="partner-info-row">
+              <span class="partner-info-label">Email:</span>
+              <a href="mailto:info@trinitysolutionsusa.com" onclick="trackTrinityClick('partner_card_email')">info@trinitysolutionsusa.com</a>
+            </div>
+            <div class="partner-info-row">
+              <span class="partner-info-label">Matt:</span>
+              <a href="tel:2672255611" onclick="trackTrinityClick('partner_card_matt_phone')">(267) 225-5611</a>
+            </div>
+            <div class="partner-info-row">
+              <span class="partner-info-label">Office:</span>
+              <span>247 E Front St, Suite 202, Trenton, NJ 08611</span>
             </div>
             <div class="partner-info-row">
               <span class="partner-info-label">Website:</span>
-              <a href="https://trinitysolutionsusa.com/" target="_blank" rel="noopener noreferrer">trinitysolutionsusa.com</a>
+              <a href="https://trinitysolutionsusa.com/" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('partner_card_website')">trinitysolutionsusa.com</a>
             </div>
           </div>
           <p class="partner-bio">Drew and the Trinity Solutions team help clients understand their credit, dispute inaccurate reporting, and build better habits so they can move toward bigger financial goals.</p>
-          <a class="btn-primary-gold" href="https://thehub.leadbridgesolutions.com/v2/preview/yHO4iywozLYPl4MdfxG4?notrack=true" target="_blank" rel="noopener noreferrer">
-            Start with Trinity →
-          </a>
+          <div class="partner-actions">
+            <a class="btn-primary-gold" href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=partner_card_schedule_button" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('partner_card_schedule_button')">
+              Schedule with Drew →
+            </a>
+            <a class="btn-secondary" href="mailto:info@trinitysolutionsusa.com" onclick="trackTrinityClick('partner_card_email_button')">
+              Email Trinity
+            </a>
+          </div>
         </div>
         <div>
           <h2 class="partner-list-title">Who This Is For</h2>
@@ -591,8 +663,8 @@
     <div class="section-inner final-cta">
       <h2>Do the credit work before the house hunt.<br><span class="accent">Future you will be glad you started early.</span></h2>
       <p>If buying a home is the goal, start with the thing that may be holding up the financing.</p>
-      <a class="btn-primary" href="https://thehub.leadbridgesolutions.com/v2/preview/yHO4iywozLYPl4MdfxG4?notrack=true" target="_blank" rel="noopener noreferrer">
-        Start My Credit Review →
+      <a class="btn-primary" href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=final_schedule" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('final_schedule_consultation')">
+        Schedule a Consultation with Drew →
       </a>
       <p class="disclosure">Credit review through Trinity Solutions</p>
       <p class="note">Questions first? Text Matt anytime: <a href="tel:2672255611">(267) 225-5611</a></p>
