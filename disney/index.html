@@ -1,0 +1,1785 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Disney World Family Trip Guide</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #647084;
+      --paper: #fffaf1;
+      --surface: #ffffff;
+      --mist: #eef6f7;
+      --line: rgba(23, 32, 51, .14);
+      --shadow: 0 18px 50px rgba(18, 35, 57, .13);
+      --teal: #147884;
+      --teal-dark: #0d4f59;
+      --coral: #d65f54;
+      --gold: #c99328;
+      --plum: #6e4b80;
+      --sky: #80b7cf;
+      --green: #4f8a5f;
+      --radius: 8px;
+      --header: 76px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #fffaf1 0%, #edf7f8 43%, #fffdf8 100%);
+      line-height: 1.45;
+    }
+
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: 10px;
+      z-index: 30;
+      transform: translateY(-160%);
+      background: var(--ink);
+      color: white;
+      padding: 10px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: var(--header);
+      border-bottom: 1px solid rgba(255,255,255,.32);
+      background: rgba(255, 250, 241, .76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 32px));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: conic-gradient(from 210deg, var(--teal), var(--plum), var(--coral), var(--gold), var(--teal));
+      box-shadow: 0 10px 25px rgba(20, 120, 132, .25);
+      flex: 0 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::before {
+      content: "";
+      width: 22px;
+      height: 22px;
+      border: 2px solid rgba(255,255,255,.86);
+      border-radius: 50%;
+      box-shadow:
+        -10px -8px 0 -5px rgba(255,255,255,.86),
+        10px -8px 0 -5px rgba(255,255,255,.86);
+    }
+
+    .brand-title {
+      min-width: 0;
+    }
+
+    .brand-title strong {
+      display: block;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-title span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+
+    .nav a, .ghost-button {
+      border: 1px solid transparent;
+      background: transparent;
+      color: #314052;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .nav a:hover, .ghost-button:hover, .nav a.active {
+      background: rgba(255,255,255,.74);
+      border-color: rgba(23,32,51,.12);
+      color: var(--teal-dark);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - var(--header));
+      overflow: clip;
+      display: grid;
+      align-items: center;
+      isolation: isolate;
+      border-bottom: 1px solid rgba(23,32,51,.08);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255,255,255,.75) 0 8%, transparent 20%),
+        radial-gradient(circle at 82% 10%, rgba(255,255,255,.64) 0 7%, transparent 21%),
+        linear-gradient(145deg, rgba(20,120,132,.24), rgba(214,95,84,.16) 44%, rgba(201,147,40,.18));
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 34%;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, transparent, rgba(255,250,241,.92)),
+        repeating-linear-gradient(90deg, rgba(20,120,132,.12) 0 1px, transparent 1px 96px);
+    }
+
+    .sparkle-field {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .sparkle-field span {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 0 16px rgba(255,255,255,.95), 0 0 34px rgba(201,147,40,.55);
+      animation: sparkleFloat 7s ease-in-out infinite;
+    }
+
+    .sparkle-field span:nth-child(1) { left: 8%; top: 26%; animation-delay: -1s; }
+    .sparkle-field span:nth-child(2) { left: 18%; top: 62%; animation-delay: -4s; }
+    .sparkle-field span:nth-child(3) { left: 32%; top: 18%; animation-delay: -2s; }
+    .sparkle-field span:nth-child(4) { right: 24%; top: 28%; animation-delay: -5s; }
+    .sparkle-field span:nth-child(5) { right: 12%; top: 58%; animation-delay: -3s; }
+    .sparkle-field span:nth-child(6) { right: 42%; bottom: 20%; animation-delay: -6s; }
+
+    @keyframes sparkleFloat {
+      0%, 100% { opacity: .12; transform: translateY(12px) scale(.75); }
+      45% { opacity: 1; transform: translateY(-16px) scale(1.35); }
+    }
+
+    .fireworks {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .72;
+    }
+
+    .burst {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,255,255,.95) 0 3px, transparent 4px),
+        conic-gradient(from 0deg, transparent 0 8deg, rgba(214,95,84,.95) 9deg 11deg, transparent 12deg 35deg, rgba(201,147,40,.95) 36deg 38deg, transparent 39deg 70deg, rgba(20,120,132,.88) 71deg 73deg, transparent 74deg 100deg, rgba(110,75,128,.9) 101deg 103deg, transparent 104deg 360deg);
+      mask: radial-gradient(circle, transparent 0 12px, #000 13px 54px, transparent 55px);
+      -webkit-mask: radial-gradient(circle, transparent 0 12px, #000 13px 54px, transparent 55px);
+      animation: burstPop 5.8s ease-out infinite;
+      transform: scale(.2);
+      opacity: 0;
+    }
+
+    .burst:nth-child(1) { left: 58%; top: 11%; animation-delay: .2s; }
+    .burst:nth-child(2) { left: 75%; top: 24%; width: 82px; height: 82px; animation-delay: 2.1s; }
+    .burst:nth-child(3) { left: 42%; top: 22%; width: 94px; height: 94px; animation-delay: 3.6s; }
+
+    @keyframes burstPop {
+      0%, 58%, 100% { opacity: 0; transform: scale(.15) rotate(0deg); }
+      64% { opacity: .95; transform: scale(1) rotate(18deg); }
+      78% { opacity: 0; transform: scale(1.35) rotate(38deg); }
+    }
+
+    .skyline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      height: 190px;
+      pointer-events: none;
+      color: rgba(13,79,89,.20);
+      overflow: hidden;
+    }
+
+    .castle {
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      width: min(520px, 88vw);
+      height: 170px;
+      transform: translateX(-50%);
+      opacity: .85;
+    }
+
+    .castle span {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      background: currentColor;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+
+    .tower-main { left: 44%; width: 12%; height: 138px; clip-path: polygon(50% 0, 100% 32%, 100% 100%, 0 100%, 0 32%); }
+    .tower-left { left: 26%; width: 11%; height: 110px; clip-path: polygon(50% 0, 100% 35%, 100% 100%, 0 100%, 0 35%); }
+    .tower-right { right: 26%; width: 11%; height: 110px; clip-path: polygon(50% 0, 100% 35%, 100% 100%, 0 100%, 0 35%); }
+    .castle-body { left: 30%; width: 40%; height: 68px; border-radius: 8px 8px 0 0; }
+    .castle-wing-left { left: 12%; width: 24%; height: 44px; border-radius: 8px 8px 0 0; }
+    .castle-wing-right { right: 12%; width: 24%; height: 44px; border-radius: 8px 8px 0 0; }
+
+    .monorail-track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 84px;
+      height: 2px;
+      background: rgba(13,79,89,.20);
+    }
+
+    .monorail {
+      position: absolute;
+      left: -230px;
+      bottom: 94px;
+      width: 210px;
+      height: 34px;
+      border-radius: 18px 28px 28px 18px;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(13,79,89,.16);
+      box-shadow: 0 14px 30px rgba(23,32,51,.10);
+      animation: monorailRun 18s linear infinite;
+      overflow: hidden;
+    }
+
+    .monorail::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 15px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--coral), var(--gold), var(--teal));
+    }
+
+    .monorail::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      right: 28px;
+      top: 7px;
+      height: 9px;
+      background: repeating-linear-gradient(90deg, rgba(13,79,89,.35) 0 16px, transparent 16px 26px);
+    }
+
+    @keyframes monorailRun {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(100vw + 460px)); }
+    }
+
+    .clouds {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .82;
+      transform: translate3d(calc(var(--mx, 0) * -12px), calc(var(--my, 0) * -10px), 0);
+      transition: transform .12s linear;
+    }
+
+    .cloud {
+      position: absolute;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.86);
+      filter: blur(.1px);
+      box-shadow: 0 20px 70px rgba(52,75,92,.12);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+
+    .cloud:nth-child(1) { width: 240px; height: 72px; border-radius: 999px; left: 6%; top: 18%; }
+    .cloud:nth-child(2) { width: 180px; height: 56px; border-radius: 999px; right: 8%; top: 20%; animation-delay: -4s; }
+    .cloud:nth-child(3) { width: 260px; height: 78px; border-radius: 999px; left: 48%; bottom: 18%; animation-delay: -8s; }
+
+    @keyframes drift {
+      from { transform: translateX(-18px); }
+      to { transform: translateX(24px); }
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 70px 0 84px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 460px);
+      align-items: center;
+      gap: 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--teal-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--coral);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(46px, 8vw, 116px);
+      line-height: .9;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: #465366;
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      border: 1px solid rgba(23,32,51,.12);
+      border-radius: 8px;
+      background: var(--ink);
+      color: white;
+      padding: 12px 16px;
+      font-weight: 750;
+      text-decoration: none;
+      box-shadow: 0 14px 28px rgba(23,32,51,.16);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(23,32,51,.20); }
+    .button.secondary {
+      background: rgba(255,255,255,.72);
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .trip-panel {
+      position: relative;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 8px;
+      background: rgba(255,255,255,.70);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: translate3d(calc(var(--mx, 0) * 12px), calc(var(--my, 0) * 10px), 0);
+      transition: transform .12s linear;
+    }
+
+    .panel-top {
+      min-height: 190px;
+      padding: 22px;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(13,79,89,.86), rgba(110,75,128,.74)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80") center/cover;
+      display: grid;
+      align-content: end;
+    }
+
+    .panel-top span {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      opacity: .86;
+    }
+
+    .panel-top strong {
+      display: block;
+      margin-top: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 35px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .trip-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(23,32,51,.10);
+    }
+
+    .stat {
+      background: rgba(255,255,255,.86);
+      padding: 18px;
+      min-height: 102px;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 750;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 20px;
+      line-height: 1.12;
+    }
+
+    .alert-line {
+      padding: 16px 18px;
+      background: #fff5dd;
+      border-top: 1px solid rgba(201,147,40,.28);
+      color: #6d4a0d;
+      font-size: 14px;
+    }
+
+    .progress-shell {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      z-index: 40;
+      background: transparent;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--coral), var(--gold), var(--teal));
+      box-shadow: 0 0 18px rgba(214,95,84,.42);
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 72px 0 90px;
+    }
+
+    section {
+      scroll-margin-top: calc(var(--header) + 22px);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 610px;
+      font-size: 16px;
+    }
+
+    .kicker {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--coral);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .tile {
+      border: 1px solid rgba(23,32,51,.10);
+      background: rgba(255,255,255,.74);
+      border-radius: 8px;
+      box-shadow: 0 16px 40px rgba(23,32,51,.08);
+      padding: 20px;
+      min-height: 150px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tile, details, .check-item, .pack-card, .trip-panel {
+      outline: 1px solid rgba(255,255,255,.52);
+      outline-offset: -5px;
+    }
+
+    .tile::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: var(--tile-color, var(--teal));
+    }
+
+    .tile h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+    .tile p, .tile li {
+      color: #4d5a6c;
+      font-size: 14px;
+    }
+
+    .tile p { margin: 0; }
+    .tile ul { margin: 0; padding-left: 18px; }
+    .tile li + li { margin-top: 7px; }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border: 1px solid rgba(23,32,51,.10);
+      border-radius: 8px;
+      background: rgba(255,255,255,.76);
+      padding: 14px;
+      min-height: 78px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .check-item:hover { transform: translateY(-2px); border-color: rgba(20,120,132,.35); background: white; }
+    .check-item input {
+      width: 22px;
+      height: 22px;
+      accent-color: var(--teal);
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+    .check-item span {
+      color: #314052;
+      font-size: 14px;
+    }
+    .check-item input:checked + span {
+      color: var(--muted);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+    }
+
+    .meter {
+      margin: 18px 0 0;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(23,32,51,.10);
+      background: rgba(255,255,255,.72);
+    }
+
+    .meter-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .meter-track {
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(23,32,51,.10);
+    }
+
+    .meter-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--coral), var(--gold), var(--green));
+      transition: width .3s ease;
+    }
+
+    .tabs {
+      border: 1px solid rgba(23,32,51,.10);
+      border-radius: 8px;
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 18px 48px rgba(23,32,51,.09);
+      overflow: hidden;
+    }
+
+    .tab-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(23,32,51,.10);
+    }
+
+    .tab-list button {
+      min-height: 62px;
+      border: 0;
+      background: rgba(255,255,255,.82);
+      color: #38465a;
+      font-weight: 800;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .tab-list button[aria-selected="true"] {
+      color: white;
+      background: var(--active-color, var(--teal));
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 24px;
+      animation: rise .32s ease both;
+    }
+
+    .tab-panel.active { display: block; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-list div {
+      border-left: 4px solid var(--active-color, var(--teal));
+      background: rgba(23,32,51,.035);
+      padding: 12px 14px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .mini-list strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .mini-list span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      bottom: 18px;
+      width: 2px;
+      background: linear-gradient(var(--coral), var(--teal), var(--gold));
+    }
+
+    .step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--surface);
+      border: 2px solid var(--step-color, var(--teal));
+      color: var(--step-color, var(--teal));
+      font-weight: 900;
+      z-index: 1;
+      box-shadow: 0 10px 24px rgba(23,32,51,.10);
+    }
+
+    .step-body {
+      padding: 16px 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(23,32,51,.10);
+      background: rgba(255,255,255,.76);
+      box-shadow: 0 14px 34px rgba(23,32,51,.07);
+    }
+
+    .step-body h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+
+    .step-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    details {
+      border: 1px solid rgba(23,32,51,.10);
+      border-radius: 8px;
+      background: rgba(255,255,255,.74);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(23,32,51,.06);
+    }
+
+    details + details { margin-top: 10px; }
+    summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 17px 18px;
+      font-weight: 850;
+      cursor: pointer;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(20,120,132,.10);
+      color: var(--teal-dark);
+      flex: 0 0 auto;
+    }
+    details[open] summary::after { content: "-"; }
+    .detail-body {
+      padding: 0 18px 18px;
+      color: #4d5a6c;
+      font-size: 14px;
+    }
+    .detail-body ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .detail-body li + li { margin-top: 7px; }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+
+    .chip {
+      border: 1px solid rgba(23,32,51,.13);
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      color: #39475a;
+      padding: 9px 12px;
+      font-weight: 800;
+      font-size: 13px;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .chip.active {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .packing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .pack-card {
+      border: 1px solid rgba(23,32,51,.10);
+      border-radius: 8px;
+      background: rgba(255,255,255,.75);
+      padding: 16px;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .pack-card.hidden {
+      display: none;
+    }
+
+    .pack-card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .pack-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #4d5a6c;
+      font-size: 14px;
+    }
+    .pack-card li + li { margin-top: 7px; }
+
+    .note {
+      border-left: 5px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 18px;
+      background: #fff4d8;
+      color: #65460f;
+      box-shadow: 0 14px 34px rgba(201,147,40,.12);
+    }
+
+    .magic-divider {
+      margin: 78px 0 0;
+      height: 76px;
+      position: relative;
+      overflow: hidden;
+      border-block: 1px solid rgba(23,32,51,.10);
+      background:
+        linear-gradient(90deg, transparent, rgba(255,255,255,.72), transparent),
+        repeating-linear-gradient(90deg, rgba(20,120,132,.10) 0 2px, transparent 2px 26px);
+    }
+
+    .magic-divider::before {
+      content: "";
+      position: absolute;
+      left: -140px;
+      top: 16px;
+      width: 120px;
+      height: 44px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.82);
+      box-shadow:
+        30px -10px 0 -12px rgba(255,255,255,.82),
+        62px -4px 0 -15px rgba(255,255,255,.82),
+        0 18px 38px rgba(23,32,51,.10);
+      animation: cloudSweep 20s linear infinite;
+    }
+
+    .magic-divider::after {
+      content: "✦ ✧ ✦ ✧ ✦ ✧ ✦";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(201,147,40,.70);
+      font-size: 20px;
+      letter-spacing: 18px;
+      animation: twinkleText 3s ease-in-out infinite;
+    }
+
+    @keyframes cloudSweep {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(100vw + 280px)); }
+    }
+
+    @keyframes twinkleText {
+      0%, 100% { opacity: .42; }
+      50% { opacity: .95; }
+    }
+
+    .source-list {
+      columns: 2;
+      column-gap: 36px;
+      color: #4d5a6c;
+      font-size: 14px;
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .source-list li { break-inside: avoid; margin-bottom: 7px; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .video-card {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(23,32,51,.11);
+      border-radius: 8px;
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 16px 38px rgba(23,32,51,.08);
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      outline: 1px solid rgba(255,255,255,.52);
+      outline-offset: -5px;
+    }
+
+    .video-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(214,95,84,.36);
+      box-shadow: 0 22px 46px rgba(23,32,51,.12);
+    }
+
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #dfe8ec;
+      overflow: hidden;
+    }
+
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.01);
+      transition: transform .25s ease;
+    }
+
+    .video-card:hover .video-thumb img { transform: scale(1.05); }
+
+    .play-badge {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 54px;
+      height: 38px;
+      transform: translate(-50%, -50%);
+      border-radius: 8px;
+      background: rgba(214, 45, 45, .92);
+      box-shadow: 0 12px 28px rgba(0,0,0,.20);
+    }
+
+    .play-badge::before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 10px;
+      border-left: 15px solid white;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+    }
+
+    .video-body {
+      padding: 15px;
+    }
+
+    .video-body span {
+      display: inline-flex;
+      margin-bottom: 8px;
+      color: var(--coral);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+
+    .video-body h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.18;
+    }
+
+    .video-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floating-actions {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 22;
+      display: grid;
+      gap: 8px;
+    }
+
+    .float-button {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(23,32,51,.12);
+      border-radius: 50%;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 28px rgba(23,32,51,.14);
+      color: var(--ink);
+      font-weight: 900;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .float-button:hover { transform: translateY(-2px); background: white; }
+
+    .footer {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto 42px;
+      padding: 22px 0 0;
+      border-top: 1px solid rgba(23,32,51,.14);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      :root { --header: 68px; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 48px 0 58px;
+      }
+      .trip-panel { transform: none; }
+      .clouds { transform: none; }
+      .nav { display: none; }
+      .grid.cols-3, .grid.cols-2, .checklist, .panel-grid, .packing-grid {
+        grid-template-columns: 1fr;
+      }
+      .video-grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .tab-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .source-list { columns: 1; }
+      .skyline { height: 150px; opacity: 1; }
+      .fireworks { opacity: .98; }
+      .sparkle-field span { width: 7px; height: 7px; }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner, .hero-inner, main, .footer { width: min(100% - 24px, 1180px); }
+      .brand-title span { display: none; }
+      .hero-actions { display: grid; }
+      .button { width: 100%; }
+      .trip-stats { grid-template-columns: 1fr; }
+      .tab-list { grid-template-columns: 1fr; }
+      .tab-list button { min-height: 52px; }
+      .tab-panel { padding: 18px; }
+      .floating-actions { right: 12px; bottom: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+    }
+
+    @media print {
+      .topbar, .progress-shell, .floating-actions, .hero-actions, .clouds, .sparkle-field, .fireworks, .skyline, .magic-divider { display: none !important; }
+      body { background: white; }
+      .hero { min-height: auto; border: 0; }
+      .hero-inner, main, .footer { width: auto; padding: 20px; margin: 0; }
+      .trip-panel, .tile, .tabs, details, .step-body, .check-item, .pack-card {
+        box-shadow: none;
+        background: white;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="progress-shell" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="Back to top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-title">
+          <strong>Family Trip Guide</strong>
+          <span>Beach Club Villas · Jun 4, 2026</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Guide sections">
+        <a href="#prep">Prep</a>
+        <a href="#parks">Parks</a>
+        <a href="#lanes">Lightning Lane</a>
+        <a href="#food">Food</a>
+        <a href="#packing">Packing</a>
+        <a href="#shows">Shows</a>
+        <a href="#videos">Videos</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="clouds" aria-hidden="true">
+      <span class="cloud"></span>
+      <span class="cloud"></span>
+      <span class="cloud"></span>
+    </div>
+    <div class="sparkle-field" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="fireworks" aria-hidden="true">
+      <span class="burst"></span>
+      <span class="burst"></span>
+      <span class="burst"></span>
+    </div>
+    <div class="skyline" aria-hidden="true">
+      <div class="monorail-track"></div>
+      <div class="monorail"></div>
+      <div class="castle">
+        <span class="castle-wing-left"></span>
+        <span class="castle-wing-right"></span>
+        <span class="castle-body"></span>
+        <span class="tower-left"></span>
+        <span class="tower-right"></span>
+        <span class="tower-main"></span>
+      </div>
+    </div>
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">Modern Travel Professionals</span>
+        <h1>Disney World Family Trip Guide</h1>
+        <p class="hero-copy">A polished, tap-friendly command center for the airport, resort check-in, park mornings, dining, Lightning Lane, transportation, packing, fireworks, and last-minute confirmations.</p>
+        <div class="hero-actions">
+          <a class="button" href="#prep">Start with prep</a>
+          <a class="button secondary" href="#lanes">Jump to Lightning Lane</a>
+        </div>
+      </div>
+
+      <aside class="trip-panel" aria-label="Trip overview">
+        <div class="panel-top">
+          <span>Resort stay</span>
+          <strong>Disney's Beach Club Villas</strong>
+        </div>
+        <div class="trip-stats">
+          <div class="stat">
+            <span>Room</span>
+            <strong>2 Bedroom Villa<br>Resort View</strong>
+          </div>
+          <div class="stat">
+            <span>Check-in</span>
+            <strong>Jun 4, 2026<br>3 PM</strong>
+          </div>
+          <div class="stat">
+            <span>Check-out</span>
+            <strong>11 AM</strong>
+          </div>
+          <div class="stat">
+            <span>Advisor</span>
+            <strong>Jillian DeRisi</strong>
+          </div>
+        </div>
+        <div class="alert-line"><strong>Verify:</strong> MCO-to-Disney transportation still needs a final confirmation in Tern or with Jillian.</div>
+      </aside>
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="prep" class="reveal">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Before leaving</span>
+          <h2>Pre-flight checklist</h2>
+          <p>Tap each item as it is handled. Progress saves in this browser, so the list stays checked when you come back.</p>
+        </div>
+      </div>
+
+      <div class="checklist" id="checklist">
+        <label class="check-item"><input type="checkbox"><span>Download or update the My Disney Experience app.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Log in and confirm resort, tickets, dining, and Lightning Lane plans are visible.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Enable location services and notifications for the Disney app.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Open Tern for Travelers while online so the trip downloads for offline use.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Pack MagicBands in carry-on bags if using them.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Take screenshots of resort, park, dining, Lightning Lane, and transportation details.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Check in for flights online if available.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Bring a portable charger. The Disney app plus photos drains battery fast.</span></label>
+        <label class="check-item"><input type="checkbox"><span>Save Disney gift card numbers somewhere easy to copy for mobile orders.</span></label>
+      </div>
+
+      <div class="meter" aria-live="polite">
+        <div class="meter-row"><span>Trip prep progress</span><span id="meterText">0 of 9 complete</span></div>
+        <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+      </div>
+    </section>
+
+    <div class="magic-divider" aria-hidden="true"></div>
+
+    <section class="reveal" id="apps" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Open and confirm</span>
+          <h2>Apps that matter</h2>
+          <p>These are the tools that replace paper, room keys, map boards, menus, and line planning once you are on property.</p>
+        </div>
+      </div>
+      <div class="grid cols-3">
+        <article class="tile" style="--tile-color: var(--teal)">
+          <h3>My Disney Experience</h3>
+          <p>Tickets, room key, park hours, maps, wait times, mobile ordering, dining, Lightning Lane, bus waits, room charges, and cast-member chat.</p>
+        </article>
+        <article class="tile" style="--tile-color: var(--coral)">
+          <h3>MagicMobile</h3>
+          <p>Eligible phones and watches can scan into parks instead of MagicBands. Set it up under Account / MagicMobile Entry.</p>
+        </article>
+        <article class="tile" style="--tile-color: var(--plum)">
+          <h3>Tern for Travelers</h3>
+          <p>Advisor itinerary and travel details. Open the trip before travel so it is available without a connection.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="reveal" id="arrival" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Arrival flow</span>
+          <h2>Resort arrival</h2>
+          <p>Use this as the quick sequence when you land, get to Beach Club Villas, and are waiting on the room.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="step" style="--step-color: var(--teal)">
+          <div class="step-number">1</div>
+          <div class="step-body"><h3>Check in even if it is early</h3><p>Disney will notify you when the room is ready. Online check-in is available inside the Disney app.</p></div>
+        </div>
+        <div class="step" style="--step-color: var(--coral)">
+          <div class="step-number">2</div>
+          <div class="step-body"><h3>Watch for the room number</h3><p>It should arrive by text or email. Use MagicBand or the digital key in the app to open the door.</p></div>
+        </div>
+        <div class="step" style="--step-color: var(--plum)">
+          <div class="step-number">3</div>
+          <div class="step-body"><h3>Handle bags and groceries correctly</h3><p>Bell services can bring bags only if someone is present. Alcohol grocery orders must be picked up by an adult in person.</p></div>
+        </div>
+        <div class="step" style="--step-color: var(--gold)">
+          <div class="step-number">4</div>
+          <div class="step-body"><h3>Confirm transportation</h3><p>Flight UA788 arrives at MCO at 9:16 AM. Final transfer confirmation was not visible in the reviewed messages.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="parks" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Park mornings</span>
+          <h2>Early Entry strategy</h2>
+          <p>Disney resort guests get 30 minutes of Early Entry daily. Jillian recommends arriving 30-45 minutes before Early Entry begins.</p>
+        </div>
+      </div>
+      <div class="tabs" data-tabs>
+        <div class="tab-list" role="tablist" aria-label="Park strategy">
+          <button type="button" id="tab-mk" role="tab" aria-controls="panel-mk" aria-selected="true" data-color="#147884">Magic Kingdom</button>
+          <button type="button" id="tab-ep" role="tab" aria-controls="panel-ep" aria-selected="false" data-color="#d65f54">Epcot</button>
+          <button type="button" id="tab-hs" role="tab" aria-controls="panel-hs" aria-selected="false" data-color="#6e4b80">Hollywood Studios</button>
+          <button type="button" id="tab-ak" role="tab" aria-controls="panel-ak" aria-selected="false" data-color="#4f8a5f">Animal Kingdom</button>
+        </div>
+        <div class="tab-panel active" id="panel-mk" role="tabpanel" aria-labelledby="tab-mk" style="--active-color:#147884">
+          <div class="panel-grid">
+            <div class="mini-list">
+              <div><strong>Best early targets</strong><span>Seven Dwarfs Mine Train, Space Mountain, Peter Pan's Flight.</span></div>
+              <div><strong>Jillian's note</strong><span>Seven Dwarfs can have delayed openings. Use the last hour of the day unless you are truly at the front.</span></div>
+            </div>
+            <div class="mini-list">
+              <div><strong>Security</strong><span>Travel light. Remove umbrellas and battery packs before screening.</span></div>
+              <div><strong>Timing</strong><span>Be at transportation at least 45 minutes before target arrival, more for rope drop.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-ep" role="tabpanel" aria-labelledby="tab-ep" style="--active-color:#d65f54">
+          <div class="panel-grid">
+            <div class="mini-list">
+              <div><strong>Best early targets</strong><span>Test Track and Frozen Ever After.</span></div>
+              <div><strong>Also high demand</strong><span>Remy's Ratatouille Adventure is a major priority if using Lightning Lane strategy.</span></div>
+            </div>
+            <div class="mini-list">
+              <div><strong>Transportation</strong><span>From Skyliner resorts, Skyliner is the primary route unless weather shuts it down.</span></div>
+              <div><strong>Night plan</strong><span>Most lagoon views work if trees, torches, and poles do not block the waterline or sky.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-hs" role="tabpanel" aria-labelledby="tab-hs" style="--active-color:#6e4b80">
+          <div class="panel-grid">
+            <div class="mini-list">
+              <div><strong>Best early targets</strong><span>Rise of the Resistance, Slinky Dog Dash, Mickey & Minnie's Runaway Railway.</span></div>
+              <div><strong>Jillian's note</strong><span>Rise can open late. If it is down early, check evening waits.</span></div>
+            </div>
+            <div class="mini-list">
+              <div><strong>Lightning Lane</strong><span>Slinky Dog Dash is the top Multi Pass priority. Toy Story Mania is a useful Tier 2 first-pick.</span></div>
+              <div><strong>Night plan</strong><span>Fantasmic center seats are best. First rows may get wet.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-ak" role="tabpanel" aria-labelledby="tab-ak" style="--active-color:#4f8a5f">
+          <div class="panel-grid">
+            <div class="mini-list">
+              <div><strong>Best early targets</strong><span>Flight of Passage and Kilimanjaro Safaris.</span></div>
+              <div><strong>Jillian's note</strong><span>Safari and Na'vi River Journey go quickly.</span></div>
+            </div>
+            <div class="mini-list">
+              <div><strong>Lightning Lane</strong><span>Na'vi River Journey and Kilimanjaro Safaris are useful Multi Pass priorities.</span></div>
+              <div><strong>Hot months</strong><span>Kali River Rapids also goes quickly when the weather is hot.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="lanes" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">7 AM booking</span>
+          <h2>Lightning Lane cheat sheet</h2>
+          <p>Be logged in before booking opens. Book the whole stay first, then modify each day for better times.</p>
+        </div>
+      </div>
+      <div class="grid cols-2">
+        <article class="tile" style="--tile-color: var(--teal)">
+          <h3>Booking window</h3>
+          <p>Disney Resort guests can buy/book Lightning Lane 7 days before check-in for the length of stay, up to 14 days. Booking opens at 7 AM Eastern.</p>
+        </article>
+        <article class="tile" style="--tile-color: var(--coral)">
+          <h3>Jillian's tactic</h3>
+          <p>Use an atomic clock if you want to be aggressive. Book Multi Pass and Single Pass for the full stay first, then optimize times.</p>
+        </article>
+      </div>
+
+      <div class="grid cols-2" style="margin-top:16px">
+        <details open>
+          <summary>Single Pass rides</summary>
+          <div class="detail-body">
+            <ul>
+              <li><strong>Magic Kingdom:</strong> Seven Dwarfs Mine Train; TRON Lightcycle / Run.</li>
+              <li><strong>Epcot:</strong> Guardians of the Galaxy: Cosmic Rewind.</li>
+              <li><strong>Hollywood Studios:</strong> Star Wars: Rise of the Resistance.</li>
+              <li><strong>Animal Kingdom:</strong> Avatar Flight of Passage.</li>
+            </ul>
+          </div>
+        </details>
+        <details open>
+          <summary>Multi Pass rules</summary>
+          <div class="detail-body">
+            <ul>
+              <li>Pick up to 3 rides or experiences in one park before the visit.</li>
+              <li>After redeeming the first one, book another, subject to availability.</li>
+              <li>Multi Pass and Single Pass can be bought in the same transaction.</li>
+              <li>First 3 park-hopping selections must be in one park; later ones can be elsewhere after redemption.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="reveal" id="food" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Dining</span>
+          <h2>Food without friction</h2>
+          <p>Mobile ordering and walk-up lists save real time, but they work best when you start early and stay near the restaurant.</p>
+        </div>
+      </div>
+      <div class="grid cols-3">
+        <article class="tile" style="--tile-color: var(--gold)">
+          <h3>Mobile order</h3>
+          <p>Use the Disney app, tap the plus sign, then Order Food. Start 30-45 minutes before you want to eat.</p>
+        </article>
+        <article class="tile" style="--tile-color: var(--teal)">
+          <h3>Arrival window</h3>
+          <p>Popular or smaller spots may not have immediate windows. You can place orders hours ahead.</p>
+        </article>
+        <article class="tile" style="--tile-color: var(--coral)">
+          <h3>Reservation discipline</h3>
+          <p>If skipping a table-service reservation, cancel it in the app. Disney may charge $10 per guest for no-shows.</p>
+        </article>
+      </div>
+      <details style="margin-top:14px">
+        <summary>Quick app paths</summary>
+        <div class="detail-body">
+          <ul>
+            <li><strong>In-app chat:</strong> Disney app / three-line menu / Chat With Us.</li>
+            <li><strong>MagicMobile:</strong> three-line menu / Account / Set Up MagicMobile Entry / add to wallet.</li>
+            <li><strong>Mobile order:</strong> plus sign / Order Food / choose restaurant / choose window / pay / tap I'm Here when close.</li>
+            <li><strong>Walk-up list:</strong> plus sign / Check Dining Availability / party size / Hungry Now? / Join a Walk-Up List.</li>
+            <li><strong>Digital room key:</strong> resort reservation / Unlock Door / hold phone to lock with Bluetooth enabled.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <div class="magic-divider" aria-hidden="true"></div>
+
+    <section class="reveal" id="transport" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Getting around</span>
+          <h2>Transportation notes</h2>
+          <p>Disney transit is convenient, but it can be slow around rope drop and after fireworks. Pad the schedule.</p>
+        </div>
+      </div>
+      <div class="note"><strong>Open item:</strong> David asked Jillian about MCO-to-Disney transportation for UA788 arriving 9:16 AM. Jillian asked whether return transfers were also needed and said she would need return flight info. No final confirmation was visible in the reviewed messages.</div>
+      <div class="grid cols-3" style="margin-top:16px">
+        <article class="tile" style="--tile-color: var(--teal)"><h3>Normal options</h3><p>Buses, boats, monorail, Skyliner, and parking lot trams are generally running normally.</p></article>
+        <article class="tile" style="--tile-color: var(--plum)"><h3>Skyliner</h3><p>For Skyliner resorts, it is the primary route to Epcot and Hollywood Studios unless weather shuts it down.</p></article>
+        <article class="tile" style="--tile-color: var(--gold)"><h3>Bus waits</h3><p>Check bus wait times inside the Disney app under the resort reservation.</p></article>
+      </div>
+    </section>
+
+    <section class="reveal" id="packing" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Pack smart</span>
+          <h2>Packing list</h2>
+          <p>Filter the list by category for quick bag checks before the airport, pool, or park day.</p>
+        </div>
+      </div>
+      <div class="filter-row" aria-label="Packing filters">
+        <button class="chip active" type="button" data-filter="all">All</button>
+        <button class="chip" type="button" data-filter="park">Park bag</button>
+        <button class="chip" type="button" data-filter="comfort">Comfort</button>
+        <button class="chip" type="button" data-filter="tech">Battery</button>
+      </div>
+      <div class="packing-grid" id="packingGrid">
+        <article class="pack-card" data-category="park">
+          <h3>Carry-on / park bag</h3>
+          <ul><li>MagicBands, if using</li><li>IDs, cards, cashless payment</li><li>Sunscreen</li><li>Reusable water bottle</li><li>Rain poncho or compact umbrella</li><li>Any medications</li></ul>
+        </article>
+        <article class="pack-card" data-category="comfort">
+          <h3>Helpful extras</h3>
+          <ul><li>Comfortable walking shoes</li><li>Hat and sunglasses</li><li>Cooling towel or fan</li><li>Small first-aid items</li><li>Zip bags for wet items</li><li>Swim gear</li></ul>
+        </article>
+        <article class="pack-card" data-category="tech">
+          <h3>Phone battery plan</h3>
+          <ul><li>Phone and charger cable</li><li>External battery pack</li><li>Use low power mode</li><li>Reduce brightness</li><li>Disable background refresh where practical</li><li>Charge during food breaks when outlets are available</li></ul>
+        </article>
+        <article class="pack-card" data-category="park">
+          <h3>Purchases</h3>
+          <ul><li>Package delivery to front of park or resort is currently suspended</li><li>Small purchases can usually go on rides</li><li>For large items, buy near end of day, rent a locker, or ship home</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="reveal" id="shows" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Night plans</span>
+          <h2>Fireworks, parade, and shows</h2>
+          <p>These are the simplest high-value viewing plans from Jillian's notes.</p>
+        </div>
+      </div>
+      <div class="grid cols-2">
+        <details open>
+          <summary>Magic Kingdom: Happily Ever After</summary>
+          <div class="detail-body">Best from the hub in front of Cinderella Castle or along Main Street. Arrive at least 60 minutes early for a good spot. Avoid castle side views. Leaving takes time, so either wait for crowds to thin or watch near the Main Street exit.</div>
+        </details>
+        <details>
+          <summary>Festival of Fantasy Parade</summary>
+          <div class="detail-body">Frontierland and Liberty Square are less crowded than Main Street. Main Street Town Square is good if you want to exit after. The train station second level can be a good seated view if you arrive early.</div>
+        </details>
+        <details>
+          <summary>Epcot: Luminous The Symphony of Us</summary>
+          <div class="detail-body">Most lagoon views work if trees, torches, or poles do not block the waterline or sky. Good areas include the front of World Showcase between gift shops, Japan/Mitsukoshi second story, France bridge, Mexico boat dock/La Hacienda area, and Italy Isola.</div>
+        </details>
+        <details>
+          <summary>Hollywood Studios: Fantasmic</summary>
+          <div class="detail-body">The amphitheater opens up to 90 minutes early. Center seats are best. Dining package gives a reserved section, not assigned seats; still arrive about 30 minutes early. First rows may get wet.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="reveal" id="videos" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Watch before you go</span>
+          <h2>Helpful YouTube tips</h2>
+          <p>Recent and useful planning videos for Lightning Lane, rope drop, first-timer strategy, and ride priorities. Open these before the trip and save the best ones in YouTube.</p>
+        </div>
+      </div>
+      <div class="video-grid">
+        <a class="video-card" href="https://www.youtube.com/watch?v=uqO5y2Q019w" target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/uqO5y2Q019w/hqdefault.jpg" alt="">
+            <span class="play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="video-body">
+            <span>Lightning Lane</span>
+            <h3>Full Guide to Lightning Lane in Disney World for 2026</h3>
+            <p>Good for understanding the Multi Pass / Single Pass flow before booking day.</p>
+          </div>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=7EojVAMwALY" target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/7EojVAMwALY/hqdefault.jpg" alt="">
+            <span class="play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="video-body">
+            <span>Lightning Lane</span>
+            <h3>Everything You Need To Know About Disney World Lightning Lanes 2026</h3>
+            <p>A second perspective on booking order, paid lanes, and app workflow.</p>
+          </div>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=-DrirUArEQc" target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/-DrirUArEQc/hqdefault.jpg" alt="">
+            <span class="play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="video-body">
+            <span>First timers</span>
+            <h3>Walt Disney World Tips for First Timers That Actually Work in 2026</h3>
+            <p>Broad trip-planning advice: app setup, dining, rope drop, pacing, and park-day basics.</p>
+          </div>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=n_to6m_8igE" target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/n_to6m_8igE/hqdefault.jpg" alt="">
+            <span class="play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="video-body">
+            <span>Rope drop</span>
+            <h3>How to Rope Drop Disney World Like a Pro</h3>
+            <p>Useful if the family wants to make Early Entry count without wasting the first hour.</p>
+          </div>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=UqBtieFCy7o" target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/UqBtieFCy7o/hqdefault.jpg" alt="">
+            <span class="play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="video-body">
+            <span>Quick tricks</span>
+            <h3>50 Easy Tricks for Your 2026 Disney World Trip</h3>
+            <p>Fast practical tips to skim for mobile ordering, crowds, timing, and comfort.</p>
+          </div>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/results?search_query=Disney+World+2026+best+rides+tips" target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?auto=format&fit=crop&w=900&q=80" alt="">
+            <span class="play-badge" aria-hidden="true"></span>
+          </div>
+          <div class="video-body">
+            <span>More ride research</span>
+            <h3>Current Disney World ride-tip searches</h3>
+            <p>Opens a fresh YouTube search for recent ride priority and park strategy videos.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="reveal" id="sources" style="margin-top:72px">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Source material</span>
+          <h2>Emails reviewed</h2>
+          <p>Compiled from advisor emails and attachments in sirenzero@gmail.com. Verify money, transportation, park hours, ride closures, and reservation changes inside Tern, My Disney Experience, or with Jillian before acting.</p>
+        </div>
+      </div>
+      <ul class="source-list">
+        <li>IMPORTANT - Walt Disney World Know Before You Go</li>
+        <li>Tips for Using the My Disney Experience App</li>
+        <li>Getting Ready for Your Trip</li>
+        <li>Skip the Lines with Multi & Single Lightning Lane Passes</li>
+        <li>Lightning Lane Cheat Sheet PDF</li>
+        <li>Early Entry for Walt Disney World Resort Hotel Guests</li>
+        <li>Skip the Line with Mobile Ordering at Walt Disney World</li>
+        <li>Download the Tern for Travelers App</li>
+        <li>It's Almost Here!</li>
+        <li>Disney MagicMobile</li>
+        <li>Last-Minute Dining Reservations / Wait List</li>
+        <li>Reminder: Lightning Lane Booking Opens Tomorrow</li>
+        <li>Tips for Fireworks and Parade Viewing</li>
+        <li>Have a Great Trip!</li>
+        <li>Tern payment authorization confirmation</li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="floating-actions" aria-label="Page actions">
+    <button class="float-button" type="button" id="printButton" aria-label="Print guide">P</button>
+    <button class="float-button" type="button" id="topButton" aria-label="Back to top">↑</button>
+  </div>
+
+  <footer class="footer">
+    <strong>Family copy:</strong> Payment card details intentionally omitted. Resort airline check-in service is not available.
+  </footer>
+
+  <script>
+    const $ = (selector, scope = document) => scope.querySelector(selector);
+    const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
+
+    const progressBar = $("#progressBar");
+    const updateScrollProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progressBar.style.width = pct + "%";
+    };
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    updateScrollProgress();
+
+    document.addEventListener("pointermove", (event) => {
+      const x = (event.clientX / window.innerWidth) - .5;
+      const y = (event.clientY / window.innerHeight) - .5;
+      document.documentElement.style.setProperty("--mx", x.toFixed(3));
+      document.documentElement.style.setProperty("--my", y.toFixed(3));
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: .14 });
+    $$(".reveal").forEach((el) => revealObserver.observe(el));
+
+    const navLinks = $$(".nav a");
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id));
+      });
+    }, { rootMargin: "-36% 0px -58% 0px", threshold: 0 });
+    ["prep", "parks", "lanes", "food", "packing", "shows", "videos"].forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) navObserver.observe(section);
+    });
+
+    const checklist = $("#checklist");
+    const meterFill = $("#meterFill");
+    const meterText = $("#meterText");
+    const checks = $$("input[type='checkbox']", checklist);
+    const storageKey = "disney-family-guide-checks";
+    const savedChecks = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    checks.forEach((check, index) => {
+      check.checked = Boolean(savedChecks[index]);
+      check.addEventListener("change", () => {
+        localStorage.setItem(storageKey, JSON.stringify(checks.map((item) => item.checked)));
+        updateMeter();
+      });
+    });
+    function updateMeter() {
+      const complete = checks.filter((item) => item.checked).length;
+      const pct = Math.round((complete / checks.length) * 100);
+      meterFill.style.width = pct + "%";
+      meterText.textContent = complete + " of " + checks.length + " complete";
+    }
+    updateMeter();
+
+    $$("[data-tabs]").forEach((tabs) => {
+      const buttons = $$("[role='tab']", tabs);
+      const panels = $$("[role='tabpanel']", tabs);
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const color = button.dataset.color || "#147884";
+          tabs.style.setProperty("--active-color", color);
+          buttons.forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+          panels.forEach((panel) => panel.classList.toggle("active", panel.id === button.getAttribute("aria-controls")));
+        });
+      });
+    });
+
+    $$(".chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const filter = chip.dataset.filter;
+        $$(".chip").forEach((item) => item.classList.toggle("active", item === chip));
+        $$(".pack-card").forEach((card) => {
+          card.classList.toggle("hidden", filter !== "all" && card.dataset.category !== filter);
+        });
+      });
+    });
+
+    $("#printButton").addEventListener("click", () => window.print());
+    $("#topButton").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  </script>
+</body>
+</html>
