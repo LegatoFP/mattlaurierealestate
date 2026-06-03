@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yardley &amp; Lower Makefield — Buyer's Market Brief</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f2e9; --paper2:#efe9db; --ink:#1b2a26; --ink2:#3a4742;
+  --surface:#fffdf7; --line:#e3dccb; --line2:#d6cdb8;
+  --green:#2f5d50; --green-d:#234940; --brass:#b0883f; --brass-d:#8f6c2c;
+  --river:#4f7587; --muted:#7d7a6e; --bad:#a8533b;
+  --hist:#a8763b; --estd:#4f7587; --newr:#2f5d50;
+  --shadow:0 1px 2px rgba(27,42,38,.05),0 8px 28px -12px rgba(27,42,38,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',sans-serif;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:radial-gradient(circle at 12% -10%,rgba(47,93,80,.06),transparent 40%),radial-gradient(circle at 90% 5%,rgba(176,136,63,.06),transparent 45%);}
+.serif{font-family:'Fraunces',serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:900;background:rgba(246,242,233,.82);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:18px}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:15px;letter-spacing:.02em;display:flex;align-items:center;gap:9px}
+.brand .dot{width:9px;height:9px;border-radius:2px;background:var(--green);transform:rotate(45deg);box-shadow:0 0 0 3px rgba(47,93,80,.15)}
+.navlinks{display:flex;gap:4px;font-size:13px;font-weight:500}
+.navlinks a{color:var(--ink2);text-decoration:none;padding:7px 11px;border-radius:7px;transition:.18s;white-space:nowrap}
+.navlinks a:hover{background:var(--paper2);color:var(--green)}
+@media(max-width:860px){.navlinks{display:none}}
+
+/* HERO */
+header.hero{padding:64px 0 30px;position:relative}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-d);margin-bottom:18px;
+  display:flex;align-items:center;gap:12px}
+.eyebrow::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line2),transparent);max-width:160px}
+h1.title{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.02em;
+  margin-bottom:22px;max-width:14ch}
+h1.title em{font-style:italic;color:var(--green)}
+.lede{font-size:clamp(16px,2vw,19px);color:var(--ink2);max-width:62ch;margin-bottom:8px}
+.prepared{font-size:13px;color:var(--muted);margin-top:18px;font-weight:500}
+.prepared b{color:var(--ink)}
+
+/* STAT BAND */
+.statband{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin:40px 0 8px;border:1px solid var(--line);
+  border-radius:16px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.stat{padding:22px 18px;border-right:1px solid var(--line);position:relative}
+.stat:last-child{border-right:0}
+.stat .v{font-family:'Fraunces',serif;font-weight:600;font-size:30px;line-height:1;color:var(--green);letter-spacing:-.01em}
+.stat .l{font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:9px}
+@media(max-width:860px){.statband{grid-template-columns:repeat(3,1fr)}.stat:nth-child(3){border-right:0}.stat:nth-child(n+4){border-top:1px solid var(--line)}}
+@media(max-width:520px){.statband{grid-template-columns:repeat(2,1fr)}.stat .v{font-size:25px}}
+
+/* SECTIONS */
+section{padding:54px 0;border-top:1px solid var(--line)}
+.sec-eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-d);margin-bottom:12px}
+h2.h{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.015em;line-height:1.08;margin-bottom:14px;max-width:20ch}
+.sec-intro{color:var(--ink2);max-width:64ch;font-size:16px;margin-bottom:28px}
+
+/* TWO YARDLEYS */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:780px){.two{grid-template-columns:1fr}}
+.place{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.place::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--accent)}
+.place.boro{--accent:linear-gradient(90deg,var(--brass),var(--brass-d))}
+.place.twp{--accent:linear-gradient(90deg,var(--green),var(--green-d))}
+.place h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;margin-bottom:4px}
+.place .tag{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.place p{font-size:14.5px;color:var(--ink2);margin-bottom:14px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:6px}
+.facts div{background:var(--surface);padding:11px 13px}
+.facts .fv{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--ink)}
+.facts .fl{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.callout{margin-top:24px;background:linear-gradient(180deg,#fffdf7,#f9f5ea);border:1px solid var(--line);
+  border-left:3px solid var(--green);border-radius:10px;padding:16px 18px;font-size:14px;color:var(--ink2)}
+.callout b{color:var(--ink)}
+
+/* MAP */
+.maprow{display:grid;grid-template-columns:1fr;gap:18px}
+#map{height:520px;border-radius:16px;border:1px solid var(--line2);box-shadow:var(--shadow);z-index:1}
+@media(max-width:600px){#map{height:420px}}
+.maptools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink2);font-weight:500}
+.legend .li{display:flex;align-items:center;gap:6px}
+.legend .sw{width:13px;height:13px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.legend .pin{width:11px;height:11px;border-radius:3px;transform:rotate(45deg)}
+.toggle{margin-left:auto;display:flex;gap:6px;background:var(--paper2);border:1px solid var(--line);border-radius:9px;padding:3px}
+.toggle button{border:0;background:transparent;font:inherit;font-size:12.5px;font-weight:600;color:var(--ink2);padding:6px 12px;border-radius:7px;cursor:pointer;transition:.15s}
+.toggle button.on{background:var(--surface);color:var(--green);box-shadow:var(--shadow)}
+.mapnote{font-size:12px;color:var(--muted);margin-top:10px;font-style:italic}
+.leaflet-popup-content-wrapper{border-radius:12px;box-shadow:0 10px 30px -8px rgba(27,42,38,.4)}
+.leaflet-popup-content{margin:14px 16px;font-family:'Hanken Grotesk',sans-serif}
+.pop h4{font-family:'Fraunces',serif;font-size:16px;margin-bottom:6px;color:var(--ink)}
+.pop .pp{font-size:13px;color:var(--ink2);margin:2px 0}
+.pop .pp b{color:var(--green)}
+
+/* MINI CHARTS */
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+@media(max-width:780px){.charts{grid-template-columns:1fr}}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.chartcard h4{font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-bottom:18px}
+.bar{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.bar .bl{font-size:13px;font-weight:600;width:135px;flex-shrink:0;color:var(--ink2)}
+.bar .btrack{flex:1;height:26px;background:var(--paper2);border-radius:6px;overflow:hidden;position:relative}
+.bar .bfill{height:100%;border-radius:6px;transition:width 1s cubic-bezier(.2,.8,.2,1);width:0}
+.bar .bn{font-size:13px;font-weight:700;width:40px;text-align:right;font-family:'Fraunces',serif}
+
+/* NEIGHBORHOOD EXPLORER */
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;align-items:center}
+.controls input[type=text]{flex:1;min-width:180px;border:1px solid var(--line2);background:var(--surface);border-radius:10px;
+  padding:11px 14px;font:inherit;font-size:14px;color:var(--ink)}
+.controls input:focus{outline:none;border-color:var(--green)}
+.seg{display:flex;gap:4px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:3px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;font:inherit;font-size:13px;font-weight:600;color:var(--ink2);padding:7px 13px;border-radius:7px;cursor:pointer;transition:.15s}
+.seg button.on{background:var(--surface);color:var(--green);box-shadow:var(--shadow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.ncard{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:20px;box-shadow:var(--shadow);
+  transition:.2s;cursor:pointer;position:relative;display:flex;flex-direction:column}
+.ncard:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 2px 4px rgba(27,42,38,.06),0 16px 40px -14px rgba(27,42,38,.28)}
+.ncard .vtag{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  padding:4px 8px;border-radius:20px;color:#fff}
+.vtag.h0{background:var(--hist)} .vtag.h1{background:var(--estd)} .vtag.h2{background:var(--newr)}
+.ncard h3{font-family:'Fraunces',serif;font-size:20px;font-weight:600;line-height:1.1;margin-bottom:3px;max-width:84%}
+.ncard .cnt{font-size:12.5px;color:var(--muted);font-weight:600;margin-bottom:16px}
+.priceline{font-family:'Fraunces',serif;font-size:25px;font-weight:600;color:var(--green);line-height:1}
+.priceline span{font-size:13px;color:var(--muted);font-weight:500;font-family:'Hanken Grotesk'}
+.range{font-size:12.5px;color:var(--ink2);margin:5px 0 16px;font-weight:500}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-top:auto}
+.metrics div{background:var(--surface);padding:9px 11px}
+.metrics .mv{font-weight:700;font-size:14px;color:var(--ink)}
+.metrics .ml{font-size:10.5px;color:var(--muted);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+.mapbtn{margin-top:14px;font:inherit;font-size:12.5px;font-weight:600;color:var(--green);background:var(--paper2);
+  border:1px solid var(--line);border-radius:8px;padding:8px;cursor:pointer;transition:.15s}
+.mapbtn:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.singles{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 22px 18px;box-shadow:var(--shadow)}
+.singles summary{font-family:'Fraunces',serif;font-size:17px;font-weight:600;cursor:pointer;padding:14px 0;color:var(--ink)}
+.singles table{width:100%;border-collapse:collapse;font-size:13px}
+.singles th{text-align:left;color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.03em;padding:8px;border-bottom:1px solid var(--line)}
+.singles td{padding:9px 8px;border-bottom:1px solid var(--paper2)}
+.singles tr:last-child td{border-bottom:0}
+
+/* TABLE */
+.tablewrap{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.tablebar{display:flex;flex-wrap:wrap;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line);align-items:center}
+.tablebar input,.tablebar select{border:1px solid var(--line2);background:var(--paper);border-radius:9px;padding:9px 12px;font:inherit;font-size:13px;color:var(--ink)}
+.tablebar input{flex:1;min-width:160px}
+.tablebar select:focus,.tablebar input:focus{outline:none;border-color:var(--green)}
+.tscroll{overflow-x:auto;max-height:620px;overflow-y:auto}
+table.homes{width:100%;border-collapse:collapse;font-size:13px;min-width:760px}
+table.homes thead th{position:sticky;top:0;background:var(--paper2);text-align:left;padding:12px 14px;font-size:11px;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--ink2);font-weight:700;cursor:pointer;user-select:none;white-space:nowrap;border-bottom:1px solid var(--line2);z-index:2}
+table.homes thead th:hover{color:var(--green)}
+table.homes thead th .ar{opacity:.4;font-size:9px;margin-left:3px}
+table.homes thead th.act .ar{opacity:1;color:var(--green)}
+table.homes td{padding:11px 14px;border-bottom:1px solid var(--paper2);white-space:nowrap}
+table.homes tbody tr:hover{background:#faf7ee}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px}
+.pill.closed{background:rgba(47,93,80,.12);color:var(--green-d)}
+.pill.pending{background:rgba(176,136,63,.16);color:var(--brass-d)}
+.tcount{font-size:12.5px;color:var(--muted);font-weight:600;padding:0 4px}
+
+/* LIVING */
+.living{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.lcard{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:24px;box-shadow:var(--shadow)}
+.lcard .ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;margin-bottom:16px;background:rgba(47,93,80,.1)}
+.lcard .ic svg{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.7}
+.lcard h4{font-family:'Fraunces',serif;font-size:19px;font-weight:600;margin-bottom:8px}
+.lcard p{font-size:14px;color:var(--ink2)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:10px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:start}
+@media(max-width:680px){.fgrid{grid-template-columns:1fr}}
+.agent{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.agent .nm{font-family:'Fraunces',serif;font-size:20px;font-weight:600}
+.agent .rl{font-size:13px;color:var(--muted);margin-bottom:10px}
+.agent .ed{font-size:12px;color:var(--brass-d);font-weight:600}
+.disc{font-size:11.5px;color:var(--muted);line-height:1.7}
+.disc b{color:var(--ink2)}
+.src{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand"><span class="dot"></span> Yardley &amp; Lower Makefield</div>
+  <div class="navlinks">
+    <a href="#overview">Overview</a>
+    <a href="#areas">The Two Yardleys</a>
+    <a href="#map">Map</a>
+    <a href="#hoods">Neighborhoods</a>
+    <a href="#homes">All Homes</a>
+    <a href="#living">Living Here</a>
+  </div>
+</div></nav>
+
+<div class="wrap">
+<header class="hero" id="overview">
+  <div class="eyebrow">Buyer's Market Brief · $700K–$1M · Past 12 Months</div>
+  <h1 class="title serif">What your budget buys in <em>Yardley</em> &amp; Lower Makefield</h1>
+  <p class="lede">A look at every home that went pending or sold between $700,000 and $1,000,000 in the Yardley (19067) market over the last year — organized by neighborhood, mapped for orientation, and paired with what it's actually like to live here.</p>
+  <p class="prepared">Prepared for your home search · <b>127 properties</b> across <b>47 neighborhoods</b></p>
+
+  <div class="statband" id="statband"></div>
+  <p class="mapnote">Pending + sold residential, BrightMLS, trailing 12 months. Median figures shown.</p>
+</header>
+</div>
+
+<div class="wrap">
+<section id="areas" style="border-top:0">
+  <div class="sec-eyebrow">Orientation</div>
+  <h2 class="h serif">One zip code, two very different lifestyles</h2>
+  <p class="sec-intro">Nearly all of this inventory carries a "Yardley, PA 19067" address and feeds the same well-regarded schools — but it splits into two distinct living experiences. Knowing which one a listing belongs to matters more than the address alone.</p>
+  <div class="two">
+    <div class="place boro reveal">
+      <h3 class="serif">Yardley Borough</h3>
+      <div class="tag">The walkable town · ~1 square mile</div>
+      <p>The historic riverfront core. A compact, leafy grid of older homes around Main Street, Lake Afton, and the Delaware Canal towpath — where you can walk to cafés, restaurants, the Saturday farmers market, and the train. Inventory here is genuinely scarce because the town is so small, so in-town homes tend to move fast and competitively.</p>
+      <div class="facts">
+        <div><div class="fv">~70</div><div class="fl">Walk Score (errands on foot)</div></div>
+        <div><div class="fv">~2,500</div><div class="fl">Borough population</div></div>
+        <div><div class="fv">1830s</div><div class="fl">Canal-era historic district</div></div>
+        <div><div class="fv">4 min</div><div class="fl">Walk: station to towpath</div></div>
+      </div>
+    </div>
+    <div class="place twp reveal">
+      <h3 class="serif">Lower Makefield Township</h3>
+      <div class="tag">The suburban surround · car-oriented</div>
+      <p>Wraps around the borough on three sides and holds the bulk of the homes in this price band — established 1960s–80s subdivisions plus newer planned communities, on bigger lots with a quieter, sparse-suburban feel. Highly educated, affluent, and family-driven, with parks, Five Mile Woods, and quick access to I-95 and Route 1.</p>
+      <div class="facts">
+        <div><div class="fv">~35,800</div><div class="fl">Township population</div></div>
+        <div><div class="fv">$175K</div><div class="fl">Median household income</div></div>
+        <div><div class="fv">46.4</div><div class="fl">Median age</div></div>
+        <div><div class="fv">68%+</div><div class="fl">Hold a bachelor's+</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="callout reveal"><b>Shared advantage:</b> Both the borough and the township sit in the <b>Pennsbury School District</b> (Yardley Borough, Lower Makefield, Falls Township, Tullytown) — one high school, three middle schools, and ten-plus elementary schools — which is a big part of why demand and pricing hold up across the whole 19067 area.</div>
+</section>
+
+<section id="map">
+  <div class="sec-eyebrow">Where things are</div>
+  <h2 class="h serif">Neighborhood orientation map</h2>
+  <p class="sec-intro">Each marker is a neighborhood with recent sales in your range, sized by how many homes traded and colored by the era they were built. Fixed landmarks show you the walkable core, the train, the towpath, and the high school. Tap any marker — or use the "View on map" button on a neighborhood card below.</p>
+  <div class="maptools">
+    <div class="legend">
+      <div class="li"><span class="sw" style="background:var(--hist)"></span>Historic (pre-1950)</div>
+      <div class="li"><span class="sw" style="background:var(--estd)"></span>Established (1950s–70s)</div>
+      <div class="li"><span class="sw" style="background:var(--newr)"></span>Newer (1980s+)</div>
+      <div class="li"><span class="pin" style="background:var(--brass)"></span>Landmark</div>
+    </div>
+    <div class="toggle" id="maptoggle">
+      <button data-v="hoods" class="on">Neighborhoods</button>
+      <button data-v="landmarks" class="on">Landmarks</button>
+    </div>
+  </div>
+  <div id="map"></div>
+  <p class="mapnote">Neighborhood markers are placed approximately, for orientation only — they show roughly where a community sits relative to the town center, not exact lot locations. Landmarks are positioned accurately.</p>
+
+  <div class="charts">
+    <div class="chartcard reveal">
+      <h4 class="serif">Where the price points land</h4>
+      <div id="distbars"></div>
+    </div>
+    <div class="chartcard reveal">
+      <h4 class="serif">The age of the housing stock</h4>
+      <div id="vintbars"></div>
+    </div>
+  </div>
+</section>
+
+<section id="hoods">
+  <div class="sec-eyebrow">The neighborhoods</div>
+  <h2 class="h serif">Explore by community</h2>
+  <p class="sec-intro">Communities with two or more recent sales appear as cards below — sort and filter to compare price, value per square foot, and vintage. One-off sales are listed in the table at the bottom.</p>
+  <div class="controls">
+    <input type="text" id="hoodsearch" placeholder="Search a neighborhood…">
+    <div class="seg" id="hoodsort">
+      <button data-s="n" class="on">Most active</button>
+      <button data-s="pmed">Priciest</button>
+      <button data-s="ppsf">Best $/sqft</button>
+      <button data-s="yrmax">Newest</button>
+    </div>
+    <div class="seg" id="hoodvint">
+      <button data-v="all" class="on">All eras</button>
+      <button data-v="0">Historic</button>
+      <button data-v="1">Established</button>
+      <button data-v="2">Newer</button>
+    </div>
+  </div>
+  <div class="grid" id="hoodgrid"></div>
+  <details class="singles" id="singles">
+    <summary>Individual sales in smaller pockets (one recent sale each)</summary>
+    <table><thead><tr><th>Neighborhood</th><th>Price</th><th>Beds</th><th>Sq Ft</th><th>$/Sq Ft</th><th>Built</th><th>Taxes</th></tr></thead>
+    <tbody id="singlebody"></tbody></table>
+  </details>
+</section>
+
+<section id="homes">
+  <div class="sec-eyebrow">The full list</div>
+  <h2 class="h serif">Every home, side by side</h2>
+  <p class="sec-intro">All 127 properties. Search by street or neighborhood, filter by status, beds, and price band, and click any column header to sort.</p>
+  <div class="tablewrap">
+    <div class="tablebar">
+      <input type="text" id="tsearch" placeholder="Search address or neighborhood…">
+      <select id="tstatus"><option value="">All status</option><option>Closed</option><option>Pending</option></select>
+      <select id="tbeds"><option value="">Any beds</option><option value="3">3+ beds</option><option value="4">4+ beds</option><option value="5">5+ beds</option></select>
+      <select id="tband"><option value="">Any price</option><option value="a">$700–800K</option><option value="b">$800–900K</option><option value="c">$900K–1M</option></select>
+      <span class="tcount" id="tcount"></span>
+    </div>
+    <div class="tscroll">
+      <table class="homes" id="htable">
+        <thead><tr>
+          <th data-k="addr">Address<span class="ar">▲▼</span></th>
+          <th data-k="sub">Neighborhood<span class="ar">▲▼</span></th>
+          <th data-k="status">Status<span class="ar">▲▼</span></th>
+          <th data-k="price" class="act">Price<span class="ar">▼</span></th>
+          <th data-k="beds">Bd<span class="ar">▲▼</span></th>
+          <th data-k="baths">Ba<span class="ar">▲▼</span></th>
+          <th data-k="sqft">Sq Ft<span class="ar">▲▼</span></th>
+          <th data-k="ppsf">$/SF<span class="ar">▲▼</span></th>
+          <th data-k="yr">Built<span class="ar">▲▼</span></th>
+          <th data-k="tax">Taxes/yr<span class="ar">▲▼</span></th>
+          <th data-k="dom">DOM<span class="ar">▲▼</span></th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="living">
+  <div class="sec-eyebrow">Lifestyle</div>
+  <h2 class="h serif">What it's like to live here</h2>
+  <p class="sec-intro">Beyond the numbers — the everyday amenities that make this stretch of Bucks County hold its value.</p>
+  <div class="living">
+    <div class="lcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 12c0-5 4-9 9-9s9 4 9 9M3 12c0 5 4 9 9 9s9-4 9-9"/></svg></div>
+      <h4 class="serif">The Delaware Canal towpath</h4>
+      <p>A flat, scenic 58-plus-mile trail along the canal runs right through town — Pennsylvania's 2022 Trail of the Year — used year-round for walking, running, biking, and fishing along the Delaware River.</p>
+    </div>
+    <div class="lcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M4 11h16M8 20l2-4M16 20l-2-4M9 7h6"/></svg></div>
+      <h4 class="serif">Train to the city</h4>
+      <p>The Yardley station on SEPTA's West Trenton Line gives a one-seat commute toward Philadelphia, with the borough core a short walk away. Center City is roughly 20–25 miles by car.</p>
+    </div>
+    <div class="lcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div>
+      <h4 class="serif">A real downtown</h4>
+      <p>Main Street offers walkable shops, cafés, and riverside dining, a year-round producer-only Saturday farmers market, and free community events — outdoor movies, concerts, and the annual Harvest Day festival.</p>
+    </div>
+    <div class="lcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l4 4-4 4-4-4 4-4zM12 11v10M7 16h10"/></svg></div>
+      <h4 class="serif">Parks &amp; green space</h4>
+      <p>Buttonwood, Lakeside, Memorial, and Edgewater parks in the borough; Veterans Park and the Five Mile Woods Nature Reserve in the township — plus Lake Afton's millpond setting and the river itself.</p>
+    </div>
+    <div class="lcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5zM7 11v5c0 1 2 3 5 3s5-2 5-3v-5M21 9v5"/></svg></div>
+      <h4 class="serif">Pennsbury schools</h4>
+      <p>The whole area feeds the highly-rated Pennsbury School District — a major, durable driver of demand and resale value across both the borough and the township.</p>
+    </div>
+    <div class="lcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <h4 class="serif">A fast, competitive market</h4>
+      <p>Homes in this band are moving in about a week at the median, with just over half selling above asking price — a sign of steady buyer demand against limited supply.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <div class="src">Data &amp; methodology</div>
+      <p class="disc"><b>Source:</b> BrightMLS — residential properties with a Pending or Closed status over the trailing 12 months, priced $700,000–$1,000,000, in Yardley / zip 19067 (one adjacent Newtown listing included as imported). Figures shown are <b>medians</b> unless noted; "effective price" uses sold price where available, otherwise list price. Sale-to-list and over-ask figures use closed sales only.<br><br><b>Please note:</b> The map's neighborhood markers are approximate and for orientation only. This brief is a market overview, not an appraisal, and not a substitute for a comparative market analysis on a specific property. Demographic and lifestyle figures are drawn from public sources (U.S. Census / World Population Review, Walk Score, Pennsbury School District, and Bucks County tourism/borough resources) and are approximate.</p>
+    </div>
+    <div class="agent">
+      <div class="nm serif">Matt Laurie, REALTOR</div>
+      <div class="rl">Keller Williams Real Estate · The Kim Rock Group<br>Washington Crossing / Newtown, Bucks County, PA</div>
+      <div class="ed">PA License #RS333171 · Call or text (267) 225-5611 · mattlaurie@kw.com</div>
+    </div>
+  </div>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const D={"overall":{"count":127,"closed":112,"pending":15,"pmin":700000,"pmax":1000000,"pmed":840000,"ppsf":306,"sqft":2764,"dom":7,"splp":101.0,"overask":56,"nsubs":47,"beds":4,"taxmed":11423},"subs":[{"name":"Wynnewood","raw":"WYNNEWOOD","lat":40.23626,"lng":-74.85893,"zone":"central","n":17,"closed":14,"pending":3,"pmin":724000,"pmax":950000,"pmed":875000,"sqft":3002,"ppsf":298,"beds":4,"yrmin":1952,"yrmax":1985,"tax":12580,"dom":12,"splp":100,"vintage":"Established (1950s\u201370s)"},{"name":"Yardley Hunt","raw":"YARDLEY HUNT","lat":40.22702,"lng":-74.85421,"zone":"south","n":15,"closed":14,"pending":1,"pmin":725000,"pmax":970000,"pmed":890000,"sqft":2831,"ppsf":297,"beds":4,"yrmin":1976,"yrmax":1984,"tax":11334,"dom":6,"splp":103,"vintage":"Newer (1980s+)"},{"name":"In-town / no subdivision","raw":"NONE AVAILABLE","lat":40.24643,"lng":-74.84875,"zone":"core","n":13,"closed":12,"pending":1,"pmin":700000,"pmax":989500,"pmed":770000,"sqft":2951,"ppsf":301,"beds":4,"yrmin":1769,"yrmax":2025,"tax":11156,"dom":8,"splp":99,"vintage":"Established (1950s\u201370s)"},{"name":"Sandy Run","raw":"SANDY RUN","lat":40.23745,"lng":-74.8567,"zone":"central","n":6,"closed":5,"pending":1,"pmin":750000,"pmax":955000,"pmed":844950,"sqft":2651,"ppsf":336,"beds":4,"yrmin":1967,"yrmax":1976,"tax":11088,"dom":9,"splp":106,"vintage":"Established (1950s\u201370s)"},{"name":"Makefield Manor","raw":"MAKEFIELD MANOR","lat":40.24237,"lng":-74.84193,"zone":"core","n":6,"closed":4,"pending":2,"pmin":725000,"pmax":895000,"pmed":772500,"sqft":2123,"ppsf":341,"beds":4,"yrmin":1952,"yrmax":2024,"tax":8841,"dom":7,"splp":103,"vintage":"Established (1950s\u201370s)"},{"name":"Heritage Oaks","raw":"HERITAGE OAKS","lat":40.22586,"lng":-74.87606,"zone":"southwest","n":4,"closed":4,"pending":0,"pmin":815000,"pmax":885000,"pmed":852850,"sqft":2702,"ppsf":316,"beds":4,"yrmin":1986,"yrmax":1987,"tax":11768,"dom":4,"splp":106,"vintage":"Newer (1980s+)"},{"name":"Centennial Village","raw":"CENTENNIAL VILLAGE","lat":40.23887,"lng":-74.87249,"zone":"west","n":4,"closed":3,"pending":1,"pmin":725000,"pmax":849900,"pmed":824500,"sqft":2517,"ppsf":293,"beds":4,"yrmin":1978,"yrmax":1979,"tax":11593,"dom":19,"splp":100,"vintage":"Established (1950s\u201370s)"},{"name":"Carriage Hill","raw":"CARRIAGE HILL","lat":40.23863,"lng":-74.88337,"zone":"west","n":4,"closed":4,"pending":0,"pmin":700000,"pmax":805000,"pmed":740500,"sqft":2735,"ppsf":269,"beds":4,"yrmin":1970,"yrmax":1974,"tax":11299,"dom":13,"splp":100,"vintage":"Established (1950s\u201370s)"},{"name":"Mirror Lake Farms","raw":"MIRROR LAKE FARMS","lat":40.24063,"lng":-74.8849,"zone":"west","n":3,"closed":1,"pending":2,"pmin":740000,"pmax":999900,"pmed":875000,"sqft":3216,"ppsf":299,"beds":4,"yrmin":1981,"yrmax":1984,"tax":15808,"dom":26,"splp":92,"vintage":"Newer (1980s+)"},{"name":"Makefield Crossing","raw":"MAKEFIELD CROSSING","lat":40.22927,"lng":-74.88176,"zone":"southwest","n":3,"closed":3,"pending":0,"pmin":840000,"pmax":915000,"pmed":843000,"sqft":2746,"ppsf":333,"beds":4,"yrmin":1998,"yrmax":1999,"tax":13153,"dom":6,"splp":100,"vintage":"Newer (1980s+)"},{"name":"Edgebrook","raw":"EDGEBROOK","lat":40.21779,"lng":-74.86381,"zone":"south","n":3,"closed":3,"pending":0,"pmin":725000,"pmax":860000,"pmed":820000,"sqft":2678,"ppsf":306,"beds":4,"yrmin":1973,"yrmax":1979,"tax":10439,"dom":14,"splp":101,"vintage":"Established (1950s\u201370s)"},{"name":"Valleywood","raw":"VALLEYWOOD","lat":40.23069,"lng":-74.86917,"zone":"central","n":3,"closed":3,"pending":0,"pmin":785000,"pmax":825000,"pmed":803650,"sqft":2448,"ppsf":328,"beds":4,"yrmin":1968,"yrmax":1975,"tax":9246,"dom":12,"splp":97,"vintage":"Established (1950s\u201370s)"},{"name":"River Glen","raw":"RIVER GLEN","lat":40.23591,"lng":-74.8377,"zone":"east","n":3,"closed":3,"pending":0,"pmin":705000,"pmax":880000,"pmed":759900,"sqft":2054,"ppsf":359,"beds":3,"yrmin":1930,"yrmax":1958,"tax":9005,"dom":14,"splp":101,"vintage":"Historic (pre-1950)"},{"name":"Queens Grant","raw":"QUEENS GRANT","lat":40.22422,"lng":-74.85098,"zone":"south","n":3,"closed":3,"pending":0,"pmin":725000,"pmax":881000,"pmed":725000,"sqft":2712,"ppsf":311,"beds":4,"yrmin":1972,"yrmax":1983,"tax":11135,"dom":5,"splp":104,"vintage":"Established (1950s\u201370s)"},{"name":"Longshore Ests","raw":"LONGSHORE ESTS","lat":40.24155,"lng":-74.84116,"zone":"east","n":2,"closed":2,"pending":0,"pmin":991000,"pmax":1000000,"pmed":995500,"sqft":2897,"ppsf":343,"beds":5,"yrmin":1996,"yrmax":1997,"tax":12589,"dom":27,"splp":97,"vintage":"Newer (1980s+)"},{"name":"Valley Greene","raw":"VALLEY GREENE","lat":40.23565,"lng":-74.87105,"zone":"west","n":2,"closed":2,"pending":0,"pmin":850000,"pmax":995000,"pmed":922500,"sqft":2620,"ppsf":355,"beds":4,"yrmin":1996,"yrmax":1997,"tax":12142,"dom":2,"splp":107,"vintage":"Newer (1980s+)"},{"name":"Yardley Ests","raw":"YARDLEY ESTS","lat":40.24463,"lng":-74.85278,"zone":"core","n":2,"closed":2,"pending":0,"pmin":899900,"pmax":925000,"pmed":912450,"sqft":3288,"ppsf":278,"beds":4,"yrmin":1987,"yrmax":1987,"tax":15310,"dom":8,"splp":100,"vintage":"Newer (1980s+)"},{"name":"Hidden Oaks","raw":"HIDDEN OAKS","lat":40.22575,"lng":-74.87474,"zone":"southwest","n":2,"closed":2,"pending":0,"pmin":850000,"pmax":859000,"pmed":854500,"sqft":2385,"ppsf":360,"beds":4,"yrmin":1993,"yrmax":1995,"tax":9341,"dom":6,"splp":106,"vintage":"Newer (1980s+)"},{"name":"Yardley Crest","raw":"YARDLEY CREST","lat":40.24308,"lng":-74.84862,"zone":"core","n":2,"closed":2,"pending":0,"pmin":730000,"pmax":925000,"pmed":827500,"sqft":2706,"ppsf":305,"beds":4,"yrmin":1990,"yrmax":1991,"tax":13220,"dom":3,"splp":103,"vintage":"Newer (1980s+)"},{"name":"Oxford Glen","raw":"OXFORD GLEN","lat":40.24073,"lng":-74.87446,"zone":"west","n":2,"closed":2,"pending":0,"pmin":752000,"pmax":875000,"pmed":813500,"sqft":2289,"ppsf":360,"beds":3,"yrmin":1986,"yrmax":1986,"tax":9285,"dom":5,"splp":105,"vintage":"Newer (1980s+)"},{"name":"Palmer Farm","raw":"PALMER FARM","lat":40.2183,"lng":-74.87827,"zone":"southwest","n":2,"closed":2,"pending":0,"pmin":710000,"pmax":750000,"pmed":730000,"sqft":2510,"ppsf":290,"beds":3,"yrmin":1993,"yrmax":1994,"tax":10526,"dom":4,"splp":101,"vintage":"Newer (1980s+)"},{"name":"Peake Farm","raw":"PEAKE FARM","lat":40.23372,"lng":-74.87206,"zone":"west","n":1,"closed":1,"pending":0,"pmin":999950,"pmax":999950,"pmed":999950,"sqft":3842,"ppsf":260,"beds":4,"yrmin":1999,"yrmax":1999,"tax":14615,"dom":37,"splp":100,"vintage":"Newer (1980s+)"},{"name":"Deerbrook","raw":"DEERBROOK","lat":40.2261,"lng":-74.86059,"zone":"south","n":1,"closed":1,"pending":0,"pmin":985000,"pmax":985000,"pmed":985000,"sqft":4262,"ppsf":231,"beds":5,"yrmin":2005,"yrmax":2005,"tax":17120,"dom":20,"splp":94,"vintage":"Newer (1980s+)"},{"name":"Makefield Brook","raw":"MAKEFIELD BROOK","lat":40.21818,"lng":-74.88022,"zone":"southwest","n":1,"closed":1,"pending":0,"pmin":975000,"pmax":975000,"pmed":975000,"sqft":3710,"ppsf":262,"beds":4,"yrmin":1987,"yrmax":1987,"tax":15268,"dom":0,"splp":100,"vintage":"Newer (1980s+)"},{"name":"Makefield Chase","raw":"MAKEFIELD CHASE","lat":40.22041,"lng":-74.8832,"zone":"southwest","n":1,"closed":1,"pending":0,"pmin":975000,"pmax":975000,"pmed":975000,"sqft":5207,"ppsf":187,"beds":5,"yrmin":1980,"yrmax":1980,"tax":21525,"dom":17,"splp":89,"vintage":"Newer (1980s+)"},{"name":"Wilshire Glen","raw":"WILSHIRE GLEN","lat":40.23226,"lng":-74.8811,"zone":"west","n":1,"closed":0,"pending":1,"pmin":970000,"pmax":970000,"pmed":970000,"sqft":4347,"ppsf":223,"beds":4,"yrmin":2003,"yrmax":2003,"tax":16770,"dom":5,"splp":null,"vintage":"Newer (1980s+)"},{"name":"Westover","raw":"WESTOVER","lat":40.24022,"lng":-74.87439,"zone":"west","n":1,"closed":1,"pending":0,"pmin":960000,"pmax":960000,"pmed":960000,"sqft":3020,"ppsf":317,"beds":4,"yrmin":1928,"yrmax":1928,"tax":9156,"dom":7,"splp":109,"vintage":"Historic (pre-1950)"},{"name":"Makefield Ridge","raw":"MAKEFIELD RIDGE","lat":40.21958,"lng":-74.8715,"zone":"southwest","n":1,"closed":1,"pending":0,"pmin":950000,"pmax":950000,"pmed":950000,"sqft":3710,"ppsf":256,"beds":4,"yrmin":1986,"yrmax":1986,"tax":19029,"dom":59,"splp":97,"vintage":"Newer (1980s+)"},{"name":"Hidden Oaks I","raw":"HIDDEN OAKS I","lat":40.22062,"lng":-74.88378,"zone":"southwest","n":1,"closed":1,"pending":0,"pmin":930000,"pmax":930000,"pmed":930000,"sqft":3322,"ppsf":279,"beds":4,"yrmin":1996,"yrmax":1996,"tax":12765,"dom":20,"splp":95,"vintage":"Newer (1980s+)"},{"name":"Delavue Manor","raw":"DELAVUE MANOR","lat":40.24153,"lng":-74.84103,"zone":"east","n":1,"closed":1,"pending":0,"pmin":925000,"pmax":925000,"pmed":925000,"sqft":2474,"ppsf":373,"beds":4,"yrmin":1918,"yrmax":1918,"tax":11731,"dom":20,"splp":97,"vintage":"Historic (pre-1950)"},{"name":"Yardley Run","raw":"YARDLEY RUN","lat":40.25524,"lng":-74.85309,"zone":"north","n":1,"closed":1,"pending":0,"pmin":910000,"pmax":910000,"pmed":910000,"sqft":2929,"ppsf":310,"beds":4,"yrmin":1987,"yrmax":1987,"tax":10817,"dom":4,"splp":104,"vintage":"Newer (1980s+)"},{"name":"Edgewood Park","raw":"EDGEWOOD PARK","lat":40.22768,"lng":-74.86058,"zone":"central","n":1,"closed":0,"pending":1,"pmin":875000,"pmax":875000,"pmed":875000,"sqft":2748,"ppsf":318,"beds":4,"yrmin":1970,"yrmax":1970,"tax":10656,"dom":5,"splp":null,"vintage":"Established (1950s\u201370s)"},{"name":"Glen Wood","raw":"GLEN WOOD","lat":40.23337,"lng":-74.85653,"zone":"central","n":1,"closed":1,"pending":0,"pmin":857500,"pmax":857500,"pmed":857500,"sqft":2334,"ppsf":367,"beds":4,"yrmin":1946,"yrmax":1946,"tax":10141,"dom":6,"splp":114,"vintage":"Historic (pre-1950)"},{"name":"Meadowbrook","raw":"MEADOWBROOK","lat":40.21566,"lng":-74.86219,"zone":"south","n":1,"closed":1,"pending":0,"pmin":850000,"pmax":850000,"pmed":850000,"sqft":2730,"ppsf":311,"beds":4,"yrmin":1995,"yrmax":1995,"tax":14515,"dom":7,"splp":100,"vintage":"Newer (1980s+)"},{"name":"In-town / no subdivision","raw":"000","lat":40.24217,"lng":-74.84404,"zone":"core","n":1,"closed":1,"pending":0,"pmin":835000,"pmax":835000,"pmed":835000,"sqft":2345,"ppsf":356,"beds":4,"yrmin":1948,"yrmax":1948,"tax":7456,"dom":8,"splp":116,"vintage":"Historic (pre-1950)"},{"name":"Canterbury Ests","raw":"CANTERBURY ESTS","lat":40.23515,"lng":-74.8818,"zone":"west","n":1,"closed":1,"pending":0,"pmin":835000,"pmax":835000,"pmed":835000,"sqft":3208,"ppsf":260,"beds":4,"yrmin":1981,"yrmax":1981,"tax":13620,"dom":7,"splp":101,"vintage":"Newer (1980s+)"},{"name":"Park Town Estates","raw":"PARK TOWN ESTATES","lat":40.24854,"lng":-74.84412,"zone":"core","n":1,"closed":0,"pending":1,"pmin":829900,"pmax":829900,"pmed":829900,"sqft":2712,"ppsf":306,"beds":4,"yrmin":1970,"yrmax":1970,"tax":12726,"dom":6,"splp":null,"vintage":"Established (1950s\u201370s)"},{"name":"Ashley Ests","raw":"ASHLEY ESTS","lat":40.21966,"lng":-74.85208,"zone":"south","n":1,"closed":1,"pending":0,"pmin":825000,"pmax":825000,"pmed":825000,"sqft":2408,"ppsf":342,"beds":4,"yrmin":1987,"yrmax":1987,"tax":11542,"dom":13,"splp":100,"vintage":"Newer (1980s+)"},{"name":"Big Oak Woods","raw":"BIG OAK WOODS","lat":40.22438,"lng":-74.8615,"zone":"south","n":1,"closed":1,"pending":0,"pmin":825000,"pmax":825000,"pmed":825000,"sqft":2896,"ppsf":284,"beds":4,"yrmin":1980,"yrmax":1980,"tax":9832,"dom":16,"splp":98,"vintage":"Newer (1980s+)"},{"name":"Rock Creek Run","raw":"ROCK CREEK RUN","lat":40.21792,"lng":-74.86333,"zone":"south","n":1,"closed":1,"pending":0,"pmin":825000,"pmax":825000,"pmed":825000,"sqft":2248,"ppsf":366,"beds":4,"yrmin":1998,"yrmax":1998,"tax":11025,"dom":5,"splp":106,"vintage":"Newer (1980s+)"},{"name":"Milford Manor","raw":"MILFORD MANOR","lat":40.24022,"lng":-74.87138,"zone":"west","n":1,"closed":0,"pending":1,"pmin":824900,"pmax":824900,"pmed":824900,"sqft":2800,"ppsf":294,"beds":4,"yrmin":1964,"yrmax":1964,"tax":9974,"dom":15,"splp":null,"vintage":"Established (1950s\u201370s)"},{"name":"Yardley Oaks","raw":"YARDLEY OAKS","lat":40.24644,"lng":-74.84819,"zone":"core","n":1,"closed":1,"pending":0,"pmin":785000,"pmax":785000,"pmed":785000,"sqft":2572,"ppsf":305,"beds":4,"yrmin":1986,"yrmax":1986,"tax":10141,"dom":9,"splp":101,"vintage":"Newer (1980s+)"},{"name":"Yardley Mdws","raw":"YARDLEY MDWS","lat":40.22019,"lng":-74.85672,"zone":"south","n":1,"closed":1,"pending":0,"pmin":762000,"pmax":762000,"pmed":762000,"sqft":2350,"ppsf":324,"beds":3,"yrmin":1984,"yrmax":1984,"tax":9325,"dom":7,"splp":105,"vintage":"Newer (1980s+)"},{"name":"Arborlea","raw":"ARBORLEA","lat":40.23366,"lng":-74.86917,"zone":"central","n":1,"closed":1,"pending":0,"pmin":730000,"pmax":730000,"pmed":730000,"sqft":2056,"ppsf":355,"beds":4,"yrmin":1950,"yrmax":1950,"tax":9743,"dom":4,"splp":105,"vintage":"Established (1950s\u201370s)"},{"name":"Paddock Club","raw":"PADDOCK CLUB","lat":40.23559,"lng":-74.87004,"zone":"west","n":1,"closed":1,"pending":0,"pmin":730000,"pmax":730000,"pmed":730000,"sqft":3000,"ppsf":243,"beds":4,"yrmin":1957,"yrmax":1957,"tax":8003,"dom":5,"splp":104,"vintage":"Established (1950s\u201370s)"},{"name":"Hillwood Terr","raw":"HILLWOOD TERR","lat":40.25201,"lng":-74.85264,"zone":"core","n":1,"closed":1,"pending":0,"pmin":715000,"pmax":715000,"pmed":715000,"sqft":2439,"ppsf":293,"beds":5,"yrmin":1967,"yrmax":1967,"tax":7904,"dom":9,"splp":105,"vintage":"Established (1950s\u201370s)"},{"name":"Edgehill Gardens","raw":"EDGEHILL GARDENS","lat":40.24775,"lng":-74.8476,"zone":"core","n":1,"closed":1,"pending":0,"pmin":700000,"pmax":700000,"pmed":700000,"sqft":3729,"ppsf":187,"beds":6,"yrmin":1924,"yrmax":1924,"tax":15168,"dom":70,"splp":97,"vintage":"Historic (pre-1950)"}],"props":[{"addr":"500 Countess","sub":"Edgewood Park","subRaw":"EDGEWOOD PARK","status":"Pending","price":875000,"sold":null,"list":875000,"sqft":2748,"ppsf":318,"beds":4,"baths":"2.1","yr":1970,"tax":10656,"acres":0.8,"dom":5,"style":"Traditional"},{"addr":"507 American","sub":"Centennial Village","subRaw":"CENTENNIAL VILLAGE","status":"Pending","price":849900,"sold":null,"list":849900,"sqft":2517,"ppsf":338,"beds":4,"baths":"2.1","yr":1979,"tax":12208,"acres":0.39,"dom":4,"style":"SplitLevel"},{"addr":"1144 Dickinson","sub":"Sandy Run","subRaw":"SANDY RUN","status":"Pending","price":869900,"sold":null,"list":869900,"sqft":2982,"ppsf":292,"beds":5,"baths":"2.1","yr":1967,"tax":11349,"acres":0.54,"dom":12,"style":"Colonial"},{"addr":"329 Sherwood","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Pending","price":830000,"sold":null,"list":830000,"sqft":3544,"ppsf":234,"beds":4,"baths":"2.1","yr":1979,"tax":12580,"acres":0.48,"dom":6,"style":"Colonial"},{"addr":"1 Homestead","sub":"Makefield Manor","subRaw":"MAKEFIELD MANOR","status":"Pending","price":725000,"sold":null,"list":725000,"sqft":2123,"ppsf":341,"beds":4,"baths":"2.1","yr":1952,"tax":8053,"acres":0.49,"dom":6,"style":"Rancher"},{"addr":"642 Friar","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Pending","price":850000,"sold":null,"list":850000,"sqft":3036,"ppsf":280,"beds":4,"baths":"2.1","yr":1984,"tax":12226,"acres":0.38,"dom":26,"style":"Tudor"},{"addr":"138 Barbara","sub":"Wilshire Glen","subRaw":"WILSHIRE GLEN","status":"Pending","price":970000,"sold":null,"list":970000,"sqft":4347,"ppsf":223,"beds":4,"baths":"2.1","yr":2003,"tax":16770,"acres":0.4,"dom":5,"style":"Colonial"},{"addr":"3 Eton","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Pending","price":879000,"sold":null,"list":879000,"sqft":2836,"ppsf":310,"beds":3,"baths":"3","yr":1960,"tax":10173,"acres":0.42,"dom":27,"style":"MidCenturyModern,Rancher"},{"addr":"1024 Cultipacker","sub":"Mirror Lake Farms","subRaw":"MIRROR LAKE FARMS","status":"Pending","price":875000,"sold":null,"list":875000,"sqft":2924,"ppsf":299,"beds":4,"baths":"2.1","yr":1984,"tax":15808,"acres":1.14,"dom":33,"style":"Colonial"},{"addr":"1431 Silo","sub":"Mirror Lake Farms","subRaw":"MIRROR LAKE FARMS","status":"Pending","price":999900,"sold":null,"list":999900,"sqft":3216,"ppsf":311,"beds":4,"baths":"2.1","yr":1981,"tax":12499,"acres":1.05,"dom":7,"style":"Colonial"},{"addr":"695 Friar","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Pending","price":919900,"sold":null,"list":919900,"sqft":3036,"ppsf":303,"beds":4,"baths":"2.1","yr":1983,"tax":13123,"acres":0.35,"dom":12,"style":"Tudor"},{"addr":"661 Nancy","sub":"Park Town Estates","subRaw":"PARK TOWN ESTATES","status":"Pending","price":829900,"sold":null,"list":829900,"sqft":2712,"ppsf":306,"beds":4,"baths":"3","yr":1970,"tax":12726,"acres":0.41,"dom":6,"style":"Rancher"},{"addr":"1608 Crescent","sub":"Makefield Manor","subRaw":"MAKEFIELD MANOR","status":"Pending","price":895000,"sold":null,"list":895000,"sqft":2878,"ppsf":311,"beds":5,"baths":"2.1","yr":1974,"tax":11513,"acres":0.52,"dom":10,"style":"Colonial"},{"addr":"1103 Roeloffs","sub":"Milford Manor","subRaw":"MILFORD MANOR","status":"Pending","price":824900,"sold":null,"list":824900,"sqft":2800,"ppsf":295,"beds":4,"baths":"3.1","yr":1964,"tax":9974,"acres":0.34,"dom":15,"style":"Traditional"},{"addr":"923 Pickering","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Pending","price":749000,"sold":null,"list":749000,"sqft":2214,"ppsf":338,"beds":3,"baths":"2","yr":1976,"tax":10673,"acres":0.38,"dom":27,"style":"Rancher"},{"addr":"856 Gainsway","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":825000,"sold":825000,"list":825000,"sqft":3536,"ppsf":233,"beds":4,"baths":"3.1","yr":1972,"tax":12944,"acres":0.82,"dom":1,"style":"Colonial"},{"addr":"209 Hyacinth","sub":"Valley Greene","subRaw":"VALLEY GREENE","status":"Closed","price":995000,"sold":995000,"list":925000,"sqft":2993,"ppsf":332,"beds":4,"baths":"3","yr":1997,"tax":13061,"acres":0.0,"dom":0,"style":"Colonial"},{"addr":"5 Saint James","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":740000,"sold":740000,"list":675000,"sqft":2138,"ppsf":346,"beds":4,"baths":"2","yr":1952,"tax":9743,"acres":0.55,"dom":4,"style":"CapeCod"},{"addr":"300 Robin Hood","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":940000,"sold":940000,"list":925000,"sqft":3131,"ppsf":300,"beds":4,"baths":"2.1","yr":1979,"tax":11463,"acres":0.37,"dom":7,"style":"Colonial"},{"addr":"50 Sutphin","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":885000,"sold":885000,"list":885000,"sqft":3398,"ppsf":260,"beds":4,"baths":"2.1","yr":1963,"tax":12313,"acres":0.37,"dom":17,"style":"Colonial"},{"addr":"1420 Scarlet Oak","sub":"Heritage Oaks","subRaw":"HERITAGE OAKS","status":"Closed","price":830700,"sold":830700,"list":775000,"sqft":2667,"ppsf":311,"beds":4,"baths":"2.1","yr":1986,"tax":10369,"acres":0.27,"dom":4,"style":"Colonial"},{"addr":"1207 Madison","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":947000,"sold":947000,"list":875000,"sqft":2734,"ppsf":346,"beds":4,"baths":"2.1","yr":1978,"tax":11125,"acres":0.38,"dom":4,"style":"Colonial"},{"addr":"163 Main","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":989500,"sold":989500,"list":989500,"sqft":3067,"ppsf":323,"beds":4,"baths":"2.1","yr":1900,"tax":6238,"acres":0.0,"dom":8,"style":"Victorian"},{"addr":"283 Greenview","sub":"Oxford Glen","subRaw":"OXFORD GLEN","status":"Closed","price":752000,"sold":752000,"list":752500,"sqft":1910,"ppsf":394,"beds":3,"baths":"2.1","yr":1986,"tax":8450,"acres":0.31,"dom":5,"style":"Colonial"},{"addr":"224 Marlboro","sub":"Valleywood","subRaw":"VALLEYWOOD","status":"Closed","price":785000,"sold":785000,"list":760000,"sqft":2348,"ppsf":334,"beds":4,"baths":"2.2","yr":1969,"tax":8649,"acres":0.33,"dom":4,"style":"Traditional"},{"addr":"680 Long Acre","sub":"Yardley Ests","subRaw":"YARDLEY ESTS","status":"Closed","price":925000,"sold":925000,"list":925000,"sqft":3098,"ppsf":299,"beds":4,"baths":"2.1","yr":1987,"tax":15092,"acres":0.38,"dom":6,"style":"Colonial"},{"addr":"1363 Lexington","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":825000,"sold":825000,"list":865000,"sqft":2831,"ppsf":291,"beds":4,"baths":"2.1","yr":1983,"tax":12328,"acres":0.4,"dom":21,"style":"Colonial"},{"addr":"1810 Wrightfield","sub":"Makefield Manor","subRaw":"MAKEFIELD MANOR","status":"Closed","price":770000,"sold":770000,"list":740000,"sqft":1797,"ppsf":428,"beds":4,"baths":"2","yr":1954,"tax":7655,"acres":0.33,"dom":4,"style":"CapeCod"},{"addr":"2145 Wellington","sub":"Yardley Run","subRaw":"YARDLEY RUN","status":"Closed","price":910000,"sold":910000,"list":875000,"sqft":2929,"ppsf":311,"beds":4,"baths":"2.1","yr":1987,"tax":10817,"acres":0.32,"dom":4,"style":"Colonial"},{"addr":"1901 Oxford Valley","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":725000,"sold":725000,"list":719900,"sqft":2042,"ppsf":355,"beds":3,"baths":"2","yr":1966,"tax":7096,"acres":0.66,"dom":9,"style":"Rancher"},{"addr":"210 Cinnabar","sub":"Meadowbrook","subRaw":"MEADOWBROOK","status":"Closed","price":850000,"sold":850000,"list":850000,"sqft":2730,"ppsf":311,"beds":4,"baths":"2.1","yr":1995,"tax":14515,"acres":0.45,"dom":7,"style":"Colonial"},{"addr":"1091 Independence","sub":"Centennial Village","subRaw":"CENTENNIAL VILLAGE","status":"Closed","price":725000,"sold":725000,"list":725000,"sqft":2470,"ppsf":294,"beds":4,"baths":"2.1","yr":1978,"tax":10817,"acres":0.51,"dom":34,"style":"Colonial,Traditional"},{"addr":"1301 Albright","sub":"Sandy Run","subRaw":"SANDY RUN","status":"Closed","price":770000,"sold":770000,"list":787000,"sqft":2366,"ppsf":325,"beds":4,"baths":"2.1","yr":1976,"tax":10827,"acres":0.57,"dom":34,"style":"Colonial"},{"addr":"284 Greenview","sub":"Oxford Glen","subRaw":"OXFORD GLEN","status":"Closed","price":875000,"sold":875000,"list":795000,"sqft":2668,"ppsf":328,"beds":4,"baths":"2.1","yr":1986,"tax":10121,"acres":0.31,"dom":6,"style":"Traditional"},{"addr":"1511 Laurie","sub":"Makefield Chase","subRaw":"MAKEFIELD CHASE","status":"Closed","price":975000,"sold":975000,"list":1100000,"sqft":5207,"ppsf":187,"beds":5,"baths":"4.1","yr":1980,"tax":21525,"acres":2.44,"dom":17,"style":"Colonial"},{"addr":"1004 Meridian","sub":"Yardley Crest","subRaw":"YARDLEY CREST","status":"Closed","price":925000,"sold":925000,"list":850000,"sqft":3020,"ppsf":306,"beds":4,"baths":"3.1","yr":1990,"tax":14555,"acres":0.33,"dom":3,"style":"Colonial"},{"addr":"1201 Birch","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":715000,"sold":715000,"list":699900,"sqft":2127,"ppsf":336,"beds":3,"baths":"2.1","yr":1969,"tax":7663,"acres":0.32,"dom":8,"style":"Rancher"},{"addr":"46 Black Rock","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":765000,"sold":765000,"list":765000,"sqft":2200,"ppsf":348,"beds":3,"baths":"2","yr":1952,"tax":7357,"acres":0.0,"dom":7,"style":"Rancher"},{"addr":"705 Matthew","sub":"Makefield Crossing","subRaw":"MAKEFIELD CROSSING","status":"Closed","price":840000,"sold":840000,"list":850000,"sqft":2452,"ppsf":343,"beds":4,"baths":"2.1","yr":1999,"tax":12407,"acres":0.0,"dom":9,"style":"Colonial"},{"addr":"1485 Merrick","sub":"Longshore Ests","subRaw":"LONGSHORE ESTS","status":"Closed","price":1000000,"sold":1000000,"list":1050000,"sqft":2956,"ppsf":338,"beds":5,"baths":"3.1","yr":1996,"tax":12952,"acres":0.42,"dom":19,"style":"Colonial"},{"addr":"47 College","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":762500,"sold":762500,"list":774900,"sqft":null,"ppsf":null,"beds":3,"baths":"2.1","yr":2025,"tax":623,"acres":0.1,"dom":9,"style":"Traditional"},{"addr":"1356 Jacob","sub":"Makefield Brook","subRaw":"MAKEFIELD BROOK","status":"Closed","price":975000,"sold":975000,"list":975000,"sqft":3710,"ppsf":263,"beds":4,"baths":"2.1","yr":1987,"tax":15268,"acres":0.6,"dom":0,"style":"Colonial"},{"addr":"1253 Lexington","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":725000,"sold":725000,"list":750000,"sqft":3326,"ppsf":218,"beds":4,"baths":"2.1","yr":1981,"tax":10953,"acres":0.44,"dom":51,"style":"Contemporary"},{"addr":"1237 University","sub":"Sandy Run","subRaw":"SANDY RUN","status":"Closed","price":909000,"sold":909000,"list":850000,"sqft":2552,"ppsf":356,"beds":4,"baths":"2.1","yr":1972,"tax":9673,"acres":0.52,"dom":6,"style":"Colonial"},{"addr":"942 Roeloffs","sub":"Edgebrook","subRaw":"EDGEBROOK","status":"Closed","price":860000,"sold":860000,"list":849900,"sqft":2818,"ppsf":305,"beds":5,"baths":"3.1","yr":1979,"tax":10220,"acres":0.4,"dom":14,"style":"Colonial"},{"addr":"2226 Yardley Morrisville","sub":"Delavue Manor","subRaw":"DELAVUE MANOR","status":"Closed","price":925000,"sold":925000,"list":950000,"sqft":2474,"ppsf":374,"beds":4,"baths":"2.1","yr":1918,"tax":11731,"acres":1.1,"dom":20,"style":"ArtDeco,Other"},{"addr":"700 Ardsley","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":960000,"sold":960000,"list":979000,"sqft":2300,"ppsf":417,"beds":4,"baths":"2.1","yr":1977,"tax":12139,"acres":0.32,"dom":8,"style":"Other"},{"addr":"896 Gainsway","sub":"Carriage Hill","subRaw":"CARRIAGE HILL","status":"Closed","price":775000,"sold":775000,"list":795000,"sqft":2890,"ppsf":268,"beds":4,"baths":"3","yr":1974,"tax":12527,"acres":0.65,"dom":21,"style":"Traditional"},{"addr":"2017 Quarry","sub":"Paddock Club","subRaw":"PADDOCK CLUB","status":"Closed","price":730000,"sold":730000,"list":700000,"sqft":3000,"ppsf":243,"beds":4,"baths":"3","yr":1957,"tax":8003,"acres":0.51,"dom":5,"style":"Rancher"},{"addr":"536 Heritage Oak","sub":"Heritage Oaks","subRaw":"HERITAGE OAKS","status":"Closed","price":875000,"sold":875000,"list":839900,"sqft":2878,"ppsf":304,"beds":4,"baths":"2.1","yr":1987,"tax":12527,"acres":0.31,"dom":6,"style":"Traditional"},{"addr":"404 Sweetbriar","sub":"Hidden Oaks","subRaw":"HIDDEN OAKS","status":"Closed","price":859000,"sold":859000,"list":824900,"sqft":2586,"ppsf":332,"beds":4,"baths":"2.1","yr":1995,"tax":7299,"acres":0.85,"dom":8,"style":"Colonial"},{"addr":"1190 University","sub":"Sandy Run","subRaw":"SANDY RUN","status":"Closed","price":955000,"sold":955000,"list":865000,"sqft":2750,"ppsf":347,"beds":4,"baths":"2.2","yr":1970,"tax":12010,"acres":0.46,"dom":4,"style":"Traditional"},{"addr":"1948 Satter","sub":"Palmer Farm","subRaw":"PALMER FARM","status":"Closed","price":750000,"sold":750000,"list":750000,"sqft":2510,"ppsf":299,"beds":3,"baths":"2.1","yr":1993,"tax":10046,"acres":0.13,"dom":5,"style":"Traditional"},{"addr":"6 Plymouth","sub":"Hillwood Terr","subRaw":"HILLWOOD TERR","status":"Closed","price":715000,"sold":715000,"list":679000,"sqft":2439,"ppsf":293,"beds":5,"baths":"3","yr":1967,"tax":7904,"acres":0.43,"dom":9,"style":"Colonial"},{"addr":"184 Crestview","sub":"Yardley Crest","subRaw":"YARDLEY CREST","status":"Closed","price":730000,"sold":730000,"list":749000,"sqft":2392,"ppsf":305,"beds":4,"baths":"2.1","yr":1991,"tax":11885,"acres":0.46,"dom":4,"style":"Colonial"},{"addr":"571 Heritage Oak","sub":"Heritage Oaks","subRaw":"HERITAGE OAKS","status":"Closed","price":885000,"sold":885000,"list":800000,"sqft":2738,"ppsf":323,"beds":4,"baths":"3.1","yr":1987,"tax":12308,"acres":0.3,"dom":5,"style":"Colonial"},{"addr":"866 Weber","sub":"Queens Grant","subRaw":"QUEENS GRANT","status":"Closed","price":881000,"sold":881000,"list":850000,"sqft":2824,"ppsf":312,"beds":4,"baths":"2.1","yr":1972,"tax":12666,"acres":0.58,"dom":5,"style":"Contemporary"},{"addr":"581 Nottingham","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":795000,"sold":795000,"list":795000,"sqft":2827,"ppsf":281,"beds":4,"baths":"2.1","yr":1979,"tax":13123,"acres":0.21,"dom":17,"style":"Colonial"},{"addr":"227 Penn Valley","sub":"Glen Wood","subRaw":"GLEN WOOD","status":"Closed","price":857500,"sold":857500,"list":750000,"sqft":2334,"ppsf":367,"beds":4,"baths":"2","yr":1946,"tax":10141,"acres":0.6,"dom":6,"style":"CapeCod"},{"addr":"885 Henry","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":915000,"sold":915000,"list":875000,"sqft":3080,"ppsf":297,"beds":4,"baths":"2.1","yr":1983,"tax":11473,"acres":0.44,"dom":5,"style":"Colonial"},{"addr":"1034 Victory","sub":"Centennial Village","subRaw":"CENTENNIAL VILLAGE","status":"Closed","price":830000,"sold":830000,"list":799000,"sqft":null,"ppsf":null,"beds":4,"baths":"2.1","yr":1979,"tax":11639,"acres":0.39,"dom":1,"style":"Colonial"},{"addr":"389 Twig","sub":"Peake Farm","subRaw":"PEAKE FARM","status":"Closed","price":999950,"sold":999950,"list":999950,"sqft":3842,"ppsf":260,"beds":4,"baths":"2.1","yr":1999,"tax":14615,"acres":0.38,"dom":37,"style":"Colonial"},{"addr":"494 Keating","sub":"Valleywood","subRaw":"VALLEYWOOD","status":"Closed","price":825000,"sold":825000,"list":850000,"sqft":2528,"ppsf":326,"beds":4,"baths":"2.2","yr":1975,"tax":9748,"acres":0.4,"dom":14,"style":"Colonial"},{"addr":"1208 Dickinson","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":735000,"sold":735000,"list":749900,"sqft":3166,"ppsf":232,"beds":5,"baths":"3.1","yr":1976,"tax":11354,"acres":0.37,"dom":39,"style":"Colonial"},{"addr":"1217 Yardley","sub":"Arborlea","subRaw":"ARBORLEA","status":"Closed","price":730000,"sold":730000,"list":695000,"sqft":2056,"ppsf":355,"beds":4,"baths":"2","yr":1950,"tax":9743,"acres":0.52,"dom":4,"style":"Colonial"},{"addr":"109 Longshore","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":730000,"sold":730000,"list":699900,"sqft":2492,"ppsf":293,"beds":3,"baths":"2.1","yr":1800,"tax":5788,"acres":0.17,"dom":8,"style":"Colonial"},{"addr":"1988 Knight","sub":"Palmer Farm","subRaw":"PALMER FARM","status":"Closed","price":710000,"sold":710000,"list":699900,"sqft":2510,"ppsf":283,"beds":3,"baths":"2.1","yr":1994,"tax":11006,"acres":0.07,"dom":3,"style":"Colonial"},{"addr":"918 Edgewood","sub":"Carriage Hill","subRaw":"CARRIAGE HILL","status":"Closed","price":706000,"sold":706000,"list":725000,"sqft":2441,"ppsf":289,"beds":4,"baths":"2.1","yr":1972,"tax":9445,"acres":0.49,"dom":43,"style":"Colonial"},{"addr":"1599 Candace","sub":"Makefield Crossing","subRaw":"MAKEFIELD CROSSING","status":"Closed","price":843000,"sold":843000,"list":843000,"sqft":3044,"ppsf":277,"beds":4,"baths":"2.1","yr":1999,"tax":15360,"acres":0.0,"dom":5,"style":"Colonial"},{"addr":"1903 Woodland","sub":"Makefield Manor","subRaw":"MAKEFIELD MANOR","status":"Closed","price":775000,"sold":775000,"list":725000,"sqft":2088,"ppsf":371,"beds":4,"baths":"2.1","yr":1964,"tax":9629,"acres":0.62,"dom":4,"style":"Colonial"},{"addr":"503 Jenny","sub":"Ashley Ests","subRaw":"ASHLEY ESTS","status":"Closed","price":825000,"sold":825000,"list":824900,"sqft":2408,"ppsf":343,"beds":4,"baths":"2.1","yr":1987,"tax":11542,"acres":0.31,"dom":13,"style":"Colonial"},{"addr":"762 Dawes","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":806000,"sold":806000,"list":785000,"sqft":3080,"ppsf":262,"beds":4,"baths":"2","yr":1980,"tax":12007,"acres":0.38,"dom":8,"style":"Colonial"},{"addr":"628 Deerbrook","sub":"Deerbrook","subRaw":"DEERBROOK","status":"Closed","price":985000,"sold":985000,"list":1050000,"sqft":4262,"ppsf":231,"beds":5,"baths":"4","yr":2005,"tax":17120,"acres":0.41,"dom":20,"style":"Colonial"},{"addr":"21 Milton","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":950000,"sold":950000,"list":950000,"sqft":3285,"ppsf":289,"beds":4,"baths":"2.1","yr":1960,"tax":14813,"acres":0.37,"dom":26,"style":"Colonial"},{"addr":"1306 Moon","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":900000,"sold":900000,"list":899900,"sqft":2968,"ppsf":303,"beds":4,"baths":"2.1","yr":1970,"tax":12924,"acres":0.38,"dom":34,"style":"Colonial"},{"addr":"1230 Dickinson","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":875000,"sold":875000,"list":849000,"sqft":2618,"ppsf":334,"beds":5,"baths":"2.1","yr":1976,"tax":10210,"acres":0.38,"dom":3,"style":"Colonial"},{"addr":"873 Olsen","sub":"Edgebrook","subRaw":"EDGEBROOK","status":"Closed","price":725000,"sold":725000,"list":725000,"sqft":1932,"ppsf":375,"beds":3,"baths":"2","yr":1976,"tax":10439,"acres":0.32,"dom":10,"style":"Rancher"},{"addr":"1482 Overlook","sub":"Yardley Oaks","subRaw":"YARDLEY OAKS","status":"Closed","price":785000,"sold":785000,"list":779000,"sqft":2572,"ppsf":305,"beds":4,"baths":"2.1","yr":1986,"tax":10141,"acres":0.32,"dom":9,"style":"Traditional"},{"addr":"500 Heritage Oak","sub":"Heritage Oaks","subRaw":"HERITAGE OAKS","status":"Closed","price":815000,"sold":815000,"list":775000,"sqft":2532,"ppsf":322,"beds":4,"baths":"2.1","yr":1987,"tax":11229,"acres":0.55,"dom":4,"style":"Colonial"},{"addr":"76 Black Rock","sub":"River Glen","subRaw":"RIVER GLEN","status":"Closed","price":880000,"sold":880000,"list":879900,"sqft":2054,"ppsf":428,"beds":3,"baths":"2.1","yr":1930,"tax":9005,"acres":0.91,"dom":20,"style":"Traditional,Tudor"},{"addr":"923 Hunt","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":700000,"sold":700000,"list":800000,"sqft":3488,"ppsf":201,"beds":4,"baths":"2.2","yr":1985,"tax":13789,"acres":1.66,"dom":0,"style":"Tudor"},{"addr":"709 Wynnewood","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":900000,"sold":900000,"list":875000,"sqft":2662,"ppsf":338,"beds":4,"baths":"2.1","yr":1981,"tax":13024,"acres":0.62,"dom":2,"style":"Colonial"},{"addr":"16 Effingham","sub":"Westover","subRaw":"WESTOVER","status":"Closed","price":960000,"sold":960000,"list":879000,"sqft":3020,"ppsf":318,"beds":4,"baths":"2.1","yr":1928,"tax":9156,"acres":0.47,"dom":7,"style":"Colonial"},{"addr":"302 Frazer","sub":"Rock Creek Run","subRaw":"ROCK CREEK RUN","status":"Closed","price":825000,"sold":825000,"list":775000,"sqft":2248,"ppsf":367,"beds":4,"baths":"2.1","yr":1998,"tax":11025,"acres":0.3,"dom":5,"style":"Colonial"},{"addr":"963 Hunt","sub":"Makefield Ridge","subRaw":"MAKEFIELD RIDGE","status":"Closed","price":950000,"sold":950000,"list":975000,"sqft":3710,"ppsf":256,"beds":4,"baths":"2.1","yr":1986,"tax":19029,"acres":1.0,"dom":59,"style":"Contemporary"},{"addr":"1277 Knox","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":970000,"sold":970000,"list":949900,"sqft":3326,"ppsf":292,"beds":4,"baths":"2.1","yr":1981,"tax":11334,"acres":0.38,"dom":6,"style":"Traditional"},{"addr":"1351 Lexington","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":850000,"sold":850000,"list":824700,"sqft":2734,"ppsf":311,"beds":4,"baths":"3","yr":1983,"tax":12129,"acres":0.46,"dom":3,"style":"Colonial"},{"addr":"20 Glen","sub":"River Glen","subRaw":"RIVER GLEN","status":"Closed","price":705000,"sold":705000,"list":699000,"sqft":1962,"ppsf":359,"beds":5,"baths":"2.1","yr":1958,"tax":9226,"acres":0.34,"dom":14,"style":"Colonial"},{"addr":"971 Weber","sub":"Queens Grant","subRaw":"QUEENS GRANT","status":"Closed","price":725000,"sold":725000,"list":689000,"sqft":1932,"ppsf":375,"beds":3,"baths":"2.1","yr":1976,"tax":9047,"acres":0.38,"dom":2,"style":"Rancher"},{"addr":"1355 Revere","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":925000,"sold":925000,"list":890000,"sqft":3242,"ppsf":285,"beds":4,"baths":"3.1","yr":1980,"tax":15348,"acres":0.43,"dom":5,"style":"Tudor"},{"addr":"3 Ridge","sub":"Edgehill Gardens","subRaw":"EDGEHILL GARDENS","status":"Closed","price":700000,"sold":700000,"list":725000,"sqft":3729,"ppsf":188,"beds":6,"baths":"3.1","yr":1924,"tax":15168,"acres":0.5,"dom":70,"style":"Colonial,Spanish"},{"addr":"825 Hudson","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":890000,"sold":890000,"list":879000,"sqft":2766,"ppsf":322,"beds":4,"baths":"2.1","yr":1978,"tax":9768,"acres":0.37,"dom":11,"style":"StraightThru,Traditional"},{"addr":"1301 Moon","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":724000,"sold":724000,"list":739900,"sqft":2422,"ppsf":299,"beds":4,"baths":"2.1","yr":1971,"tax":11731,"acres":0.43,"dom":19,"style":"Colonial"},{"addr":"1512 Silo","sub":"Mirror Lake Farms","subRaw":"MIRROR LAKE FARMS","status":"Closed","price":740000,"sold":740000,"list":800000,"sqft":3245,"ppsf":228,"beds":4,"baths":"2.1","yr":1983,"tax":18512,"acres":1.03,"dom":26,"style":"Colonial"},{"addr":"4 Keats","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":899900,"sold":899900,"list":899900,"sqft":3478,"ppsf":259,"beds":4,"baths":"2.1","yr":1962,"tax":14515,"acres":0.34,"dom":11,"style":"Colonial"},{"addr":"490 Schindler","sub":"Hidden Oaks I","subRaw":"HIDDEN OAKS I","status":"Closed","price":930000,"sold":930000,"list":974900,"sqft":3322,"ppsf":280,"beds":4,"baths":"2.2","yr":1996,"tax":12765,"acres":0.37,"dom":20,"style":"Colonial"},{"addr":"1706 Makefield Rd","sub":"Makefield Manor","subRaw":"MAKEFIELD MANOR","status":"Closed","price":780000,"sold":780000,"list":799900,"sqft":null,"ppsf":null,"beds":4,"baths":"3.1","yr":2024,"tax":2331,"acres":0.42,"dom":88,"style":"Colonial"},{"addr":"629 Teich","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":840000,"sold":840000,"list":785000,"sqft":2298,"ppsf":366,"beds":3,"baths":"2.1","yr":1985,"tax":12417,"acres":0.38,"dom":6,"style":"Contemporary,Traditional"},{"addr":"680 Fox Hollow","sub":"Yardley Ests","subRaw":"YARDLEY ESTS","status":"Closed","price":899900,"sold":899900,"list":899900,"sqft":3478,"ppsf":259,"beds":4,"baths":"2.1","yr":1987,"tax":15529,"acres":0.36,"dom":11,"style":"Colonial"},{"addr":"872 Kilby","sub":"Edgebrook","subRaw":"EDGEBROOK","status":"Closed","price":820000,"sold":820000,"list":799900,"sqft":2678,"ppsf":306,"beds":4,"baths":"2.1","yr":1973,"tax":10513,"acres":0.52,"dom":17,"style":"Colonial,Dutch"},{"addr":"561 Nottingham","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":825000,"sold":825000,"list":815000,"sqft":2764,"ppsf":298,"beds":4,"baths":"2.1","yr":1981,"tax":9808,"acres":0.38,"dom":12,"style":"Colonial"},{"addr":"63 Black Rock","sub":"River Glen","subRaw":"RIVER GLEN","status":"Closed","price":759900,"sold":759900,"list":749900,"sqft":2154,"ppsf":353,"beds":3,"baths":"2.1","yr":1946,"tax":7807,"acres":0.28,"dom":3,"style":"Colonial"},{"addr":"390 Sherwood","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":875000,"sold":875000,"list":895000,"sqft":null,"ppsf":null,"beds":5,"baths":"2.1","yr":1977,"tax":11185,"acres":0.39,"dom":24,"style":"Colonial"},{"addr":"402 Ramsey","sub":"Queens Grant","subRaw":"QUEENS GRANT","status":"Closed","price":725000,"sold":725000,"list":715000,"sqft":2712,"ppsf":267,"beds":4,"baths":"2.1","yr":1983,"tax":11135,"acres":0.38,"dom":7,"style":"Colonial"},{"addr":"542 Nottingham","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":823500,"sold":823500,"list":845000,"sqft":3558,"ppsf":231,"beds":5,"baths":"3.1","yr":1979,"tax":13302,"acres":0.38,"dom":3,"style":"Tudor"},{"addr":"922 Edgewood","sub":"Carriage Hill","subRaw":"CARRIAGE HILL","status":"Closed","price":805000,"sold":805000,"list":789900,"sqft":3108,"ppsf":259,"beds":4,"baths":"2.1","yr":1970,"tax":12030,"acres":0.64,"dom":5,"style":"Colonial"},{"addr":"256 Rock Run","sub":"Valley Greene","subRaw":"VALLEY GREENE","status":"Closed","price":850000,"sold":850000,"list":795000,"sqft":2248,"ppsf":378,"beds":4,"baths":"2.1","yr":1996,"tax":11224,"acres":0.36,"dom":5,"style":"Colonial"},{"addr":"1525 Pownal","sub":"Longshore Ests","subRaw":"LONGSHORE ESTS","status":"Closed","price":991000,"sold":991000,"list":999000,"sqft":2839,"ppsf":349,"beds":5,"baths":"3.1","yr":1997,"tax":12226,"acres":0.58,"dom":36,"style":"Colonial"},{"addr":"505 Keating","sub":"Valleywood","subRaw":"VALLEYWOOD","status":"Closed","price":803650,"sold":803650,"list":825000,"sqft":2448,"ppsf":328,"beds":4,"baths":"2.1","yr":1968,"tax":9246,"acres":0.47,"dom":12,"style":"Colonial"},{"addr":"134 Knights Bridge","sub":"Big Oak Woods","subRaw":"BIG OAK WOODS","status":"Closed","price":825000,"sold":825000,"list":839000,"sqft":2896,"ppsf":285,"beds":4,"baths":"2.1","yr":1980,"tax":9832,"acres":0.68,"dom":16,"style":"Colonial"},{"addr":"1060 Creamery","sub":"In-town / no subdivision","subRaw":"000","status":"Closed","price":835000,"sold":835000,"list":720000,"sqft":2345,"ppsf":356,"beds":4,"baths":"2","yr":1948,"tax":7456,"acres":1.18,"dom":8,"style":"Rancher"},{"addr":"1267 Woodthrush","sub":"Hidden Oaks","subRaw":"HIDDEN OAKS","status":"Closed","price":850000,"sold":850000,"list":789900,"sqft":2184,"ppsf":389,"beds":4,"baths":"2.1","yr":1993,"tax":11383,"acres":0.57,"dom":4,"style":"Colonial"},{"addr":"1590 Candace","sub":"Makefield Crossing","subRaw":"MAKEFIELD CROSSING","status":"Closed","price":915000,"sold":915000,"list":859900,"sqft":2746,"ppsf":333,"beds":4,"baths":"2.2","yr":1998,"tax":13153,"acres":0.39,"dom":6,"style":"Colonial"},{"addr":"17 Sandy Run","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":905000,"sold":905000,"list":925000,"sqft":3131,"ppsf":289,"beds":4,"baths":"4","yr":2002,"tax":14734,"acres":1.47,"dom":18,"style":"Colonial"},{"addr":"203 Ferry","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":770000,"sold":770000,"list":800000,"sqft":3300,"ppsf":233,"beds":5,"baths":"4.1","yr":1886,"tax":13521,"acres":2.27,"dom":47,"style":"CarriageHouse,ConvertedBarn,FarmhouseNationalFolk,Other"},{"addr":"1249 Revere","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":930000,"sold":930000,"list":845000,"sqft":2597,"ppsf":358,"beds":5,"baths":"2.1","yr":1976,"tax":11185,"acres":0.49,"dom":5,"style":"Colonial"},{"addr":"1130 University","sub":"Sandy Run","subRaw":"SANDY RUN","status":"Closed","price":820000,"sold":820000,"list":775000,"sqft":2158,"ppsf":380,"beds":4,"baths":"2.1","yr":1970,"tax":9920,"acres":0.4,"dom":6,"style":"Colonial"},{"addr":"1552 Brock Creek","sub":"Yardley Mdws","subRaw":"YARDLEY MDWS","status":"Closed","price":762000,"sold":762000,"list":725000,"sqft":2350,"ppsf":324,"beds":3,"baths":"2.1","yr":1984,"tax":9325,"acres":0.33,"dom":7,"style":"Colonial"},{"addr":"24 Homestead","sub":"Makefield Manor","subRaw":"MAKEFIELD MANOR","status":"Closed","price":770000,"sold":770000,"list":749000,"sqft":2317,"ppsf":332,"beds":4,"baths":"2.1","yr":1968,"tax":10141,"acres":0.52,"dom":9,"style":"Colonial"},{"addr":"414 Trend","sub":"Wynnewood","subRaw":"WYNNEWOOD","status":"Closed","price":920000,"sold":920000,"list":875000,"sqft":2950,"ppsf":312,"beds":5,"baths":"2.2","yr":1982,"tax":14157,"acres":0.92,"dom":3,"style":"Victorian"},{"addr":"1566 Woodside","sub":"In-town / no subdivision","subRaw":"NONE AVAILABLE","status":"Closed","price":845000,"sold":845000,"list":995000,"sqft":4074,"ppsf":207,"beds":4,"baths":"3.1","yr":1769,"tax":13620,"acres":1.79,"dom":222,"style":"FarmhouseNationalFolk"},{"addr":"747 Sandy Run","sub":"Canterbury Ests","subRaw":"CANTERBURY ESTS","status":"Closed","price":835000,"sold":835000,"list":829000,"sqft":3208,"ppsf":260,"beds":4,"baths":"2.2","yr":1981,"tax":13620,"acres":0.4,"dom":7,"style":"Colonial"},{"addr":"876 Henry","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":915000,"sold":915000,"list":850000,"sqft":3332,"ppsf":275,"beds":4,"baths":"2.1","yr":1984,"tax":12957,"acres":0.38,"dom":7,"style":"Colonial"},{"addr":"785 Sumter","sub":"Yardley Hunt","subRaw":"YARDLEY HUNT","status":"Closed","price":895000,"sold":895000,"list":815000,"sqft":2820,"ppsf":317,"beds":4,"baths":"2.1","yr":1980,"tax":11175,"acres":0.44,"dom":4,"style":"Colonial"},{"addr":"1092 Glen Oak","sub":"Centennial Village","subRaw":"CENTENNIAL VILLAGE","status":"Closed","price":819000,"sold":819000,"list":829000,"sqft":3036,"ppsf":270,"beds":4,"baths":"2.1","yr":1979,"tax":11547,"acres":0.39,"dom":36,"style":"Colonial"},{"addr":"716 Oxford Valley","sub":"Carriage Hill","subRaw":"CARRIAGE HILL","status":"Closed","price":700000,"sold":700000,"list":650000,"sqft":2580,"ppsf":271,"beds":4,"baths":"2.1","yr":1973,"tax":10569,"acres":0.44,"dom":4,"style":"Colonial,Dutch"},{"addr":"1261 University","sub":"Sandy Run","subRaw":"SANDY RUN","status":"Closed","price":750000,"sold":750000,"list":799900,"sqft":4000,"ppsf":188,"beds":6,"baths":"3.1","yr":1973,"tax":15173,"acres":0.38,"dom":323,"style":"SplitLevel"}],"dist":[{"label":"$700K\u2013800K","n":41},{"label":"$800K\u2013900K","n":52},{"label":"$900K\u20131M","n":34}],"vintage":[{"k":"Newer (1980s+)","v":59},{"k":"Established (1950s\u201370s)","v":57},{"k":"Historic (pre-1950)","v":11}]};
+const fmtK=n=>n>=1e6?'$'+(n/1e6).toFixed(n%1e6?2:1)+'M':'$'+Math.round(n/1000)+'K';
+const fmtF=n=>'$'+n.toLocaleString();
+const vClass=v=>v==='Historic (pre-1950)'?0:v==='Newer (1980s+)'?2:1;
+const vColor=['var(--hist)','var(--estd)','var(--newr)'];
+const vRaw=['#a8763b','#4f7587','#2f5d50'];
+
+
+/* STAT BAND */
+const O=D.overall;
+const stats=[
+  ['v_count',O.count,'Homes pending + sold'],
+  ['v_med',O.pmed,'Median price','$'],
+  ['v_psf',O.ppsf,'Median $ / sq ft','$'],
+  ['v_dom',O.dom,'Median days on market','','d'],
+  ['v_splp',O.splp,'Median sale-to-list','','%'],
+  ['v_over',O.overask,'Sold over asking','','%'],
+];
+const sb=document.getElementById('statband');
+stats.forEach(([id,val,lab,pre='',suf=''])=>{
+  const el=document.createElement('div');el.className='stat';
+  el.innerHTML=`<div class="v" data-t="${val}" data-pre="${pre}" data-suf="${suf}">${pre}0${suf}</div><div class="l">${lab}</div>`;
+  sb.appendChild(el);
+});
+/* count-up */
+function countUp(el){
+  const t=+el.dataset.t,pre=el.dataset.pre,suf=el.dataset.suf,dur=1100,st=performance.now();
+  const big=t>=100000;
+  function step(now){
+    let p=Math.min((now-st)/dur,1);p=1-Math.pow(1-p,3);
+    let cur=t*p;
+    el.textContent= big? fmtK(cur) : (pre+ (suf==='%'? cur.toFixed(t%1?1:0): Math.round(cur)) +suf);
+    if(p<1)requestAnimationFrame(step); else el.textContent= big?fmtK(t):(pre+(suf==='%'?t.toFixed(t%1?1:0):t)+suf);
+  }
+  requestAnimationFrame(step);
+}
+setTimeout(()=>document.querySelectorAll('.stat .v').forEach(countUp),250);
+
+/* DIST + VINTAGE BARS */
+function bars(containerId,items,max,colorFn){
+  const c=document.getElementById(containerId);
+  items.forEach((it,i)=>{
+    const row=document.createElement('div');row.className='bar';
+    row.innerHTML=`<div class="bl">${it.label}</div><div class="btrack"><div class="bfill" style="background:${colorFn(i)}"></div></div><div class="bn">${it.n}</div>`;
+    c.appendChild(row);
+    const f=row.querySelector('.bfill');
+    setTimeout(()=>f.style.width=(it.n/max*100)+'%',400+i*120);
+  });
+}
+const dmax=Math.max(...D.dist.map(x=>x.n));
+bars('distbars',D.dist,dmax,i=>`linear-gradient(90deg,var(--green),var(--green-d))`);
+const vord=[{k:'Historic (pre-1950)',label:'Historic · pre-1950'},{k:'Established (1950s–70s)',label:'Established · 50s–70s'},{k:'Newer (1980s+)',label:'Newer · 1980s+'}];
+const vlook={};D.vintage.forEach(x=>vlook[x.k]=x.v);
+const vitems=vord.map(o=>({label:o.label,n:vlook[o.k]||0}));
+const vmax=Math.max(...vitems.map(x=>x.n));
+bars('vintbars',vitems,vmax,i=>`linear-gradient(90deg,${vRaw[i]},${vRaw[i]})`);
+
+/* MAP */
+const map=L.map('map',{scrollWheelZoom:false,zoomControl:true}).setView([40.2395,-74.862],13);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}).addTo(map);
+map.on('focus',()=>map.scrollWheelZoom.enable());map.on('blur',()=>map.scrollWheelZoom.disable());
+
+const landmarks=[
+ [40.2454,-74.8462,'Yardley Borough — Main Street','Walkable town center: shops, cafés, riverside dining, Saturday farmers market'],
+ [40.2470,-74.8478,'Lake Afton','Historic millpond &amp; park at the north end of the borough'],
+ [40.2440,-74.8405,'Yardley Station (SEPTA West Trenton Line)','Rail toward Philadelphia; steps from the towpath'],
+ [40.2430,-74.8388,'Delaware Canal Towpath','58-mile trail along the canal &amp; Delaware River'],
+ [40.2210,-74.8330,'Pennsbury High School','District serving Yardley Boro &amp; Lower Makefield'],
+];
+let lmLayer=L.layerGroup(),hoodLayer=L.layerGroup();
+landmarks.forEach(([lat,lng,t,d])=>{
+  const ic=L.divIcon({className:'',iconSize:[16,16],iconAnchor:[8,8],
+    html:`<div style="width:14px;height:14px;background:var(--brass);border:2px solid #fff;border-radius:3px;transform:rotate(45deg);box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>`});
+  L.marker([lat,lng],{icon:ic}).bindPopup(`<div class="pop"><h4>${t}</h4><div class="pp">${d}</div></div>`).addTo(lmLayer);
+});
+const hoodMarkers={};
+D.subs.forEach(s=>{
+  const vi=vClass(s.vintage), r=Math.max(9,Math.min(26,8+s.n*2.2));
+  const m=L.circleMarker([s.lat,s.lng],{radius:r,fillColor:vRaw[vi],color:'#fff',weight:2,fillOpacity:.82});
+  m.bindPopup(`<div class="pop"><h4>${s.name}</h4>
+    <div class="pp"><b>${fmtK(s.pmed)}</b> median · ${s.n} sale${s.n>1?'s':''}</div>
+    <div class="pp">${fmtK(s.pmin)}–${fmtK(s.pmax)} · ${s.ppsf?('$'+s.ppsf+'/sf'):'—'}</div>
+    <div class="pp">${s.beds||'—'} bd · built ${s.yrmin||'?'}${s.yrmax&&s.yrmax!==s.yrmin?'–'+s.yrmax:''} · ${s.vintage}</div></div>`);
+  m.addTo(hoodLayer);hoodMarkers[s.raw]=m;
+});
+lmLayer.addTo(map);hoodLayer.addTo(map);
+document.querySelectorAll('#maptoggle button').forEach(b=>b.onclick=()=>{
+  b.classList.toggle('on');
+  const v=b.dataset.v, on=b.classList.contains('on');
+  if(v==='hoods')on?hoodLayer.addTo(map):map.removeLayer(hoodLayer);
+  else on?lmLayer.addTo(map):map.removeLayer(lmLayer);
+});
+function flyTo(raw){const m=hoodMarkers[raw];if(!m)return;
+  document.getElementById('map').scrollIntoView({behavior:'smooth',block:'center'});
+  setTimeout(()=>{map.flyTo(m.getLatLng(),15,{duration:.9});m.openPopup();},450);}
+
+/* NEIGHBORHOOD CARDS */
+const multi=D.subs.filter(s=>s.n>=2), singles=D.subs.filter(s=>s.n<2);
+let hState={sort:'n',vint:'all',q:''};
+function renderHoods(){
+  const g=document.getElementById('hoodgrid');g.innerHTML='';
+  let list=multi.filter(s=>{
+    if(hState.vint!=='all'&&vClass(s.vintage)!=+hState.vint)return false;
+    if(hState.q&&!s.name.toLowerCase().includes(hState.q))return false;return true;});
+  const key=hState.sort;
+  list.sort((a,b)=> key==='n'? (b.n-a.n||b.pmed-a.pmed) : key==='ppsf'? ((a.ppsf||1e9)-(b.ppsf||1e9)) : (b[key]||0)-(a[key]||0));
+  if(!list.length){g.innerHTML='<p style="color:var(--muted)">No neighborhoods match.</p>';return;}
+  list.forEach(s=>{
+    const vi=vClass(s.vintage);
+    const card=document.createElement('div');card.className='ncard';
+    card.innerHTML=`<span class="vtag h${vi}">${['Historic','Established','Newer'][vi]}</span>
+      <h3 class="serif">${s.name}</h3>
+      <div class="cnt">${s.closed} sold${s.pending?` · ${s.pending} pending`:''}</div>
+      <div class="priceline">${fmtK(s.pmed)} <span>median</span></div>
+      <div class="range">${fmtK(s.pmin)} – ${fmtK(s.pmax)}</div>
+      <div class="metrics">
+        <div><div class="mv">${s.ppsf?'$'+s.ppsf:'—'}</div><div class="ml">$/sq ft</div></div>
+        <div><div class="mv">${s.sqft?s.sqft.toLocaleString():'—'}</div><div class="ml">median sq ft</div></div>
+        <div><div class="mv">${s.beds||'—'} bd</div><div class="ml">typical beds</div></div>
+        <div><div class="mv">${s.yrmin||'?'}${s.yrmax&&s.yrmax!==s.yrmin?'–'+s.yrmax:''}</div><div class="ml">year built</div></div>
+        <div><div class="mv">${s.tax?'$'+(s.tax/1000).toFixed(1)+'K':'—'}</div><div class="ml">median taxes</div></div>
+        <div><div class="mv">${s.dom!=null?s.dom+'d':'—'}</div><div class="ml">days on mkt</div></div>
+      </div>
+      <button class="mapbtn">View on map →</button>`;
+    card.querySelector('.mapbtn').onclick=e=>{e.stopPropagation();flyTo(s.raw);};
+    card.onclick=()=>flyTo(s.raw);
+    g.appendChild(card);
+  });
+}
+document.querySelectorAll('#hoodsort button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#hoodsort button').forEach(x=>x.classList.remove('on'));b.classList.add('on');hState.sort=b.dataset.s;renderHoods();});
+document.querySelectorAll('#hoodvint button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#hoodvint button').forEach(x=>x.classList.remove('on'));b.classList.add('on');hState.vint=b.dataset.v;renderHoods();});
+document.getElementById('hoodsearch').oninput=e=>{hState.q=e.target.value.toLowerCase();renderHoods();};
+renderHoods();
+
+/* SINGLES TABLE */
+const singleProps=D.props.filter(p=>{const s=D.subs.find(x=>x.name===p.sub);return s&&s.n<2;});
+const sbody=document.getElementById('singlebody');
+singleProps.sort((a,b)=>(b.price||0)-(a.price||0)).forEach(p=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td><b>${p.sub}</b><div style="font-size:11px;color:var(--muted)">${p.addr}</div></td>
+    <td>${p.price?fmtK(p.price):'—'}</td><td>${p.beds||'—'}</td><td>${p.sqft?p.sqft.toLocaleString():'—'}</td>
+    <td>${p.ppsf?'$'+p.ppsf:'—'}</td><td>${p.yr||'—'}</td><td>${p.tax&&p.tax>2000?'$'+p.tax.toLocaleString():'—'}</td>`;
+  sbody.appendChild(tr);
+});
+
+/* HOMES TABLE */
+let tState={sort:'price',dir:-1,q:'',status:'',beds:'',band:''};
+const tb=document.getElementById('tbody');
+function bandOf(p){return p<800000?'a':p<900000?'b':'c';}
+function renderTable(){
+  let rows=D.props.filter(p=>{
+    if(tState.q){const t=(p.addr+' '+p.sub).toLowerCase();if(!t.includes(tState.q))return false;}
+    if(tState.status&&p.status!==tState.status)return false;
+    if(tState.beds&&(p.beds||0)<+tState.beds)return false;
+    if(tState.band&&p.price&&bandOf(p.price)!==tState.band)return false;
+    return true;});
+  const k=tState.sort;
+  rows.sort((a,b)=>{let x=a[k],y=b[k];
+    if(typeof x==='string'||typeof y==='string'){x=(x||'').toString().toLowerCase();y=(y||'').toString().toLowerCase();return x<y?-tState.dir:x>y?tState.dir:0;}
+    x=x==null?-1:x;y=y==null?-1:y;return (x-y)*tState.dir;});
+  tb.innerHTML=rows.map(p=>`<tr>
+    <td><b>${p.addr}</b></td><td>${p.sub}</td>
+    <td><span class="pill ${p.status.toLowerCase()}">${p.status}</span></td>
+    <td><b>${p.price?fmtF(p.price):'—'}</b></td>
+    <td>${p.beds||'—'}</td><td>${p.baths||'—'}</td>
+    <td>${p.sqft?p.sqft.toLocaleString():'—'}</td>
+    <td>${p.ppsf?'$'+p.ppsf:'—'}</td>
+    <td>${p.yr||'—'}</td>
+    <td>${p.tax&&p.tax>2000?'$'+p.tax.toLocaleString():'—'}</td>
+    <td>${p.dom!=null?p.dom:'—'}</td></tr>`).join('');
+  document.getElementById('tcount').textContent=rows.length+' of '+D.props.length+' homes';
+}
+document.querySelectorAll('#htable thead th').forEach(th=>th.onclick=()=>{
+  const k=th.dataset.k;
+  if(tState.sort===k)tState.dir*=-1;else{tState.sort=k;tState.dir=(k==='addr'||k==='sub'||k==='status')?1:-1;}
+  document.querySelectorAll('#htable thead th').forEach(x=>{x.classList.remove('act');x.querySelector('.ar').textContent='▲▼';});
+  th.classList.add('act');th.querySelector('.ar').textContent=tState.dir>0?'▲':'▼';
+  renderTable();});
+document.getElementById('tsearch').oninput=e=>{tState.q=e.target.value.toLowerCase();renderTable();};
+document.getElementById('tstatus').onchange=e=>{tState.status=e.target.value;renderTable();};
+document.getElementById('tbeds').onchange=e=>{tState.beds=e.target.value;renderTable();};
+document.getElementById('tband').onchange=e=>{tState.band=e.target.value;renderTable();};
+renderTable();
+
+/* REVEAL */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
