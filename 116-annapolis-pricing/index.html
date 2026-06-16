@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>116 A Annapolis St &middot; Waterside Pricing Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E2A3F; --navy-2:#173A52; --slate:#486177; --mist:#8AA0B2;
+    --brass:#BE8A2E; --brass-deep:#9C6F1F; --brass-soft:#E6D6A8;
+    --coral:#BC5038; --coral-soft:#E7C6BC;
+    --canvas:#EDF0F1; --paper:#FFFFFF; --line:#D9DFE3; --ink:#11212E;
+    --display:'Fraunces',Georgia,serif;
+    --body:'Hanken Grotesk',system-ui,sans-serif;
+    --mono:'Spline Sans Mono',ui-monospace,monospace;
+    --shadow:0 1px 2px rgba(14,42,63,.06),0 12px 32px -12px rgba(14,42,63,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body); color:var(--ink); background:var(--canvas);
+    -webkit-font-smoothing:antialiased; line-height:1.55; font-size:16px;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;letter-spacing:-.01em}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mist);font-weight:500}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--navy);color:#EAF0F4;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(1200px 380px at 78% -8%, rgba(190,138,46,.20), transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,.03), transparent 40%);
+    pointer-events:none}
+  /* faint waterline motif, ties to "Waterside" */
+  .hero .waves{position:absolute;left:0;right:0;bottom:-1px;height:90px;opacity:.16}
+  .hero-inner{position:relative;padding:56px 0 70px}
+  .brand{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:40px}
+  .brand .who{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+  .brand .who b{color:#EAF0F4;font-weight:600;letter-spacing:.1em}
+  .brand .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-soft)}
+  .hero h1{font-size:clamp(2.1rem,5.2vw,3.5rem);color:#fff;max-width:16ch}
+  .hero .addr{font-family:var(--mono);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-soft);margin-bottom:20px}
+  .hero .lede{font-size:clamp(1.05rem,2vw,1.22rem);color:#C6D4DE;max-width:54ch;margin-top:22px}
+  .hero .lede b{color:#fff;font-weight:600}
+
+  .verdict{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .vcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;
+    padding:18px 20px;flex:1 1 160px;min-width:150px}
+  .vcard .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+  .vcard .v{font-family:var(--display);font-size:1.85rem;font-weight:600;margin-top:6px;color:#fff}
+  .vcard.accent .v{color:var(--brass-soft)}
+  .vcard .sub{font-size:.8rem;color:#A9BCC9;margin-top:2px}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:62px 0}
+  .sec-head{margin-bottom:34px;max-width:62ch}
+  .sec-head h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-top:10px}
+  .sec-head p{color:var(--slate);margin-top:14px;font-size:1.04rem}
+  .num{color:var(--brass-deep)}
+
+  /* market band (signature) */
+  .band-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;
+    padding:30px 26px 22px;box-shadow:var(--shadow)}
+  .band-legend{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:6px}
+  .lg{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--slate)}
+  .dot{width:13px;height:13px;border-radius:50%;flex:none}
+  .dot.sold{background:var(--navy)}
+  .dot.stall{background:#fff;border:2px solid var(--coral)}
+  .dot.subj{background:var(--coral)}
+  .dot.legrec{background:var(--brass)}
+  svg.band{width:100%;height:auto;display:block;overflow:visible}
+  .tt{position:fixed;z-index:50;pointer-events:none;background:var(--navy);color:#fff;
+    border-radius:10px;padding:10px 13px;font-size:.8rem;max-width:230px;box-shadow:var(--shadow);
+    opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
+  .tt.show{opacity:1;transform:translateY(0)}
+  .tt b{font-family:var(--mono);letter-spacing:.02em}
+  .tt .tdom{color:var(--brass-soft);font-family:var(--mono)}
+  .band-note{font-size:.82rem;color:var(--mist);margin-top:14px;font-family:var(--mono);letter-spacing:.02em}
+
+  /* pattern / mirror callout */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .pcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+  .pcard.fast{border-top:4px solid var(--brass)}
+  .pcard.slow{border-top:4px solid var(--coral)}
+  .pcard h3{font-size:1.18rem;margin-bottom:4px}
+  .pcard .tagline{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+  .fast .tagline{color:var(--brass-deep)} .slow .tagline{color:var(--coral)}
+  .prow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+  .prow:first-of-type{border-top:none}
+  .prow .name{font-weight:600;font-size:.92rem}
+  .prow .name span{display:block;font-weight:400;font-size:.76rem;color:var(--mist)}
+  .prow .met{font-family:var(--mono);font-size:.88rem;text-align:right;white-space:nowrap}
+  .prow .met .d{font-size:.72rem;color:var(--slate)}
+  .met .good{color:var(--brass-deep)} .met .bad{color:var(--coral)}
+
+  .mirror{background:var(--navy);color:#EAF0F4;border-radius:18px;padding:34px 30px;margin-top:24px;
+    position:relative;overflow:hidden}
+  .mirror::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;
+    background:radial-gradient(circle,rgba(188,80,56,.28),transparent 70%)}
+  .mirror .eyebrow{color:var(--coral-soft)}
+  .mirror h3{color:#fff;font-size:1.5rem;margin:8px 0 12px;max-width:24ch;position:relative}
+  .mirror p{color:#C6D4DE;max-width:60ch;position:relative}
+  .mirror b{color:#fff}
+
+  /* simulator */
+  .sim{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+  .sim-top{padding:28px 28px 6px}
+  .sim-read{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0 6px}
+  .rcard{flex:1 1 140px;min-width:128px;border:1px solid var(--line);border-radius:13px;padding:16px 16px 14px;background:#FAFBFB}
+  .rcard .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mist)}
+  .rcard .v{font-family:var(--display);font-size:1.7rem;font-weight:600;margin-top:5px}
+  .rcard .v small{font-size:.95rem;font-weight:500;color:var(--slate)}
+  #zoneCard{transition:border-color .2s,background .2s}
+  .slider-shell{padding:8px 28px 30px}
+  .slabel{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.72rem;color:var(--mist);margin-bottom:8px}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:8px;
+    background:linear-gradient(90deg,#9FB6A3 0%,#E2D29B 46%,#E0A88F 72%,#C97B68 100%);outline:none;cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;
+    background:var(--navy);border:3px solid #fff;box-shadow:0 2px 8px rgba(14,42,63,.4);cursor:grab}
+  input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--navy);
+    border:3px solid #fff;box-shadow:0 2px 8px rgba(14,42,63,.4);cursor:grab}
+  input[type=range]:focus-visible{box-shadow:0 0 0 3px var(--brass-soft)}
+  .pricetag{text-align:center;margin:2px 0 14px}
+  .pricetag .pv{font-family:var(--display);font-size:2.4rem;font-weight:700;color:var(--navy)}
+  .ppsf{font-family:var(--mono);font-size:.8rem;color:var(--slate)}
+  .verdict-line{text-align:center;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;
+    padding:8px 0 0;color:var(--slate)}
+
+  /* recommendation */
+  .rec{background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#EAF0F4;border-radius:20px;
+    padding:42px 36px;position:relative;overflow:hidden}
+  .rec::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 300px at 85% 0,rgba(190,138,46,.22),transparent 60%)}
+  .rec-inner{position:relative}
+  .rec .eyebrow{color:var(--brass-soft)}
+  .rec h2{color:#fff;font-size:clamp(1.7rem,3.6vw,2.4rem);margin:10px 0 6px}
+  .rec-price{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;margin:26px 0 8px}
+  .rec-price .big{font-family:var(--display);font-size:clamp(3rem,8vw,4.6rem);font-weight:700;color:#fff;line-height:.9}
+  .rec-price .was{font-family:var(--mono);font-size:.9rem;color:#A9BCC9}
+  .rec-price .was s{color:var(--coral-soft)}
+  .rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .rg{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:16px}
+  .rg .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+  .rg .v{font-family:var(--display);font-size:1.5rem;font-weight:600;color:var(--brass-soft);margin-top:6px}
+  .rg .s{font-size:.8rem;color:#B6C6D1;margin-top:3px}
+
+  /* plan */
+  .plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:24px;box-shadow:var(--shadow)}
+  .step .n{font-family:var(--mono);font-size:.78rem;color:var(--brass-deep);letter-spacing:.1em}
+  .step h3{font-size:1.08rem;margin:10px 0 8px}
+  .step p{font-size:.9rem;color:var(--slate)}
+
+  /* full comp table */
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper);box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:620px;font-size:.88rem}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
+  th{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);font-weight:500;background:#FAFBFB}
+  td.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 9px;border-radius:20px;font-weight:500}
+  .pill.sold{background:rgba(14,42,63,.1);color:var(--navy)}
+  .pill.pend{background:var(--brass-soft);color:var(--brass-deep)}
+  .pill.act{background:var(--coral-soft);color:var(--coral)}
+  tr.subjrow td{background:rgba(188,80,56,.07);font-weight:600}
+
+  footer{background:var(--navy);color:#9FB3C0;padding:40px 0;font-size:.82rem}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  footer b{color:#EAF0F4;font-family:var(--display);font-size:1.05rem;font-weight:600;display:block;margin-bottom:4px}
+  .disc{font-size:.72rem;color:#6E8597;max-width:48ch;line-height:1.5}
+
+  @media (max-width:680px){
+    .grid2{grid-template-columns:1fr}
+    .rec-grid{grid-template-columns:1fr}
+    section{padding:48px 0}
+    .vcard{flex:1 1 130px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  }
+  @media print{
+    body{background:#fff}
+    .hero,.rec,.mirror{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .sim{display:none}
+    section{padding:24px 0;break-inside:avoid}
+  }
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="brand">
+      <div class="who">Prepared by <b>Matt &middot; The Kim Rock Group</b><br>Keller Williams Real Estate</div>
+      <div class="tag">Waterside &middot; Bensalem 19020</div>
+    </div>
+    <div class="addr">116 A Annapolis Street, Unit A</div>
+    <h1>Your price wasn&rsquo;t wrong. It was just a touch ahead of the market.</h1>
+    <p class="lede">You listed at <b>$399,900</b> and the market went quiet. Here&rsquo;s exactly why &mdash; told entirely through the homes in Waterside that look just like yours. The fix is small, and the data points to a clear number.</p>
+
+    <div class="verdict">
+      <div class="vcard"><div class="k">Your list price</div><div class="v">$399,900</div><div class="sub">$282 / sq ft</div></div>
+      <div class="vcard"><div class="k">What homes your size sell for</div><div class="v">$398,000</div><div class="sub">median &mdash; $385K to $410K</div></div>
+      <div class="vcard accent"><div class="k">The recommended move</div><div class="v">$389,900</div><div class="sub">a $10K / 2.5% adjustment</div></div>
+    </div>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,50 C240,90 480,10 720,40 C960,70 1200,20 1440,50 L1440,90 L0,90 Z" fill="#BE8A2E"/>
+  </svg>
+</header>
+
+<!-- ===================== WHAT SELLS ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The comparable set &middot; 2 bedrooms, ~1,400&ndash;1,460 sq ft</span>
+      <h2>Where $399,900 actually lands</h2>
+      <p>Eight true comps in Waterside &mdash; matched to your bed count and floorplan size. Filled markers are <b>closed sales</b> (what buyers really paid). Hollow markers are homes <b>still chasing the market</b>. Hover or tap any marker.</p>
+    </div>
+
+    <div class="band-card reveal">
+      <div class="band-legend">
+        <div class="lg"><span class="dot sold"></span> Sold</div>
+        <div class="lg"><span class="dot stall"></span> Active / sitting</div>
+        <div class="lg"><span class="dot legrec"></span> Recommended list</div>
+        <div class="lg"><span class="dot subj"></span> Your price ($399,900)</div>
+      </div>
+      <svg class="band" id="bandSvg" viewBox="0 0 920 260" role="img" aria-label="Price position chart of comparable Waterside homes">
+        <!-- axis + zones drawn by JS -->
+      </svg>
+      <div class="band-note">Sweet spot = the price window where comparable homes are actually going under contract in about a month.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE PATTERN ===================== -->
+<section style="background:#E5E9EB">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The pattern is impossible to miss</span>
+      <h2>Price it right, it&rsquo;s gone in a month.<br>Price it high, it sits &mdash; then sells for less anyway.</h2>
+    </div>
+    <div class="grid2">
+      <div class="pcard fast reveal">
+        <div class="tagline">Priced to the market &middot; gone fast</div>
+        <h3>The homes that sold</h3>
+        <div class="prow"><div class="name">148A Prince George<span>1,460 sq ft &middot; $271/sf list</span></div>
+          <div class="met">$385,000<div class="d"><span class="good">29 days</span> &middot; sold</div></div></div>
+        <div class="prow"><div class="name">146 Park<span>1,416 sq ft &middot; $286/sf list</span></div>
+          <div class="met">$398,000<div class="d"><span class="good">34 days</span> &middot; sold</div></div></div>
+        <div class="prow"><div class="name">140A Gaslight<span>1,416 sq ft &middot; after a $24.5K cut</span></div>
+          <div class="met">$374,500<div class="d">pending</div></div></div>
+      </div>
+      <div class="pcard slow reveal">
+        <div class="tagline">Priced high &middot; still waiting</div>
+        <h3>The homes that stalled</h3>
+        <div class="prow"><div class="name">142 Annapolis, Unit A<span>1,416 sq ft &middot; your street, your floorplan</span></div>
+          <div class="met">$395,000<div class="d"><span class="bad">67 days</span> &middot; active</div></div></div>
+        <div class="prow"><div class="name">115 King<span>1,416 sq ft &middot; cut $29K, still unsold</span></div>
+          <div class="met">$369,900<div class="d"><span class="bad">94 days</span> &middot; active</div></div></div>
+        <div class="prow"><div class="name">106 Prince George, Unit A<span>1,460 sq ft &middot; chased it down from $449,900</span></div>
+          <div class="met">$410,000<div class="d"><span class="bad">266 days</span> &middot; sold</div></div></div>
+      </div>
+    </div>
+
+    <div class="mirror reveal">
+      <span class="eyebrow">Your mirror image</span>
+      <h3>142 Annapolis, Unit A is the same floorplan, on your street.</h3>
+      <p>It launched at <b>$400,000</b> &mdash; within a hundred dollars of your number. It&rsquo;s now <b>67 days on the market</b>, has already cut to $395,000, and <b>still hasn&rsquo;t sold.</b> Three different homes opened near $399&ndash;400K. Every one either sat for 90&ndash;266 days, slashed price, or both. Meanwhile the homes that opened a notch lower were under contract in about <b>30 days.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SIMULATOR ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Try it yourself</span>
+      <h2>Move the price. Watch the market answer.</h2>
+      <p>This projects likely days-on-market from how every comparable home in the set actually behaved at each price point. Drag the slider.</p>
+    </div>
+
+    <div class="sim reveal">
+      <div class="sim-top">
+        <div class="pricetag">
+          <div class="pv mono" id="simPrice">$389,900</div>
+          <div class="ppsf" id="simPpsf">$275 / sq ft &middot; on 1,416 sq ft</div>
+        </div>
+        <div class="sim-read">
+          <div class="rcard" id="zoneCard">
+            <div class="k">Market position</div>
+            <div class="v" id="simZone" style="font-size:1.25rem">Sweet spot</div>
+          </div>
+          <div class="rcard">
+            <div class="k">Projected time to offer</div>
+            <div class="v"><span id="simDom">34</span> <small>days</small></div>
+          </div>
+          <div class="rcard">
+            <div class="k">vs. your $399,900</div>
+            <div class="v" id="simDelta" style="font-size:1.25rem">&minus;$10,000</div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-shell">
+        <div class="slabel"><span>$370,000</span><span>list price</span><span>$415,000</span></div>
+        <input type="range" id="simSlider" min="370000" max="415000" step="100" value="389900"
+               aria-label="List price simulator">
+        <div class="verdict-line" id="simVerdict">A small move into the pocket where buyers are actually writing offers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RECOMMENDATION ===================== -->
+<section>
+  <div class="wrap">
+    <div class="rec reveal">
+      <div class="rec-inner">
+        <span class="eyebrow">The recommendation</span>
+        <h2>List at $389,900 &mdash; and get it sold.</h2>
+        <div class="rec-price">
+          <div class="big mono">$389,900</div>
+          <div class="was">down from <s>$399,900</s><br>a $10,000 adjustment &middot; just 2.5%</div>
+        </div>
+        <div class="rec-grid">
+          <div class="rg"><div class="k">Lands you</div><div class="v">In the pocket</div><div class="s">Right where 146 Park &amp; 148A Prince George sold in ~30 days.</div></div>
+          <div class="rg"><div class="k">Clears the traffic</div><div class="v">Under $390K</div><div class="s">Below the stalled $395&ndash;400K listings, and into a wider buyer search bracket.</div></div>
+          <div class="rg"><div class="k">Protects your net</div><div class="v">Sell once</div><div class="s">Avoids the slow 90&ndash;120 day price-cut spiral that nets sellers <em>less.</em></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLAN ===================== -->
+<section style="background:#E5E9EB">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What I&rsquo;d do differently</span>
+      <h2>A tighter plan, and a fairer fee.</h2>
+      <p>The price was close. The strategy is what gets it across the line the second time &mdash; and I&rsquo;ll do it for less than a standard listing commission.</p>
+    </div>
+    <div class="plan">
+      <div class="step reveal"><div class="n">01</div><h3>Price into the pocket</h3><p>Launch at $389,900 to land in the proven sub-$390K offer zone from day one &mdash; not after months of cuts.</p></div>
+      <div class="step reveal"><div class="n">02</div><h3>Re-launch as new</h3><p>A fresh listing with full marketing &mdash; new photography, video, and paid social &mdash; resets buyer attention that an expired listing loses.</p></div>
+      <div class="step reveal"><div class="n">03</div><h3>Reduced commission</h3><p>I&rsquo;ll list for a lower fee than the area standard. More of the sale stays with you, which softens the price adjustment.</p></div>
+      <div class="step reveal"><div class="n">04</div><h3>Sell in ~30 days</h3><p>The comps that priced right were under contract in about a month. That&rsquo;s the target &mdash; one sale, no drawn-out spiral.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FULL DATA ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The receipts</span>
+      <h2>Every comparable, in full</h2>
+      <p>2-bedroom homes in Waterside, ~1,282&ndash;1,460 sq ft. Sorted with sold homes first. Nothing cherry-picked.</p>
+    </div>
+    <div class="tbl-wrap reveal">
+      <table id="compTable">
+        <thead><tr>
+          <th>Address</th><th>Status</th><th>Sq Ft</th><th>Opened At</th>
+          <th>Current / Sold</th><th>$/Sq Ft</th><th>Days</th>
+        </tr></thead>
+        <tbody id="compBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>Matt &middot; The Kim Rock Group</b>
+      Keller Williams Real Estate &middot; Licensed in PA &amp; NJ
+    </div>
+    <div class="disc">Prepared for the owner of 116 A Annapolis St, Unit A. Comparable data sourced from MLS for the Waterside subdivision and reflects market activity as of June 2026. Day-on-market projections are estimates derived from the comparable set, not guarantees of sale price or timing. Square footage of the subject (1,416 sq ft) is estimated from the dominant Waterside floorplan and should be verified.</div>
+  </div>
+</footer>
+
+<div class="tt" id="tip" role="tooltip"></div>
+
+<script>
+/* ----------------------- DATA ----------------------- */
+const SUBJ_SQFT = 1416;
+const SUBJ_PRICE = 399900;
+const REC_PRICE  = 389900;
+
+// comparable set: 2BR, ~1282-1460 sqft, Waterside
+const comps = [
+  {addr:"146 Park",            sf:1416, status:"Closed",  orig:404900, list:404900, sold:398000, dom:34,  note:"Coastal, excellent condition. Priced right, sold fast."},
+  {addr:"148A Prince George",  sf:1460, status:"Closed",  orig:395000, list:395000, sold:385000, dom:29,  note:"Realistic ask \u2192 under contract in under a month."},
+  {addr:"106 Prince George A", sf:1460, status:"Closed",  orig:449900, list:419000, sold:410000, dom:266, note:"Opened way high. Took 266 days and big cuts to sell."},
+  {addr:"140A Gaslight",       sf:1416, status:"Pending",  orig:399000, list:374500, sold:null,   dom:123, note:"Opened at $399K. Sat 123 days, cut $24.5K, then went pending."},
+  {addr:"204A Dock",           sf:1416, status:"Pending",  orig:409900, list:409900, sold:null,   dom:71,  note:"Held its price \u2014 but waited 71 days to find a buyer."},
+  {addr:"151 E Prince George", sf:1282, status:"Active",   orig:385000, list:385000, sold:null,   dom:19,  note:"Smaller home; high $/sf. Newly listed."},
+  {addr:"115 King",            sf:1416, status:"Active",   orig:399000, list:369900, sold:null,   dom:94,  note:"Opened at $399K. Cut $29K and STILL unsold at 94 days."},
+  {addr:"142 Annapolis A",     sf:1416, status:"Active",   orig:400000, list:395000, sold:null,   dom:67,  note:"YOUR STREET, YOUR FLOORPLAN. Opened $400K, cut to $395K, still active."},
+];
+
+const fmt = n => "$"+Math.round(n).toLocaleString();
+const fmtK = n => "$"+(Math.round(n/1000))+"K";
+
+/* --------------- DOM projection model ---------------- */
+/* anchored to how the comp set actually behaved, expressed in $/sqft */
+const anchors = [ /* ppsf, days */
+  [255, 22],[265, 27],[272, 32],[275, 37],[279, 52],
+  [282, 74],[286, 90],[290, 112],[297, 165],[305, 230]
+];
+function projectDOM(price, sf){
+  const p = price/sf;
+  if(p<=anchors[0][0]) return anchors[0][1];
+  for(let i=0;i<anchors.length-1;i++){
+    const [x0,y0]=anchors[i],[x1,y1]=anchors[i+1];
+    if(p<=x1){ const t=(p-x0)/(x1-x0); return Math.round(y0+t*(y1-y0)); }
+  }
+  return anchors[anchors.length-1][1];
+}
+function zoneFor(price,sf){
+  const p=price/sf;
+  if(p<272) return {label:"Below market",  cls:"below", col:"#5C8A66"};
+  if(p<278) return {label:"Sweet spot",    cls:"sweet", col:"#9C6F1F"};
+  if(p<285) return {label:"At the ceiling",cls:"ceil",  col:"#C08A3A"};
+  return {label:"Above the market", cls:"above", col:"#BC5038"};
+}
+
+/* ----------------------- BAND ----------------------- */
+const svg = document.getElementById('bandSvg');
+const NS="http://www.w3.org/2000/svg";
+const W=920,H=260, padL=46,padR=46, axisY=178;
+const pMin=362000, pMax=418000;
+const xFor = v => padL + (v-pMin)/(pMax-pMin)*(W-padL-padR);
+function el(tag,attrs){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
+
+function buildBand(){
+  // sweet-spot zone shading (≈ $383k–$393k on 1416sf -> 272-278/sf)
+  const z0=xFor(272*SUBJ_SQFT), z1=xFor(278*SUBJ_SQFT);
+  svg.appendChild(el('rect',{x:z0,y:60,width:z1-z0,height:axisY-60,fill:"#BE8A2E","fill-opacity":.10,rx:6}));
+  const zt=el('text',{x:(z0+z1)/2,y:54,"text-anchor":"middle",fill:"#9C6F1F","font-family":"var(--mono)","font-size":12,"letter-spacing":"1.5"});
+  zt.textContent="SWEET SPOT"; svg.appendChild(zt);
+
+  // axis line + ticks
+  svg.appendChild(el('line',{x1:padL,y1:axisY,x2:W-padR,y2:axisY,stroke:"#C7D0D6","stroke-width":2}));
+  [365000,375000,385000,395000,405000,415000].forEach(v=>{
+    const x=xFor(v);
+    svg.appendChild(el('line',{x1:x,y1:axisY,x2:x,y2:axisY+6,stroke:"#C7D0D6","stroke-width":2}));
+    const t=el('text',{x:x,y:axisY+24,"text-anchor":"middle",fill:"#8AA0B2","font-family":"var(--mono)","font-size":12});
+    t.textContent=fmtK(v); svg.appendChild(t);
+  });
+
+  // median sold marker
+  const med=398000, mx=xFor(med);
+  svg.appendChild(el('line',{x1:mx,y1:74,x2:mx,y2:axisY,stroke:"#173A52","stroke-width":1.5,"stroke-dasharray":"3 4"}));
+  const mt=el('text',{x:mx,y:axisY+44,"text-anchor":"middle",fill:"#173A52","font-family":"var(--mono)","font-size":11});
+  mt.textContent="median sold $398K"; svg.appendChild(mt);
+
+  // comp dots — stack to avoid overlap by status lane
+  const lanes={Closed:0,Pending:1,Active:1};
+  comps.forEach((c,i)=>{
+    const price = c.sold ?? c.list;
+    const x=xFor(price);
+    const sold = c.status==="Closed";
+    // vertical jitter by index parity to reduce overlap
+    const y = axisY - 22 - ((i%3)*30) - (sold?0:6);
+    const g=el('g',{class:"cdot",tabindex:0,role:"button"});
+    g.setAttribute('aria-label', c.addr+" "+(sold?"sold "+fmt(c.sold):"asking "+fmt(c.list))+", "+c.dom+" days");
+    const r=8;
+    const circ = sold
+      ? el('circle',{cx:x,cy:y,r:r,fill:"#0E2A3F"})
+      : el('circle',{cx:x,cy:y,r:r,fill:"#fff",stroke:"#BC5038","stroke-width":2.5});
+    g.appendChild(el('line',{x1:x,y1:y+r,x2:x,y2:axisY,stroke:(sold?"#0E2A3F":"#BC5038"),"stroke-width":1,"stroke-opacity":.35}));
+    g.appendChild(circ);
+    g.dataset.html = "<b>"+c.addr+"</b><br>"+(sold?("Sold "+fmt(c.sold)):(c.status+" \u00b7 "+fmt(c.list)))
+      +" &middot; "+c.sf+" sf<br><span class='tdom'>"+c.dom+" days on market</span><br>"+c.note;
+    bindTip(g);
+    svg.appendChild(g);
+  });
+
+  // recommended marker (brass) + subject marker (coral) anchored above axis
+  addMarker(REC_PRICE, "#BE8A2E", "RECOMMENDED $389,900", 96, true);
+  addMarker(SUBJ_PRICE, "#BC5038", "YOUR LIST $399,900", 118, false);
+}
+function addMarker(price,col,label,labY,up){
+  const x=xFor(price);
+  svg.appendChild(el('line',{x1:x,y1:labY+6,x2:x,y2:axisY,stroke:col,"stroke-width":2.5}));
+  const tri=el('path',{d:`M${x-7},${axisY-12} L${x+7},${axisY-12} L${x},${axisY-2} Z`,fill:col});
+  svg.appendChild(tri);
+  const t=el('text',{x:x,y:labY,"text-anchor":"middle",fill:col,"font-family":"var(--mono)","font-size":12,"font-weight":600});
+  t.textContent=label.split(" $")[0]; 
+  const t2=el('text',{x:x,y:labY+15,"text-anchor":"middle",fill:col,"font-family":"var(--mono)","font-size":13,"font-weight":700});
+  t2.textContent="$"+label.split("$")[1];
+  // keep labels inside view
+  svg.appendChild(t); svg.appendChild(t2);
+}
+
+/* ----------------------- TOOLTIP -------------------- */
+const tip=document.getElementById('tip');
+function bindTip(node){
+  const show=(e)=>{ tip.innerHTML=node.dataset.html; tip.classList.add('show'); move(e); };
+  const move=(e)=>{
+    const pt = e.touches? e.touches[0]: e;
+    let x=pt.clientX+14, y=pt.clientY+14;
+    const r=tip.getBoundingClientRect();
+    if(x+r.width>innerWidth-8) x=pt.clientX-r.width-14;
+    if(y+r.height>innerHeight-8) y=pt.clientY-r.height-14;
+    tip.style.left=x+'px'; tip.style.top=y+'px';
+  };
+  const hide=()=>tip.classList.remove('show');
+  node.addEventListener('mouseenter',show);
+  node.addEventListener('mousemove',move);
+  node.addEventListener('mouseleave',hide);
+  node.addEventListener('focus',e=>{const b=node.getBoundingClientRect();tip.innerHTML=node.dataset.html;tip.classList.add('show');tip.style.left=(b.left)+'px';tip.style.top=(b.bottom+8)+'px';});
+  node.addEventListener('blur',hide);
+  node.addEventListener('touchstart',e=>{show(e);},{passive:true});
+}
+
+/* ----------------------- SIMULATOR ------------------ */
+const slider=document.getElementById('simSlider');
+const elPrice=document.getElementById('simPrice'), elPpsf=document.getElementById('simPpsf');
+const elDom=document.getElementById('simDom'), elZone=document.getElementById('simZone');
+const elDelta=document.getElementById('simDelta'), elVerdict=document.getElementById('simVerdict');
+const zoneCard=document.getElementById('zoneCard');
+const verdicts={
+  below:"Below where comps sold \u2014 quick offers, but you may be leaving money on the table.",
+  sweet:"A small move into the pocket where buyers are actually writing offers.",
+  ceil:"Right at the ceiling \u2014 this is where listings start to stall, exactly what happened at $399,900.",
+  above:"Above the market. This is the 90\u2013266 day zone your neighbors are stuck in."
+};
+function updateSim(){
+  const v=+slider.value;
+  const z=zoneFor(v,SUBJ_SQFT);
+  const dom=projectDOM(v,SUBJ_SQFT);
+  const delta=v-SUBJ_PRICE;
+  elPrice.textContent=fmt(v);
+  elPpsf.textContent="$"+Math.round(v/SUBJ_SQFT)+" / sq ft \u00b7 on "+SUBJ_SQFT.toLocaleString()+" sq ft";
+  elDom.textContent=dom;
+  elZone.textContent=z.label; elZone.style.color=z.col;
+  zoneCard.style.borderColor=z.col; zoneCard.style.background=z.col+"14";
+  elDelta.textContent=(delta===0?"\u00b1$0":(delta>0?"+":"\u2212")+fmt(Math.abs(delta)).replace("$","$"));
+  elDelta.style.color=delta>0?"#BC5038":(delta<0?"#9C6F1F":"#486177");
+  elVerdict.textContent=verdicts[z.cls];
+}
+slider.addEventListener('input',updateSim);
+
+/* ----------------------- TABLE ---------------------- */
+const body=document.getElementById('compBody');
+const pillCls={Closed:"sold",Pending:"pend",Active:"act"};
+const pillTxt={Closed:"Sold",Pending:"Pending",Active:"Active"};
+[...comps].sort((a,b)=>{
+  const ord={Closed:0,Pending:1,Active:2};
+  return ord[a.status]-ord[b.status] || (a.sold??a.list)-(b.sold??b.list);
+}).forEach(c=>{
+  const price=c.sold??c.list;
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td><strong>${c.addr}</strong></td>
+    <td><span class="pill ${pillCls[c.status]}">${pillTxt[c.status]}</span></td>
+    <td class="mono">${c.sf.toLocaleString()}</td>
+    <td class="mono">${fmt(c.orig)}</td>
+    <td class="mono">${c.sold?fmt(c.sold):fmt(c.list)}</td>
+    <td class="mono">$${Math.round(price/c.sf)}</td>
+    <td class="mono">${c.dom}</td>`;
+  body.appendChild(tr);
+});
+// subject row
+const sr=document.createElement('tr'); sr.className="subjrow";
+sr.innerHTML=`<td>116 A Annapolis A <em style="font-weight:400;color:#8AA0B2">(yours)</em></td>
+  <td><span class="pill act">Expired</span></td>
+  <td class="mono">~${SUBJ_SQFT.toLocaleString()}</td>
+  <td class="mono">${fmt(SUBJ_PRICE)}</td>
+  <td class="mono">&mdash;</td>
+  <td class="mono">$${Math.round(SUBJ_PRICE/SUBJ_SQFT)}</td>
+  <td class="mono">&mdash;</td>`;
+body.appendChild(sr);
+
+/* ----------------------- REVEAL --------------------- */
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
+
+buildBand();
+updateSim();
+</script>
+</body>
+</html>
