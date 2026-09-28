@@ -408,6 +408,35 @@
       line-height: 1.7;
     }
 
+    .lead-form-section { scroll-margin-top: 72px; }
+    .lead-form-shell {
+      width: min(100%, 761px);
+      margin: 0 auto;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid #e7e3da;
+      border-radius: 12px;
+      box-shadow: 0 18px 48px rgba(26,35,50,0.1);
+      overflow: hidden;
+    }
+    .webform-frame {
+      display: block;
+      width: 100%;
+      max-width: 713px;
+      height: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border: 0;
+    }
+    .lead-form-note {
+      max-width: 680px;
+      margin: -36px auto 28px;
+      color: #64748b;
+      text-align: center;
+      font-size: 14px;
+    }
+    .lead-form-note strong { color: #1a2332; }
+
     .final-cta { text-align: center; max-width: 760px; }
     .final-cta h2 {
       font-size: clamp(32px, 5vw, 48px);
@@ -509,6 +538,9 @@
       .partner-photo { width: 82px; height: 82px; flex-basis: 82px; }
       .partner-name { font-size: 25px; }
       .partner-info-row { grid-template-columns: 58px minmax(0, 1fr); gap: 10px; }
+      .lead-form-shell { width: calc(100% + 16px); margin-left: -8px; padding: 8px 0; border-radius: 8px; }
+      .webform-frame { height: 760px; }
+      .lead-form-note { margin-top: -28px; }
       .footer-top-inner { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom-inner { flex-direction: column; gap: 16px; }
     }
@@ -553,13 +585,13 @@
         a cleaner path toward getting mortgage-ready.
       </p>
       <div class="hero-cta-wrap">
-        <a class="btn-primary" href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=hero_schedule" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('hero_schedule_consultation')">
-          Schedule a Consultation with Drew →
+        <a class="btn-primary" href="#learn-more" onclick="trackTrinityClick('hero_learn_more')">
+          Learn More About Your Credit →
         </a>
-        <a class="btn-secondary" href="https://thehub.leadbridgesolutions.com/v2/preview/yHO4iywozLYPl4MdfxG4?notrack=true&amp;utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=hero_credit_review" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('hero_credit_review')">
-          Learn About Trinity
+        <a class="btn-secondary" href="https://linqapp.com/andrew_smith74?r=link" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('hero_drew_profile')">
+          Learn More About Drew
         </a>
-        <span class="hero-disclosure">Credit review through Trinity Solutions</span>
+        <span class="hero-disclosure">Free credit consultation through Trinity Solutions</span>
         <span class="hero-note">No pressure. Start before you apply for a mortgage, not after a lender says no.</span>
       </div>
     </div>
@@ -596,7 +628,7 @@
         <div class="step">
           <div class="step-num">1</div>
           <h3 class="step-title">Start the Review</h3>
-          <p class="step-body">Share where you are starting from. Drew's team looks at the credit issues that may be blocking your homebuying timeline.</p>
+          <p class="step-body">Share your name and contact information so Drew's team can connect with you and learn what may be affecting your homebuying timeline.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -610,8 +642,8 @@
         </div>
       </div>
       <div class="text-center mt-56">
-        <a class="btn-primary" href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=how_it_works_schedule" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('how_it_works_schedule_consultation')">
-          Schedule a Consultation with Drew →
+        <a class="btn-primary" href="#learn-more" onclick="trackTrinityClick('how_it_works_learn_more')">
+          Learn More — No Pressure →
         </a>
       </div>
     </div>
@@ -651,11 +683,11 @@
           </div>
           <p class="partner-bio">Drew helps buyers understand what is hurting their credit, dispute inaccurate reporting when appropriate, and work toward becoming mortgage-ready.</p>
           <div class="partner-actions">
-            <a class="btn-primary-gold" href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=partner_card_schedule_button" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('partner_card_schedule_button')">
-              Schedule Consultation →
+            <a class="btn-primary-gold" href="#learn-more" onclick="trackTrinityClick('partner_card_learn_more')">
+              Learn More — No Pressure →
             </a>
-            <a class="btn-secondary" href="mailto:info@trinitysolutionsusa.com" onclick="trackTrinityClick('partner_card_email_button')">
-              Email Trinity
+            <a class="btn-secondary" href="https://linqapp.com/andrew_smith74?r=link" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('partner_card_drew_profile')">
+              Learn More About Drew
             </a>
           </div>
         </div>
@@ -675,14 +707,25 @@
     </div>
   </section>
 
+  <section class="section section--warm lead-form-section" id="learn-more">
+    <div class="section-inner">
+      <h2 class="section-title">Learn More About Your Credit Options</h2>
+      <p class="section-sub">Share a few basic details and Drew's team will reach out for a free, no-pressure conversation about your credit and homebuying goals.</p>
+      <p class="lead-form-note"><strong>Your information is submitted securely</strong> through Trinity Solutions and sent directly to Drew. Matt will be noted as your referral.</p>
+      <div class="lead-form-shell">
+        <iframe class="webform-frame" name="frame_lead" id="frame_lead" title="Request a free credit consultation with Drew at Trinity Solutions" src="https://secureclientaccess.com/weblead/post/4r444q314r6n517n4r7n4577/Svyy%20bhg%20guvf%20sbez%20sbe%20n%20serr%20Perqvg%20Ercnve%20pbafhygngvba/en/113" height="700" width="713" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--dark">
     <div class="section-inner final-cta">
-      <h2>Do the credit work before the house hunt.<br><span class="accent">Future you will be glad you started early.</span></h2>
-      <p>If buying a home is the goal, start with the thing that may be holding up the financing.</p>
-      <a class="btn-primary" href="https://api.leadconnectorhq.com/widget/booking/3tpCbOnUGAkNzrj2H153?utm_source=mattlaurierealestate&amp;utm_medium=partner_page&amp;utm_campaign=trinity_credit_repair&amp;utm_content=final_schedule" target="_blank" rel="noopener noreferrer" onclick="trackTrinityClick('final_schedule_consultation')">
-        Schedule a Consultation with Drew →
+      <h2>Not sure what your next step is?<br><span class="accent">Start by learning where you stand.</span></h2>
+      <p>There is no pressure to sign up. Share your contact information above and Drew's team can explain your options.</p>
+      <a class="btn-primary" href="#learn-more" onclick="trackTrinityClick('final_learn_more')">
+        Learn More About Your Credit →
       </a>
-      <p class="disclosure">Credit review through Trinity Solutions</p>
+      <p class="disclosure">Free credit consultation through Trinity Solutions</p>
       <p class="note">Questions first? Text Matt anytime: <a href="tel:2672255611">(267) 225-5611</a></p>
     </div>
   </section>
