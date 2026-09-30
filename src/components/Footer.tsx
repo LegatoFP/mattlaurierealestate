@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa'
+import { SiZillow } from 'react-icons/si'
 
 const neighborhoods = [
   { href: '/newtown/', label: 'Newtown' },
@@ -54,10 +56,31 @@ export function Footer() {
               </a>
             </div>
             <p className="text-white/50 text-xs mt-3">
-              PA License #RS333171 · Licensed in PA &amp; NJ
+              PA License #RS333171 · NJ License #2671376 · Licensed in PA &amp; NJ
               <br />
               584 Middletown Blvd Suite A50, Langhorne, PA 19047
             </p>
+            {/* Social Links */}
+            <div className="flex items-center gap-4 mt-4">
+              <a href="https://www.facebook.com/mattlaurierealestate" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white/50 hover:text-white transition-colors">
+                <FaFacebook size={20} />
+              </a>
+              <a href="https://www.instagram.com/mattlaurierealtor" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white/50 hover:text-white transition-colors">
+                <FaInstagram size={20} />
+              </a>
+              <a href="https://www.tiktok.com/@mattlaurierealtor" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-white/50 hover:text-white transition-colors">
+                <FaTiktok size={20} />
+              </a>
+              <a href="https://www.linkedin.com/in/mattlaurierealestate" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white/50 hover:text-white transition-colors">
+                <FaLinkedin size={20} />
+              </a>
+              <a href="https://share.google/FWzxXTqR0oCqld064" target="_blank" rel="noopener noreferrer" aria-label="Google Business Profile" className="text-white/50 hover:text-white transition-colors text-xs font-semibold tracking-wide">
+                GBP
+              </a>
+              <a href="https://www.zillow.com/profile/mattlaurierealestate" target="_blank" rel="noopener noreferrer" aria-label="Zillow" className="text-white/50 hover:text-white transition-colors">
+                <SiZillow size={20} />
+              </a>
+            </div>
           </div>
 
           {/* Bucks County */}
@@ -137,7 +160,7 @@ export function Footer() {
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
             <p>
-              © {new Date().getFullYear()} Matt Laurie, REALTOR® · Keller Williams Real Estate · PA License #RS333171
+              © {new Date().getFullYear()} Matt Laurie, REALTOR® · Keller Williams Real Estate · PA License #RS333171 · NJ License #2671376
             </p>
             <p>
               Member: National Association of REALTORS® · Pennsylvania Association of Realtors® · Bucks County Association of Realtors®

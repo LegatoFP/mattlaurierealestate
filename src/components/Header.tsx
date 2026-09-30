@@ -5,10 +5,8 @@ import { useState } from 'react'
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/sellers/', label: 'Sellers' },
+  { href: '/booking/', label: 'Book a Call' },
   { href: '/first-time-homebuyer-bucks-county/', label: 'Buyers' },
-  { href: '/neighborhoods/', label: 'Neighborhoods' },
-  { href: '/about/', label: 'About' },
 ]
 
 export function Header() {
@@ -57,10 +55,10 @@ export function Header() {
               (267) 225-5611
             </a>
             <Link
-              href="#lead-form"
+              href="/booking/"
               className="inline-flex items-center px-5 py-2.5 rounded-lg bg-[var(--color-cta)] text-white text-sm font-semibold hover:bg-[var(--color-cta-hover)] transition-colors shadow-sm"
             >
-              Free Home Value
+              Book a Call
             </Link>
           </div>
 

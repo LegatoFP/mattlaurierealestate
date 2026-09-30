@@ -1,4 +1,29 @@
-node_modules
-.next
-out
-node_modules/
+# This repository is the public website. The surrounding directory is also an
+# OpenClaw workspace, so ignore everything at the repository root by default
+# and explicitly allow only website source and project configuration.
+/*
+
+# Repository metadata and website documentation
+!/.gitignore
+!/.npmrc
+!/WEBSITE.md
+
+# Next.js project configuration
+!/next-env.d.ts
+!/next.config.ts
+!/package.json
+!/package-lock.json
+!/postcss.config.mjs
+!/tsconfig.json
+
+# Website source and static assets
+!/public/
+!/public/**
+!/src/
+!/src/**
+
+# Generated/dependency artifacts (kept explicit for clarity)
+/node_modules/
+/.next/
+/out/
+*.tsbuildinfo
